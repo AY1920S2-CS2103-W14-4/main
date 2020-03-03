@@ -148,6 +148,22 @@ Examples:
 * `export life.json` +
 Exports your Life to `life.json`
 
+=== Create a new group: `group`
+
+Creates a new group with given name +
+Format: `export NAME`
+
+****
+* Creates a new group with specified name.
+* The group has zero members to start with 
+****
+
+Examples:
+
+* `group CS2103` +
+Creates a new group called "CS2103"
+
+
 === Suggestions: `suggest`
 
 Suggests a place / activity or person to hang out with +
