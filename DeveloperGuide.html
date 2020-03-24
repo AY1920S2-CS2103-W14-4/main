@@ -24,10 +24,13 @@
 <ul class="sectlevel2">
 <li><a href="#import-feature">3.1. Import feature</a></li>
 <li><a href="#export-feature">3.2. Export feature</a></li>
-<li><a href="#proposed-undo-redo-feature">3.3. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.5. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.6. Configuration</a></li>
+<li><a href="#add-group-feature">3.3. Add Group Feature</a></li>
+<li><a href="#delete-group-feature">3.4. Delete Group Feature</a></li>
+<li><a href="#list-group-feature">3.5. List Group Feature</a></li>
+<li><a href="#proposed-undo-redo-feature">3.6. [Proposed] Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">3.7. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.8. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.9. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -491,9 +494,75 @@ book&#8217;s file path.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.3. [Proposed] Undo/Redo feature</a></h3>
+<h3 id="add-group-feature"><a class="link" href="#add-group-feature">3.3. Add Group Feature</a></h3>
 <div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.3.1. Proposed Implementation</a></h4>
+<h4 id="implementation-4"><a class="link" href="#implementation-4">3.3.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The add group features allows users to add a new social group to Coder Life Insights.</p>
+</div>
+<div class="paragraph">
+<p>Here below is a sequence diagram showcasing how the add group command works.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="delete-group-feature"><a class="link" href="#delete-group-feature">3.4. Delete Group Feature</a></h3>
+<div class="sect3">
+<h4 id="implementation-5"><a class="link" href="#implementation-5">3.4.1. Implementation</a></h4>
+
+</div>
+</div>
+<div class="sect2">
+<h3 id="list-group-feature"><a class="link" href="#list-group-feature">3.5. List Group Feature</a></h3>
+<div class="sect3">
+<h4 id="implementation-6"><a class="link" href="#implementation-6">3.5.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The list feature allows users to view all the social groups currently in Coder Life Insights.</p>
+</div>
+<div class="paragraph">
+<p>Here below is a sequence diagram showcasing how the command works.</p>
+</div>
+<div id="ListGroupSequenceDiagram" class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/ListGroupSequenceDiagram.png" alt="ListGroupSequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The following activity diagram depicts the step-by-step scenario when a user executes the <code>list_groups</code> command:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters <code>list_groups</code> into the command prompt</p>
+</li>
+<li>
+<p>The <code>LogicManager</code> calls <code>AddressBookParser#parseCommand()</code></p>
+</li>
+<li>
+<p>The method <code>AddressBookParser#parseCommand()</code> creates a <code>ListGroupCommand</code> and checks if the input is valid.</p>
+</li>
+<li>
+<p>The <code>ListGroupCommand</code> calls the <code>updateFilteredGroupList</code> method of <code>Model</code> to update the GUI.</p>
+</li>
+<li>
+<p>The <code>ListGroupCommand</code> returns the <code>CommandResult</code> to AddressBookParser</p>
+</li>
+<li>
+<p>The <code>AddressBookParser</code> returns the <code>CommandResult</code> to <code>LogicManager</code>.</p>
+</li>
+</ol>
+</div>
+<div id="ListGroupCommandActivity" class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/ListGroupCommandActivity.png" alt="ListGroupCommandActivity" width="50%">
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.6. [Proposed] Undo/Redo feature</a></h3>
+<div class="sect3">
+<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.6.1. Proposed Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
 It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and
@@ -636,7 +705,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.6.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -706,20 +775,20 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.7. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.5. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.8. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.6, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.9, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -750,7 +819,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.6. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.9. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1365,4 +1434,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-24 14:19:46 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-24 15:49:11 UTC</div></div></div></body></html>
