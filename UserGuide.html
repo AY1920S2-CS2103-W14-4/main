@@ -21,18 +21,19 @@
 <li><a href="#locating-persons-by-name-code-find-code">3.6. Locating persons by name: <code>find</code></a></li>
 <li><a href="#import-life-csv-code-import-code">3.7. Import Life CSV: <code>import</code></a></li>
 <li><a href="#export-life-csv-code-export-code">3.8. Export Life CSV: <code>export</code></a></li>
-<li><a href="#suggestions-code-suggest-code">3.9. Suggestions: <code>suggest</code></a></li>
-<li><a href="#getting-a-random-person-code-random-code-code-coming-in-v1-4-code">3.10. Getting a random person: <code>random</code> <code>[coming in v1.4]</code></a></li>
-<li><a href="#social-group-code-group-code">3.11. Social Group: <code>group</code></a></li>
-<li><a href="#assign-group-code-assign-code">3.12. Assign Group: <code>assign</code></a></li>
-<li><a href="#insights-code-view-code">3.13. Insights: <code>view</code></a></li>
-<li><a href="#deleting-a-person-code-delete-code">3.14. Deleting a person : <code>delete</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.15. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.16. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.17. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.18. Encrypting data files <code>[coming in v2.0]</code></a></li>
-<li><a href="#faq">3.19. FAQ</a></li>
-<li><a href="#command-summary">3.20. Command Summary</a></li>
+<li><a href="#adding-an-event-code-add_event-code">3.9. Adding an Event: <code>add_event</code></a></li>
+<li><a href="#suggestions-code-suggest-code">3.10. Suggestions: <code>suggest</code></a></li>
+<li><a href="#getting-a-random-person-code-random-code-code-coming-in-v1-4-code">3.11. Getting a random person: <code>random</code> <code>[coming in v1.4]</code></a></li>
+<li><a href="#social-group-code-group-code">3.12. Social Group: <code>group</code></a></li>
+<li><a href="#assign-group-code-assign-code">3.13. Assign Group: <code>assign</code></a></li>
+<li><a href="#insights-code-view-code">3.14. Insights: <code>view</code></a></li>
+<li><a href="#deleting-a-person-code-delete-code">3.15. Deleting a person : <code>delete</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.16. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.17. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.18. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.19. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#faq">3.20. FAQ</a></li>
+<li><a href="#command-summary">3.21. Command Summary</a></li>
 </ul>
 </li>
 </ul>
@@ -78,7 +79,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p><strong><code>list</code></strong> : lists all contacts</p>
+<p><strong><code>list_persons</code></strong> : lists all contacts</p>
 </li>
 <li>
 <p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to your Life.</p>
@@ -193,7 +194,7 @@ Format: <code>list_LIST_PARAMETER</code></p>
 Returns a list of the saved persons in CoderLifeInsights.</p>
 </li>
 <li>
-<p><code>list groups</code><br>
+<p><code>list_groups</code><br>
 Returns a list of the saved groups in CoderLifeInsights.</p>
 </li>
 </ul>
@@ -251,8 +252,7 @@ Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all 
 <div class="paragraph">
 <p>Deletes an entity, such as Person, Group, or Event from the CoderLifeInsights<br>
 Format: <code>delete person ID</code> (for person)<br>
-        <code>delete group ID</code> (for group)<br>
-        <code>delete event ID</code> (for event)</p>
+        <code>delete group ID</code> (for group)</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -274,7 +274,7 @@ Remarks: CoderLifeInsights uses 1-indexing.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>list</code><br>
+<p><code>list_persons</code><br>
 <code>delete 2</code><br>
 Deletes the 2nd person in the CoderLifeInsights.</p>
 </li>
@@ -566,7 +566,71 @@ Exports your group data to <code>group.csv</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="suggestions-code-suggest-code"><a class="link" href="#suggestions-code-suggest-code">3.9. Suggestions: <code>suggest</code></a></h3>
+<h3 id="adding-an-event-code-add_event-code"><a class="link" href="#adding-an-event-code-add_event-code">3.9. Adding an Event: <code>add_event</code></a></h3>
+<div class="paragraph">
+<p>Adds an event to a person or a group at the specified INDEX.<br>
+Format for adding to a person: <code>add_event ACTIVITY_NAME place/PLACE_NAME time/TIME m/INDEX</code><br>
+Format for adding to a group: <code>add_event ACTIVITY_NAME place/PLACE_NAME time/TIME g/INDEX</code><br>
+Remarks:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>TIME has to be in entered in the format <code>HHMM</code>:<br>
+Input for a time of 1 hour and 5 minutes would be: <code>time/105</code><br>
+Input for a time of 9 minutes would be: <code>time/09</code></p>
+</li>
+<li>
+<p>MM entered cannot exceed 59.</p>
+</li>
+<li>
+<p>The INDEX refers to the index number shown in the displayed person list. The INDEX must be a positive integer.</p>
+</li>
+<li>
+<p>CoderLifeInsights uses 1-indexing.</p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>CoderLifeInsights will store the input <code>ACTIVITY</code> and <code>PLACE</code> in the Json file so that all events added are kept even through termination of CoderLifeInsights.
+The input <code>TIME</code> will be added to the respective persons or events and the cumulative time spent with a person or a group is recorded and displayed. This cumulative <code>TIME</code> is also stored to the Json file.
+Insights and suggestions will be generated from the saved <code>PLACES</code>, <code>ACTIVITIES</code> and <code>TIME</code></p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list_persons</code></p>
+</li>
+<li>
+<p><code>add_event Date Night place/MBS time/300 m/2</code><br>
+Creates an Event Date Night at MBS with a time spent of 3 hours and adds it to the second person in CoderLifeInsights.</p>
+</li>
+<li>
+<p><code>list_groups</code></p>
+</li>
+<li>
+<p><code>add_event Dancing lessons place/Changi Country Club time/130 g/1</code><br>
+Creates an Event Dancing lessons at Changi Country Club with a time spent of 1 hour and 30 minutes and adds it to the first group in CoderLifeInsights.</p>
+</li>
+<li>
+<p>find <code>Betsy</code></p>
+</li>
+<li>
+<p><code>add_event Date Night place/MBS time/300 m/1</code><br>
+Creates an Event Date Night at MBS with a time spent of 3 hours and adds it to the first result returned by the <code>find Betsy</code> command in CoderLifeInsights.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="suggestions-code-suggest-code"><a class="link" href="#suggestions-code-suggest-code">3.10. Suggestions: <code>suggest</code></a></h3>
 <div class="paragraph">
 <p>Suggests a person to hang out with<br>
 Format: <code>suggest SUGGESTION_PARAMETER</code></p>
@@ -619,7 +683,7 @@ Returns an activity to do.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="getting-a-random-person-code-random-code-code-coming-in-v1-4-code"><a class="link" href="#getting-a-random-person-code-random-code-code-coming-in-v1-4-code">3.10. Getting a random person: <code>random</code> <code>[coming in v1.4]</code></a></h3>
+<h3 id="getting-a-random-person-code-random-code-code-coming-in-v1-4-code"><a class="link" href="#getting-a-random-person-code-random-code-code-coming-in-v1-4-code">3.11. Getting a random person: <code>random</code> <code>[coming in v1.4]</code></a></h3>
 <div class="paragraph">
 <p>Finds a random person from contacts saved in CoderLifeInsights.<br>
 Format: <code>random</code></p>
@@ -654,7 +718,7 @@ Returns the name of a random person saved in CoderLifeInsights.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="social-group-code-group-code"><a class="link" href="#social-group-code-group-code">3.11. Social Group: <code>group</code></a></h3>
+<h3 id="social-group-code-group-code"><a class="link" href="#social-group-code-group-code">3.12. Social Group: <code>group</code></a></h3>
 <div class="paragraph">
 <p>Creates an empty social group with given name.<br>
 Format: <code>group &lt;name&gt;</code></p>
@@ -686,7 +750,7 @@ Creates a group named <code>SoC Friends</code> and assigns a group ID, which is 
 </div>
 </div>
 <div class="sect2">
-<h3 id="assign-group-code-assign-code"><a class="link" href="#assign-group-code-assign-code">3.12. Assign Group: <code>assign</code></a></h3>
+<h3 id="assign-group-code-assign-code"><a class="link" href="#assign-group-code-assign-code">3.13. Assign Group: <code>assign</code></a></h3>
 <div class="paragraph">
 <p>Assigns a given person id with a given group id<br>
 Format: <code>assign &lt;person-id&gt; &lt;group id&gt;</code></p>
@@ -707,7 +771,7 @@ Format: <code>assign &lt;person-id&gt; &lt;group id&gt;</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="insights-code-view-code"><a class="link" href="#insights-code-view-code">3.13. Insights: <code>view</code></a></h3>
+<h3 id="insights-code-view-code"><a class="link" href="#insights-code-view-code">3.14. Insights: <code>view</code></a></h3>
 <div class="paragraph">
 <p>Lists insights about the user&#8217;s interactions with a particular friend or group, in the form of a pie chart.
 These include places visited, time spent, and/or activities done with the friend or group.
@@ -772,7 +836,7 @@ Returns the output of 'view places', 'view time', and 'view activities', in that
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">3.14. Deleting a person : <code>delete</code></a></h3>
+<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">3.15. Deleting a person : <code>delete</code></a></h3>
 <div class="paragraph">
 <p>Deletes the specified person from the CoderLifeInsights.<br>
 Format: <code>delete INDEX</code></p>
@@ -813,41 +877,41 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.15. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.16. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the CoderLifeInsights.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.16. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.17. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.17. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.18. Saving the data</a></h3>
 <div class="paragraph">
 <p>CoderLifeInsights data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.18. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.19. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="faq"><a class="link" href="#faq">3.19. FAQ</a></h3>
+<h3 id="faq"><a class="link" href="#faq">3.20. FAQ</a></h3>
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous CoderLifeInsights folder.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="command-summary"><a class="link" href="#command-summary">3.20. Command Summary</a></h3>
+<h3 id="command-summary"><a class="link" href="#command-summary">3.21. Command Summary</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -899,4 +963,4 @@ e.g. <code>list_persons</code></p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 17:13:08 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-03 01:11:13 UTC</div></div></div></body></html>
