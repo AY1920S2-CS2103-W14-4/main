@@ -1,0 +1,419 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Ernest Lian (l2ejected) - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">CoderLifeInsights</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103-W14-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Ernest Lian (l2ejected) - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-coderlifeinsights"><a class="link" href="#project-coderlifeinsights">PROJECT: CoderLifeInsights</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>CoderLifeInsights (CLI) is a desktop application that provides you insights and suggestions to your social life as a programmer using a CLI (Command Line Interface)</p>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="my-role"><a class="link" href="#my-role">My Role</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>I was tasked to implement the AddEventCommand with its relevant classes, and making the inputs from the aforementioned command savable to the hard disk.
+This command and its implementation is the backbone of all our relevant features.
+I also made minor changes to the GUI displays, as well as contributions to the Developers' Guide and User Guide.</p>
+</div>
+<div class="paragraph">
+<p>Listed in the table below are some notations that are used throughout the document.</p>
+</div>
+<table id="Legend" class="tableblock frame-all grid-all spread">
+<caption class="title">Table 1. Legend table</caption>
+<colgroup>
+<col style="width: 15%;">
+<col style="width: 85%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top"><strong>Icon</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><div><div class="paragraph">
+<p><code>command</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Command that can be executed, or a component, class or object in the architecture of the application</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><div><div class="paragraph">
+<p><span class="icon icon-tip"><i class="fa fa-lightbulb-o fa-2x"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tips that might be helpful in navigating the application</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><div><div class="paragraph">
+<p><span class="icon icon-note blue"><i class="fa fa-info-circle fa-2x"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Important information that should be noted</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><div><div class="exampleblock">
+<div class="content">
+
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Useful information for a deeper understanding of the command</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>As shown in <a href="#Legend">Table 1, &#8220;Legend table&#8221;</a>, these icons associated to their following descriptions, such as commands, tips, important information and useful information, enable greater clarity in understanding the document. Note that useful information will have text enclosed in its box.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="major-enhancements"><a class="link" href="#major-enhancements">Major enhancements:</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement #1</strong>: Implemented Add Event feature for a Person</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: It allows the user to add an event with a person. An event consists of an activity, a place, and a time.
+These relevant fields and information, namely the [ACTIVITY], [PLACE], and [TIME], are added to the person the event is created with and are saved to the hard disk.</p>
+</li>
+<li>
+<p>Justification: This feature improves the product significantly as the user may add events with persons in CoderLifeInsights.
+The relevant information from the events added are used in other features.
+The information being saved to the hard disk allows the user to make use of features through different uses.</p>
+</li>
+<li>
+<p>Highlights: This enhancement functions well with existing commands as it updates each Person with a Time, PlaceList and ActivityList variable that represents the time the user has spent with that person, the activities done with that person, and the places been to with that person respectively, in CoderLifeInsights which is displayed in each person&#8217;s details.
+It also saves the added information to the hard disk. Many improvements and features stem from the data recorded by this command in the Person and Group objects.
+It required an in-depth analysis of design alternatives.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="minor-enhancements"><a class="link" href="#minor-enhancements">Minor enhancements:</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Minor enhancement #1</strong>: Integrated the Add Event feature with the Import and Export feature.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: This enhancement made the Add Event feature work with the Import and Export features, allowing the information added and saved by this command to be imported and exported.</p>
+</li>
+<li>
+<p>Justification: This feature allows the user to not lose information from events added when switching computers.</p>
+</li>
+<li>
+<p>Highlights: This enhancement functions well with existing commands. It required an in-depth analysis of design alternatives.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement #2</strong>: Made the Add Event feature function properly with groups.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: This enhancement made the Add Event feature work with a Group object, and made information keyed in by users with the AddEventCommand function savable to the hard disk</p>
+</li>
+<li>
+<p>Justification: This feature allows the user to add events with groups, on top of persons. The relevant information saved to the hard disk is required for other functions to generate their output.</p>
+</li>
+<li>
+<p>Highlights: This enhancement functions well with existing commands. It required an in-depth analysis of design alternatives.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>:[<a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#search=l2ejected&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2020-02-14&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false">RepoSense</a>]</p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Created the interim Event container class</p>
+</li>
+<li>
+<p>Implemented the AddEventCommand which adds an Event( which consists of an Activity, a Place and a Time) to a Person</p>
+</li>
+<li>
+<p>Created a Time variable and made it savable for each Person object through updates via the AddEventCommand</p>
+</li>
+<li>
+<p>Created a PlaceList variable and made it savable for each Person object through updates via the AddEventCommand</p>
+</li>
+<li>
+<p>Created an ActivityList variable and made it savable for each Person object through updates via the AddEventCommand</p>
+</li>
+<li>
+<p>Added the PlaceList and ActivityList variables to groups and made them savable for each Group object through updates via the AddEventCommand</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Added and revised contents of the User Guide (Pull requests: <a href="https://github.com/AY1920S2-CS2103-W14-4/main/pull/53">#53</a>, <a href="https://github.com/AY1920S2-CS2103-W14-4/main/pull/94">#94</a>, <a href="https://github.com/AY1920S2-CS2103-W14-4/main/pull/128">#128</a>)</p>
+</li>
+<li>
+<p>Added contents of the Developer Guide (Pull requests: <a href="https://github.com/AY1920S2-CS2103-W14-4/main/pull/79">#79</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>PRs reviewed:</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tools:</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Shown below are the sections I contributed to in the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="adding-an-event-code-add_event-code"><a class="link" href="#adding-an-event-code-add_event-code">Adding an Event: <code>add_event</code></a></h3>
+<div class="paragraph">
+<p>Adds an event to a person or a group at the specified INDEX.<br>
+Format for adding to a person: <code>add_event ACTIVITY_NAME place/PLACE_NAME time/TIME m/INDEX</code><br>
+Format for adding to a group: <code>add_event ACTIVITY_NAME place/PLACE_NAME time/TIME g/INDEX</code><br>
+Remarks:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>TIME has to be in entered in the format <code>HHMM</code>:<br>
+Input for a time of 1 hour and 5 minutes would be: <code>time/105</code><br>
+Input for a time of 9 minutes would be: <code>time/09</code></p>
+</li>
+<li>
+<p>MM entered has to be between 0 and 60 (1 to 59).</p>
+</li>
+<li>
+<p>The INDEX refers to the index number shown in the displayed person list. The INDEX must be a positive integer.</p>
+</li>
+<li>
+<p>CoderLifeInsights uses 1-indexing.</p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>CoderLifeInsights will store the input <code>ACTIVITY</code> and <code>PLACE</code> in the Json file so that all events added are kept even through termination of CoderLifeInsights.
+The input <code>TIME</code> will be added to the respective persons or events and the cumulative time spent with a person or a group is recorded and displayed. This cumulative <code>TIME</code> is also stored to the Json file.
+Insights and suggestions will be generated from the saved <code>PLACES</code>, <code>ACTIVITIES</code> and <code>TIME</code></p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 80%;">
+<colgroup>
+<col style="width: 30%;">
+<col style="width: 30%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Example</th>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adding an event with a person from the fully listed persons list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list_persons</code></p>
+<p class="tableblock"><code>add_event Date Night place/MBS time/300 m/2</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Creates an Event Date Night at MBS with a time spent of 3 hours and adds it to the second person in CoderLifeInsights.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adding an event with a group from the fully listed groups list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">list_groups</p>
+<p class="tableblock">add_event Dancing lessons place/Changi Country Club time/130 g/1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Creates an Event Dancing lessons at Changi Country Club with a time spent of 1 hour and 30 minutes and adds it to the first group in CoderLifeInsights.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adding an event to a person after using the find function</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find Betsy</code></p>
+<p class="tableblock"><code>add_event Date Night place/MBS time/300 m/1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Creates an Event Date Night at MBS with a time spent of 3 hours and adds it to the first result returned by the <code>find Betsy</code> command in CoderLifeInsights.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Shwon below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="add-event-feature"><a class="link" href="#add-event-feature">Add Event Feature</a></h3>
+<div class="paragraph">
+<p>The add event feature allows users to add an event to a saved contact or group in CoderLifeInsights specified using the member <code>m/</code> tag or the group <code>g/</code> tag.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>Command: <code>add_event [ACTIVITY] m/[INDEX] time/[TIME] place/[PLACE]</code></p>
+</div>
+<div class="paragraph">
+<p>Remarks:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>[TIME] is the variable used to store the time the user has spent with a saved contact or group.</p>
+</li>
+<li>
+<p>[TIME] parameter must contain at least 2 digits. For example: A time of 1 hour and 30 minutes will be input as <code>130</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example usage: <code>add_event date night m/1 time/230 place/Gardens by the Bay</code></p>
+</div>
+<div class="paragraph">
+<p>The command above will add the following to the Person whose index is <code>1</code> on the filtered or unfiltered list:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Activity <code>date night</code> into the Person&#8217;s activity list.</p>
+</li>
+<li>
+<p>Place <code>Gardens by the Bay</code> into the Person&#8217;s place list.</p>
+</li>
+<li>
+<p>Time <code>230</code> which equals 2 hours and 30 minutes, will be added to the Person&#8217;s time.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The sequence diagram below showcases how the command works with a valid input:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/addEventSequence.png" alt="addEventSequence" width="92.5%">
+</div>
+</div>
+<div class="paragraph">
+<p>The following activity diagram depicts the following scenario:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters <code>add_event date night m/1 time/230 place/Gardens by the Bay</code> into the command prompt.</p>
+</li>
+<li>
+<p>The <code>LogicManager</code> calls <code>AddressBookParser#parseCommand()</code>.</p>
+</li>
+<li>
+<p>The method <code>AddressBookParser#parseCommand()</code> creates a <code>AddEventCommandParser</code> and calls the <code>AddEventCommandParser#parse()</code> method.</p>
+</li>
+<li>
+<p><code>AddEventCommandParser#parse()</code> checks if input is valid.</p>
+</li>
+<li>
+<p><code>AddEventCommandParser#parse()</code> then creates a new instance of <code>AddEventCommand</code>.</p>
+</li>
+<li>
+<p><code>AddEventCommand</code> calls the <code>AddEventCommand#execute()</code> method.</p>
+</li>
+<li>
+<p><code>AddEventCommand#execute()</code> retrieves the filtered list with the call to <code>model#getFilteredPersonList()</code>.</p>
+</li>
+<li>
+<p><code>AddEventCommand#execute()</code> then retrieves the Person object to be edited with the call to <code>model#getFilteredPersonList()#get()</code>.</p>
+</li>
+<li>
+<p><code>AddEventCommand#execute()</code> then computes the new Time by retrieving the Person&#8217;s current Time with the call to <code>person#getTime()</code> ,then adding it to the input Time.</p>
+</li>
+<li>
+<p><code>AddEventCommand#execute()</code> then creates a new Person object with all the same attributes except for the Time which is replaced by the new Time computed, with the call to the Person constructor.</p>
+</li>
+<li>
+<p><code>AddEventCommand#execute()</code> then replaces the existing Person object with the new Person object with the call to <code>model#setPerson()</code>.</p>
+</li>
+<li>
+<p><code>AddEventCommand#execute()</code> then updates the filtered list with the call to <code>model#updateFilteredPersonList()</code>.</p>
+</li>
+<li>
+<p><code>AddEventCommand#execute()</code> then calls the new Person object and adds <code>date night</code> into its frequencyList with the call to <code>person#addActivity</code>.</p>
+</li>
+<li>
+<p><code>AddEventCommand#execute()</code> then calls the new Person object and adds <code>Gardens by the Bay</code> into its frequencyList with the call to <code>person#addPlace</code>.</p>
+</li>
+<li>
+<p><code>AddEventCommand</code> returns the <code>CommandResult</code> to <code>AddressBookParser</code>.</p>
+</li>
+<li>
+<p><code>AddressBookParser</code> returns the <code>CommandResult</code> to <code>LogicManager</code>.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/addEventActivity.png" alt="addEventActivity" width="75%">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-07 13:57:30 UTC</div></div></div></body></html>
