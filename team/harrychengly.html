@@ -269,23 +269,41 @@ Format: <code>import l/LIFE_FILE_PATH g/GROUP_FILE_PATH</code></p>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>import l/life.csv g/groups.csv</code><br>
-Imports your Life from <code>life.csv</code><br>
-Imports your group data from <code>groups.csv</code></p>
-</li>
-<li>
-<p><code>import l/C:\Users\User\Documents\life.csv</code><br>
-Imports your Life from <code>C:\Users\Harry\Desktop\Documents\life.csv</code></p>
-</li>
-<li>
-<p><code>import l/./Desktop/life.csv</code><br>
-Imports your Life from <code>C:\Users\Harry\Desktop\Documents\life.csv</code></p>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all" style="width: 75%;">
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 20%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Example</th>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Import Life from file "life.csv" and group data from "groups.csv"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>import l/life.csv<br>
+g/groups.csv</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Imports your Life from <code>life.csv</code> and your group data from <code>groups.csv</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Import Life from file "life.csv" at specific file path</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>import l/C:\Users\User\Documents
+                \life.csv</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Imports your Life from <code>C:\Users\Harry\Desktop\Documents
+                        \life.csv</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Import Life from file "life.csv" at specific file path</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>import l/./Desktop/life.csv</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Imports your Life from <code>C:\Users\Harry\Desktop\Documents
+                        \life.csv</code></p></td>
+</tr>
+</tbody>
+</table>
 <div class="sect3">
 <h4 id="retrieving-file-path"><a class="link" href="#retrieving-file-path">Retrieving File Path</a></h4>
 <div class="paragraph">
@@ -414,6 +432,12 @@ Imports your Life from <code>C:\Users\Harry\Desktop\Documents\life.csv</code></p
 <li>
 <p><code>eventIDs</code></p>
 </li>
+<li>
+<p><code>places</code></p>
+</li>
+<li>
+<p><code>activities</code></p>
+</li>
 </ul>
 </div>
 <div id="CSVFileConstraints" class="imageblock" style="text-align: center">
@@ -465,18 +489,44 @@ Format: <code>export l/LIFE_FILE_NAME g/GROUP_FILE_NAME</code></p>
 </div>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Remarks:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>export l/life.csv g/groups.csv</code><br>
-Exports your Life to <code>life.csv</code>
-Exports your group data to <code>group.csv</code>
-=== Suggestions: <code>suggest</code></p>
+<p>On the very first run of CoderLifeInsights, this command is invalid as there is no saved data and CoderLifeInsights is using a sample data file to display sample contacts.
+Please proceed to add events, groups or persons before trying to export the information to the respective CSV files.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 80%;">
+<colgroup>
+<col style="width: 30%;">
+<col style="width: 30%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Example</th>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Export current life and group data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>export l/life.csv g/groups.csv</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Exports your Life to <code>life.csv</code><br>
+Exports your group data to <code>group.csv</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="suggestions-code-suggest-code"><a class="link" href="#suggestions-code-suggest-code">Suggestions: <code>suggest</code></a></h3>
 <div class="paragraph">
 <p>Suggests a person to hang out with<br>
 Format: <code>suggest SUGGESTION_PARAMETER</code></p>
@@ -494,6 +544,16 @@ Format: <code>suggest SUGGESTION_PARAMETER</code></p>
 <ul>
 <li>
 <p>A person to hangout with.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Suggestion is based on time spent with a person.
+CoderLifeInsights will return a person which the user has spent the least time with.
+If there are multiple persons with the same amount of time spent,
+CoderLifeInsights will return a person based on reverse-lexicographical order of the persons with the least amount of time spent.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>A place to go to. <code>[coming v1.4]</code></p>
@@ -511,6 +571,37 @@ Format: <code>suggest SUGGESTION_PARAMETER</code></p>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
+<table class="tableblock frame-all grid-all" style="width: 80%;">
+<colgroup>
+<col style="width: 30%;">
+<col style="width: 30%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Example</th>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Look for a person to do something with</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>suggest person</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns a person to hangout with.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Look for a place to do something at</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[coming v1.4]</code> <code>suggest place</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns a place to go to.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Look for an activity to do</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[coming v1.4]</code> <code>suggest activity</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns an activity to do.</p></td>
+</tr>
+</tbody>
+</table>
 <div class="ulist">
 <ul>
 <li>
@@ -702,4 +793,4 @@ CSV file name provided.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-07 08:54:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-07 09:07:36 UTC</div></div></div></body></html>
