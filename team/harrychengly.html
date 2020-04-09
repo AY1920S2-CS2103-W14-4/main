@@ -262,6 +262,9 @@ Format: <code>import l/LIFE_FILE_PATH g/GROUP_FILE_PATH e/EVENT_FILE_PATH</code>
 <li>
 <p>LIFE_FILE_PATH, GROUP_FILE_PATH and EVENT_FILE_PATH must match your existing file path.</p>
 </li>
+<li>
+<p>ALL three parameters must be specified for successful import.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -291,17 +294,22 @@ e/events.csv</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Imports your Life from <code>life.csv</code> , group data from <code>groups.csv</code> and event data from <code>events.csv</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Import Life from file "life.csv" at specific file path</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>import l/C:\Users\User\Documents
-                                                            \life.csv</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Imports your Life from <code>C:\Users\Harry\Desktop\Documents
-                        \life.csv</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Import Life from file "life.csv", "groups.csv" and "events.csv" at specific file path</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>import l/C:\Users\User\Documents\life.csv<br>
+g/C:\Users\User\Documents\groups.csv<br>
+e/C:\Users\User\Documents\events.csv</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Imports your Life from <code>C:\Users\Harry\Desktop\Documents\life.csv</code><br>
+, your Group from <code>C:\Users\User\Documents\groups.csv</code><br>
+and your Events from <code>C:\Users\User\Documents\events.csv</code>.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Import Life from file "life.csv" at specific file path</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>import l/./Desktop/life.csv</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Imports your Life from <code>C:\Users\Harry\Desktop\Documents
-                        \life.csv</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Import Life from file "life.csv", "groups.csv" and "events.csv"  at specific file path</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>import l/./Desktop/life.csv<br>
+g/./Desktop/groups.csv<br>
+e/./Desktop/events.csv</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Imports your Life from <code>./Desktop/life.csv</code><br>
+, your Group from <code>./Desktop/groups.csv</code><br>
+and your Events from <code>./Desktop/events.csv</code>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -348,7 +356,7 @@ e/events.csv</code></p></td>
 <p>For <code>Life.csv</code>:</p>
 </div>
 <div class="paragraph">
-<p>Before using the <code>import</code> command on <code>Life.csv</code>, please ensure the following headers are present.</p>
+<p>Before using the <code>import</code> command with <code>Life.csv</code>, please ensure the following headers are present.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -414,7 +422,7 @@ e/events.csv</code></p></td>
 <p>For <code>Groups.csv</code>:</p>
 </div>
 <div class="paragraph">
-<p>Before using the <code>import</code> command on <code>Groups.csv</code>, please ensure the following headers are present.</p>
+<p>Before using the <code>import</code> command with <code>Groups.csv</code>, please ensure the following headers are present.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -471,7 +479,7 @@ e/events.csv</code></p></td>
 <p>For <code>Events.csv</code>:</p>
 </div>
 <div class="paragraph">
-<p>Before using the <code>import</code> command on <code>Events.csv</code>, please ensure the following headers are present.</p>
+<p>Before using the <code>import</code> command with <code>Events.csv</code>, please ensure the following headers are present.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -497,7 +505,7 @@ e/events.csv</code></p></td>
 </div>
 <div id="CSVFileConstraints" class="imageblock" style="text-align: center">
 <div class="content">
-<img src="../images/groupCSVFormat.png" alt="groupCSVFormat" width="70%">
+<img src="../images/eventCSVFormat.png" alt="eventCSVFormat" width="70%">
 </div>
 <div class="title">Figure 5. Example Events.csv format</div>
 </div>
@@ -514,10 +522,13 @@ Format: <code>export l/LIFE_FILE_NAME g/GROUP_FILE_NAME e/EVENT_FILE_NAME</code>
 <div class="ulist">
 <ul>
 <li>
-<p>Exports your existing Life contacts and/or group data and/or event data into a CSV file.</p>
+<p>Exports your existing Life contacts, group data and event data into 3 CSV files respectively.</p>
 </li>
 <li>
 <p>Specify the file name you want to export for life, group and event data.</p>
+</li>
+<li>
+<p>ALL three parameters must be specified for successful export.</p>
 </li>
 </ul>
 </div>
@@ -552,7 +563,7 @@ Please proceed to add events, groups or persons before trying to export the info
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Export current life and group data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Export current life, group and event data</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>export l/life.csv g/groups.csv e/events.csv</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Exports your Life to <code>life.csv</code><br>
 Exports your group data to <code>groups.csv</code><br>
@@ -564,7 +575,7 @@ Exports your event data to <code>events.csv</code></p></td>
 <div class="sect2">
 <h3 id="suggestions-code-suggest-code"><a class="link" href="#suggestions-code-suggest-code">Suggestions: <code>suggest</code></a></h3>
 <div class="paragraph">
-<p>Suggests a person to hang out with<br>
+<p>Suggests a person to hang out with, a place to go or an activity to do.<br>
 Format: <code>suggest SUGGESTION_PARAMETER</code></p>
 </div>
 <div class="sidebarblock">
@@ -572,7 +583,7 @@ Format: <code>suggest SUGGESTION_PARAMETER</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Suggestion parameters include <code>person</code> <code>[coming v1.4 activity or place]</code></p>
+<p>Suggestion parameters include <code>person</code>, <code>activity</code> or <code>place</code></p>
 </li>
 <li>
 <p>CoderLifeInsights will suggest:</p>
@@ -583,18 +594,48 @@ Format: <code>suggest SUGGESTION_PARAMETER</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Suggestion is based on time spent with a person.
-CoderLifeInsights will return a person which the user has spent the least time with.
-If there are multiple persons with the same amount of time spent, CoderLifeInsights will return a person based on reverse-lexicographical order of the persons with the least amount of time spent.</p>
+<p>Suggestion is based on time spent with a person.</p>
+</li>
+<li>
+<p>CoderLifeInsights will return a person which the user has spent the least time with.</p>
+</li>
+<li>
+<p>If there are multiple people with the same amount of time spent, CoderLifeInsights will return a person based on reverse-lexicographical order of the people with the least amount of time spent.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>A place to go to. <code>[coming v1.4]</code></p>
+<p>A place to go to.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Suggestion is based on frequency of place visited from events added.</p>
 </li>
 <li>
-<p>An activity to do. <code>[coming v1.4]</code></p>
+<p>CoderLifeInsights will return the events that happened at the suggested place which the user has visited the least in terms of frequency.</p>
+</li>
+<li>
+<p>If there are multiple places with the same amount of frequency, CoderLifeInsights will return the first place based on chronological order.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>An activity to do.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Suggestion is based on frequency of activity done from events added.</p>
+</li>
+<li>
+<p>CoderLifeInsights will return the events that happened with the suggested activity which the user has done the least in terms of frequency.</p>
+</li>
+<li>
+<p>If there are multiple activities with the same amount of frequency, CoderLifeInsights will return the first activity based on chronological order.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -621,38 +662,22 @@ If there are multiple persons with the same amount of time spent, CoderLifeInsig
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Look for a person to do something with</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Look for a person to do something with.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>suggest person</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Returns a person to hangout with.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Look for a place to do something at</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[coming v1.4]</code> <code>suggest place</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Returns a place to go to.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Look for a place to do something at.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>suggest place</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns events based on suggested place to go to.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Look for an activity to do</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[coming v1.4]</code> <code>suggest activity</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Returns an activity to do.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Look for an activity to do.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>suggest activity</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns events based on suggested activity to do.</p></td>
 </tr>
 </tbody>
 </table>
-<div class="ulist">
-<ul>
-<li>
-<p><code>suggest person</code><br>
-Returns a person to hangout with.</p>
-</li>
-<li>
-<p><code>[coming v1.4]</code> <code>suggest place</code><br>
-Returns a place to go to.</p>
-</li>
-<li>
-<p><code>[coming v1.4]</code> <code>suggest activity</code><br>
-Returns an activity to do.</p>
-</li>
-</ul>
-</div>
 </div>
 </div>
 </div>
@@ -828,4 +853,4 @@ CSV file name provided.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-08 16:04:24 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-09 09:03:27 UTC</div></div></div></body></html>
