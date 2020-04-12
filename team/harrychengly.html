@@ -331,7 +331,7 @@ and your Events from <code>./Desktop/events.csv</code>.</p></td>
 </li>
 </ul>
 </div>
-<div id="RetrievingFilePath" class="imageblock" style="text-align: center">
+<div id="RetrievingFilePathWindows" class="imageblock" style="text-align: center">
 <div class="content">
 <img src="../images/windowsPathFinding.png" alt="windowsPathFinding">
 </div>
@@ -343,7 +343,7 @@ and your Events from <code>./Desktop/events.csv</code>.</p></td>
 * Right-click on the CSV File and select <code>Get info</code>.
 * Refer to the diagram below for reference.</p>
 </div>
-<div id="RetrievingFilePath" class="imageblock" style="text-align: center">
+<div id="RetrievingFilePathMac" class="imageblock" style="text-align: center">
 <div class="content">
 <img src="../images/macPathFinding.png" alt="macPathFinding" width="50%">
 </div>
@@ -389,7 +389,7 @@ and your Events from <code>./Desktop/events.csv</code>.</p></td>
 <div class="paragraph">
 <p>Refer to image below for reference:</p>
 </div>
-<div id="CSVFileConstraints" class="imageblock" style="text-align: center">
+<div id="CSVFileConstraintsLife" class="imageblock" style="text-align: center">
 <div class="content">
 <img src="../images/lifeCSVFormat.png" alt="lifeCSVFormat" width="70%">
 </div>
@@ -449,7 +449,7 @@ and your Events from <code>./Desktop/events.csv</code>.</p></td>
 </li>
 </ul>
 </div>
-<div id="CSVFileConstraints" class="imageblock" style="text-align: center">
+<div id="CSVFileConstraintsGroups" class="imageblock" style="text-align: center">
 <div class="content">
 <img src="../images/eventCSVFormat.png" alt="eventCSVFormat" width="70%">
 </div>
@@ -503,7 +503,7 @@ and your Events from <code>./Desktop/events.csv</code>.</p></td>
 </li>
 </ul>
 </div>
-<div id="CSVFileConstraints" class="imageblock" style="text-align: center">
+<div id="CSVFileConstraintsEvents" class="imageblock" style="text-align: center">
 <div class="content">
 <img src="../images/eventCSVFormat.png" alt="eventCSVFormat" width="70%">
 </div>
@@ -700,157 +700,224 @@ Format: <code>suggest SUGGESTION_PARAMETER</code></p>
 <h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
 <div class="paragraph">
 <p>The import feature allows users to import data from a comma-separated values (CSV) file.
-It allows users to bulk import their contacts from a previously exported data from CoderLifeInsights application.</p>
+It allows users to bulk import their contacts, groups and events from a previously exported data from CoderLifeInsights application.</p>
 </div>
 <div class="paragraph">
-<p>Given below is the sequence diagram shows how the import operation works with the command <code>import life.csv</code>:</p>
+<p>Given below is an activity diagram shows how the import operation works with the command <code>import l/life.csv g/group.csv e/event.csv</code>:</p>
 </div>
-<div id="ImportFileSequenceDiagram" class="imageblock" style="text-align: center">
+<div id="ImportFileActivityDiagram" class="imageblock" style="text-align: center">
 <div class="content">
-<img src="../images/ImportFileSequenceDiagram.png" alt="ImportFileSequenceDiagram">
+<img src="../images/ImportFileActivityDiagram.png" alt="][pdfwidth=&quot;40%&quot;" width="40%">
 </div>
-<div class="title">Figure 6. Interaction for <code>import</code> Command operation between Logic Component and Model Component.</div>
-</div>
-<div class="paragraph">
-<p>The following is a brief explanation of <a href="#ImportFileSequenceDiagram">Figure 6, &#8220;Interaction for <code>import</code> Command operation between Logic Component and Model Component.&#8221;</a> :</p>
+<div class="title">Figure 6. Import feature activity diagram.</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User enters <code>import life.csv</code>.</p>
+<p>User enters <code>import l/life.csv g/group.csv e/event.csv</code>.</p>
 </li>
 <li>
-<p><code>AddressBookParser#parseCommand()</code> is being called by <code>LogicManager</code>.</p>
+<p>All 3 files would then be parsed by <code>ImportCommandParser</code> to check if the files exist with the path specified.</p>
 </li>
 <li>
-<p>This would create <code>ImportCommand</code> and checks if the input is valid.</p>
+<p>On successful check, <code>ImportCommand</code> would be created and calls <code>ImportFile#importCsv</code>, <code>ImportFile#importGroupCsv</code> and
+<code>ImportFile#importEventCsv`to check if the CSV file headers are valid.
+ qq4. `ImportCommand</code> would then call <code>Model#hasPersons</code>, <code>Model#hasGroups</code> and <code>Model#hasEvents</code> to check if the persons, groups and events are duplicates of the current CoderLifeInsights.</p>
 </li>
 <li>
-<p>Feedback would be returned to <code>AddressBookParser</code> and then to <code>LogicManager</code>.</p>
+<p>If the imported data are not duplicates, it will then create a valid list of persons, groups and events to be added to CoderLifeInsights.</p>
 </li>
 <li>
-<p><code>LogicManager</code> would then call <code>execute()</code> and creates <code>ImportFile</code>.</p>
-</li>
-<li>
-<p><code>ImportFile</code> would then call <code>importCsv()</code> to return a <code>List&lt;Person&gt;</code>.</p>
-</li>
-<li>
-<p><code>Model#importCsvToAddressBook(importedPeople)</code> is then being called by <code>LogicManager</code>
-passing on <code>List&lt;Person&gt;</code> to call <code>VersionedAddressBook#addPersons(importedPeople)</code></p>
-</li>
-<li>
-<p><code>VersionedAddressBook</code> would call the method <code>addAll</code> and populate the data accordingly.</p>
-</li>
-<li>
-<p>On successful import with no duplicates of person, it would return a success message to <code>LogicManager</code></p>
+<p>CoderLifeInsights will then populate the 3 lists to the current data.</p>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p>The following is an activity diagram when a user executes the import command:</p>
-</div>
-<div id="ImportFileActivityDiagram" class="imageblock" style="text-align: center">
-<div class="content">
-<img src="../images/ImportFileActivityDiagram.png" alt="ImportFileActivityDiagram">
-</div>
-<div class="title">Figure 7. Import feature activity diagram.</div>
-</div>
-<div class="paragraph">
-<p>When a user executes the <code>import</code> command, a parser would check if the CSV is valid or not. That means it would check
-if the CSV file exists within the specified file path and whether the CSV file is valid for import in the application&#8217;s
-directory.</p>
-</div>
-<div class="paragraph">
-<p>If valid, the rows in the CSV file would then parsed and then creates a list of person to be imported.</p>
-</div>
-<div class="paragraph">
-<p>Following that, the list would then update the current data and saves into the CoderLifeInsights.</p>
-</div>
-<div class="paragraph">
-<p>The following class diagram illustrates the summary of the ImportFile class.</p>
-</div>
-<div id="ImportFileClassDiagram" class="imageblock" style="text-align: center">
-<div class="content">
-<img src="../images/ImportFileClassDiagram.png" alt="][pdfwidth=&quot;30%&quot;" width="30%">
-</div>
-<div class="title">Figure 8. Import feature class diagram.</div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="csv-file-format-and-constraints"><a class="link" href="#csv-file-format-and-constraints">Csv file format and constraints</a></h4>
 <div class="paragraph">
-<p>In order for data to be imported into CoderLifeInsights, the CSV file provided must be in the exact format.
-There are 9 columns specified for <code>name</code>, <code>phone</code>, <code>email</code>, <code>address</code>, <code>tagged</code>, <code>time</code>, <code>places</code> , <code>activities</code> and
-=== Export feature
-==== Implementation</p>
+<p>In order for data to be imported into CoderLifeInsights, the CSV file provided must be in the exact format.</p>
 </div>
+<div class="paragraph">
+<p>For <code>life.csv</code>:</p>
+</div>
+<div class="paragraph">
+<p>Headers required:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>name</code></p>
+</li>
+<li>
+<p><code>phone</code></p>
+</li>
+<li>
+<p><code>email</code></p>
+</li>
+<li>
+<p><code>address</code></p>
+</li>
+<li>
+<p><code>tagged</code></p>
+</li>
+<li>
+<p><code>time</code></p>
+</li>
+<li>
+<p><code>places</code></p>
+</li>
+<li>
+<p><code>activities</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Cell Formatting</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>No leading and trailing spaces in a cell.</p>
+</li>
+<li>
+<p>To specify a comma within a cell, the value of the cell should be inside double quotes.
+Eg:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>"Friends, Family"</p>
+</li>
+<li>
+<p>"High School, Colleague"</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<table class="tableblock frame-all grid-all" style="width: 80%;">
+<colgroup>
+<col style="width: 30%;">
+<col style="width: 30%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Aspect</th>
+<th class="tableblock halign-left valign-top">Alternative 1 (current choice)</th>
+<th class="tableblock halign-left valign-top">Alternative 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">How import executes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Imports the entire Csv file, converts all the rows into a list of <code>Person</code>, <code>Group</code> and
+<code>Event</code> objects and add the list into the spending list.</p>
+<p class="tableblock"><strong>Pros:</strong><br>
+Better performance.</p>
+<p class="tableblock"><strong>Cons:</strong><br>
+Requires additional methods to implement the features.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Imports the Csv file, converts all the rows into a list of <code>Person</code>, <code>Group</code> and <code>Event</code>
+objects respectively and add each object accordingly.</p>
+<p class="tableblock"><strong>Pros:</strong><br>
+Easy to implement.
+Re-use existing methods.</p>
+<p class="tableblock"><strong>Cons:</strong><br>
+May cause performance issues regarding memory issues.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The first alternative was chosen as performance of the application is prioritised over ease of implementation.
+There would be risk of the application stop responding if the second alternative was chosen.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="export-feature"><a class="link" href="#export-feature">Export feature</a></h3>
+<div class="sect3">
+<h4 id="implementation-2"><a class="link" href="#implementation-2">Implementation</a></h4>
 <div class="paragraph">
 <p>The export feature allows users to export their current data into a comma-separated value file with file name specified.</p>
 </div>
 <div class="paragraph">
-<p>Given below is the sequence diagram illustrates how the export operation works with the command <code>export life.csv</code>:
-.Interaction for <code>export</code> Command operation between Logic Component and Model Component.</p>
+<p>Given below is an activity diagram illustrating how the export operation works with the command <code>export l/life.csv g/group.csv e/event.csv</code></p>
 </div>
-<div id="ExportFileSequenceDiagram" class="imageblock" style="text-align: center">
+<div id="ExportFileActivityDiagram" class="imageblock" style="text-align: center">
 <div class="content">
-<img src="../images/ExportFileSequenceDiagram.png" alt="ExportFileSequenceDiagram">
+<img src="../images/ExportFileActivityDiagram.png" alt="][pdfwidth=&quot;40%&quot;" width="40%">
 </div>
-</div>
-<div class="paragraph">
-<p>The following is an activity diagram when a user executes the export command:</p>
+<div class="title">Figure 7. Export feature activity diagram.</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User enters <code>export life.csv</code></p>
+<p>User enters <code>export l/life.csv g/group.csv e/event.csv</code></p>
 </li>
 <li>
-<p><code>AddressBookParser#parseCommand()</code> is being called by <code>LogicManager</code>.</p>
+<p>All 3 files would then be parsed by <code>ExportCommandParser</code> to check if the files specified exist within the specified file path.</p>
 </li>
 <li>
-<p>This would create <code>ExportCommand</code> and checks if the input is valid.</p>
+<p>This is necessary to avoid existing files being overwritten.</p>
 </li>
 <li>
-<p>Feedback would be returned to <code>AddressBookParser</code> and then to <code>LogicManager</code>.</p>
+<p>If files do not exist, <code>ExportCommand</code> would then be created and calls <code>ExportFile#exportCsv</code>, <code>ExportFile#exportGroupCsv</code>
+and <code>ExportFile#exportEventCsv</code>.</p>
 </li>
 <li>
-<p><code>LogicManager</code> would then call <code>execute()</code> and creates <code>ExportFile</code>.</p>
+<p>Life, groups and events data would then be exported <code>life.csv</code>, <code>group.csv</code> and <code>event.csv</code> respectively.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="suggestion-feature"><a class="link" href="#suggestion-feature">Suggestion Feature</a></h3>
+<div class="sect3">
+<h4 id="implementation-3"><a class="link" href="#implementation-3">Implementation</a></h4>
+<div class="paragraph">
+<p>The suggestion feature allows users to get a person to hangout with, a place to hangout or an activity to do.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an activity diagram illustrating how the suggestion operation works with the command <code>suggest person</code>.
+.Suggest person feature activity diagram.</p>
+</div>
+<div id="SuggestPersonActivityDiagram" class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/SuggestPersonActivityDiagram.png" alt="][pdfwidth=&quot;40%&quot;" width="40%">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters <code>suggest person</code>.</p>
 </li>
 <li>
-<p><code>ExportFile</code> would then call <code>exportCsv()</code> with <code>Model#getAddressBookFilePath()</code> to return the current address
-book&#8217;s file path.</p>
+<p><code>SuggestCommand</code> would then check if keyword entered corresponds to <code>person</code>, <code>place</code> or <code>activity</code>.</p>
 </li>
 <li>
-<p>On successful export, it would return a success message to <code>LogicManager</code>.</p>
+<p>Upon valid keyword entered, <code>SuggestCommand</code> would call <code>Model#suggestPerson</code> to return a suggested person.</p>
+</li>
+<li>
+<p>ObservableList of filteredPersons would be iterated to get suggested person based on least time spent and reverse lexicographical order of name as a tie breaker.</p>
+</li>
+<li>
+<p>filteredPersonList would then be updated to reflect on the GUI as a suggestion.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>The following is an activity diagram when a user executes the export command:</p>
-</div>
-<div id="ExportFileActivityDiagram" class="imageblock" style="text-align: center">
-<div class="content">
-<img src="../images/ExportFileActivityDiagram.png" alt="][pdfwidth=&quot;60%&quot;" width="60%">
-</div>
-<div class="title">Figure 9. Export feature activity diagram.</div>
+<p>A similar approach would apply to <code>place</code> and <code>activity</code> where instead of <code>Model#suggestPerson</code>, it would be
+<code>Model#suggestPlace</code> or <code>Model#suggestActivity</code> where an ObservableList of filteredEvents would be iterated to get suggested place or activity based on the least frequency of the place visited or activity done.</p>
 </div>
 <div class="paragraph">
-<p>When a user executes <code>export</code> command, a parser would check if the CSV file name is valid.</p>
-</div>
-<div class="paragraph">
-<p>If valid, it would then proceed to export the current JSON data to the application&#8217;s directory with the
-CSV file name provided.</p>
-</div>
-<div class="paragraph">
-<p>The following class diagram illustrates the summary of the ExportFile class.</p>
-</div>
-<div id="ExportFileClassDiagram" class="imageblock" style="text-align: center">
-<div class="content">
-<img src="../images/ExportFileClassDiagram.png" alt="][pdfwidth=&quot;30%&quot;" width="30%">
-</div>
-<div class="title">Figure 10. Export feature class diagram.</div>
+<p>If there are multiple place visited or activity done has the same frequency, a tie breaker would be introduced where the first place/activity would be suggested based on chronological order.</p>
 </div>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 07:17:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 07:44:41 UTC</div></div></div></body></html>

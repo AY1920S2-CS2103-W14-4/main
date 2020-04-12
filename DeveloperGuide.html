@@ -23,20 +23,46 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#import-feature">3.1. Import feature</a></li>
-<li><a href="#add-group-feature">3.2. Add Group Feature</a></li>
-<li><a href="#delete-group-feature">3.3. Delete Group Feature</a></li>
-<li><a href="#list-group-feature">3.4. List Group Feature</a></li>
-<li><a href="#add-event-feature">3.5. Add Event Feature</a></li>
-<li><a href="#insights-feature">3.6. Insights feature</a></li>
-<li><a href="#proposed-undo-redo-feature">3.7. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.8. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.9. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.10. Configuration</a></li>
+<li><a href="#export-feature">3.2. Export feature</a></li>
+<li><a href="#suggestion-feature">3.3. Suggestion Feature</a></li>
+<li><a href="#add-group-feature">3.4. Add Group Feature</a></li>
+<li><a href="#delete-group-feature">3.5. Delete Group Feature</a></li>
+<li><a href="#list-group-feature">3.6. List Group Feature</a></li>
+<li><a href="#add-event-feature">3.7. Add Event Feature</a></li>
+<li><a href="#insights-feature">3.8. Insights feature</a></li>
+<li><a href="#proposed-undo-redo-feature">3.9. [Proposed] Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">3.10. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.11. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.12. Configuration</a></li>
 </ul>
 </li>
-<li><a href="#documentation">4. Documentation</a></li>
-<li><a href="#testing">5. Testing</a></li>
-<li><a href="#dev-ops">6. Dev Ops</a></li>
+<li><a href="#documentation">4. Documentation</a>
+<ul class="sectlevel2">
+<li><a href="#editing-documentation">4.1. Editing Documentation</a></li>
+<li><a href="#editing-diagrams">4.2. Editing Diagrams</a></li>
+<li><a href="#publishing-documentation">4.3. Publishing Documentation</a></li>
+<li><a href="#Docs-SiteWideDocSettings">4.4. Site-wide Documentation Settings</a></li>
+<li><a href="#Docs-PerFileDocSettings">4.5. Per-file Documentation Settings</a></li>
+<li><a href="#site-template">4.6. Site Template</a></li>
+</ul>
+</li>
+<li><a href="#testing">5. Testing</a>
+<ul class="sectlevel2">
+<li><a href="#running-tests">5.1. Running Tests</a></li>
+<li><a href="#types-of-tests">5.2. Types of tests</a></li>
+<li><a href="#troubleshooting-testing">5.3. Troubleshooting Testing</a></li>
+</ul>
+</li>
+<li><a href="#dev-ops">6. Dev Ops</a>
+<ul class="sectlevel2">
+<li><a href="#build-automation">6.1. Build Automation</a></li>
+<li><a href="#continuous-integration">6.2. Continuous Integration</a></li>
+<li><a href="#coverage-reporting">6.3. Coverage Reporting</a></li>
+<li><a href="#documentation-previews">6.4. Documentation Previews</a></li>
+<li><a href="#making-a-release">6.5. Making a Release</a></li>
+<li><a href="#managing-dependencies">6.6. Managing Dependencies</a></li>
+</ul>
+</li>
 <li><a href="#product-scope">Appendix A: Product Scope</a></li>
 <li><a href="#user-stories">Appendix B: User Stories</a></li>
 <li><a href="#use-cases">Appendix C: Use Cases</a>
@@ -44,16 +70,27 @@
 <li><a href="#use-case-add-person">C.1. Use case: Add person</a></li>
 <li><a href="#use-case-find-a-person-by-name">C.2. Use case: Find a person by name</a></li>
 <li><a href="#use-case-add-person-2">C.3. Use case: Add person</a></li>
+<li><a href="#use-case-export-data">C.4. Use case: Export data</a></li>
+<li><a href="#use-case-import-data">C.5. Use case: Import data</a></li>
+<li><a href="#use-case-suggest-person">C.6. Use case: Suggest person</a></li>
+<li><a href="#use-case-suggest-place">C.7. Use case: Suggest place</a></li>
+<li><a href="#use-case-suggest-activity">C.8. Use case: Suggest activity</a></li>
+<li><a href="#use-case-view-time">C.9. Use case: View time</a></li>
 </ul>
 </li>
 <li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
 <li><a href="#glossary">Appendix E: Glossary</a></li>
-<li><a href="#product-survey">Appendix F: Product Survey</a></li>
-<li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
+<li><a href="#instructions-for-manual-testing">7. Instructions for Manual Testing</a>
 <ul class="sectlevel2">
-<li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-person">G.2. Deleting a person</a></li>
-<li><a href="#saving-data">G.3. Saving data</a></li>
+<li><a href="#launch-and-shutdown">7.1. Launch and Shutdown</a></li>
+<li><a href="#deleting-a-person">7.2. Deleting a person</a></li>
+<li><a href="#finding-a-person">7.3. Finding a person</a></li>
+<li><a href="#suggest-a-person">7.4. Suggest a person</a></li>
+<li><a href="#suggest-a-place">7.5. Suggest a place</a></li>
+<li><a href="#suggest-an-activity">7.6. Suggest an activity</a></li>
+<li><a href="#import-coderlifeinsights-data">7.7. Import CoderLifeInsights data</a></li>
+<li><a href="#export-coderlifeinsights-data">7.8. Export CoderLifeInsights data</a></li>
+<li><a href="#saving-data">7.9. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -79,7 +116,8 @@
 <div class="title">Figure 1. Architecture Diagram</div>
 </div>
 <div class="paragraph">
-<p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of the App. Given below is a quick overview of each component.</p>
+<p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of the App.
+Given below is a quick overview of each component.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -95,7 +133,9 @@ Refer to the <a href="UsingPlantUml.html">Using PlantUML guide</a> to learn how 
 </table>
 </div>
 <div class="paragraph">
-<p><code>Main</code> has two classes called <a href="https://github.com/AY1920S2-CS2103-W14-4/main/src/main/java/seedu/address/Main.java"><code>Main</code></a> and <a href="https://github.com/AY1920S2-CS2103-W14-4/main/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
+<p><code>Main</code> has two classes called <a href="https://github.com/AY1920S2-CS2103-W14-4/main/blob/master/src/main/java/seedu/address/Main.java"><code>Main</code></a>
+and <a href="https://github.com/AY1920S2-CS2103-W14-4/main/blob/master/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>.
+It is responsible for,</p>
 </div>
 <div class="ulist">
 <ul>
@@ -182,13 +222,17 @@ The following class plays an important role at the architecture level:</p>
 <div class="title">Figure 4. Structure of the UI Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103-W14-4/main/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103-W14-4/main/blob/master/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code> etc.
+All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
-<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/AY1920S2-CS2103-W14-4/main/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/AY1920S2-CS2103-W14-4/main/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
+<p>The <code>UI</code> component uses JavaFx UI framework.
+The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder.
+For example, the layout of the <a href="https://github.com/AY1920S2-CS2103-W14-4/main/blob/master/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a>
+is specified in <a href="https://github.com/AY1920S2-CS2103-W14-4/main/blob/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component,</p>
@@ -214,7 +258,7 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
-<a href="https://github.com/AY1920S2-CS2103-W14-4/main/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a></p>
+<a href="https://github.com/AY1920S2-CS2103-W14-4/main/blob/master/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -266,7 +310,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="title">Figure 7. Structure of the Model Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103-W14-4/main/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103-W14-4/main/blob/master/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>Model</code>,</p>
@@ -294,12 +338,16 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book</code>, which <code>Person</code> can reference. This would allow <code>Address Book</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Person</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
-<br>
-<span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span>
+As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book</code>, which <code>Person</code> can reference.
+This would allow <code>Address Book</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Person</code> needing their own <code>Tag</code> object.
+An example of how such a model may look like is given below.<br>
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>+
+<span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span></p>
 </div>
 </div>
 <div class="sect2">
@@ -311,7 +359,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="title">Figure 8. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103-W14-4/main/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103-W14-4/main/blob/master/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>Storage</code> component,</p>
@@ -330,7 +378,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="sect2">
 <h3 id="Design-Commons"><a class="link" href="#Design-Commons">2.6. Common classes</a></h3>
 <div class="paragraph">
-<p>Classes used by multiple components are in the <code>seedu.coderlifeinsights.commons</code> package.</p>
+<p>Classes used by multiple components are in the <code>seedu.address.commons</code> package.</p>
 </div>
 </div>
 </div>
@@ -347,162 +395,229 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <h4 id="implementation-2"><a class="link" href="#implementation-2">3.1.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The import feature allows users to import data from a comma-separated values (CSV) file.
-It allows users to bulk import their contacts from a previously exported data from CoderLifeInsights application.</p>
+It allows users to bulk import their contacts, groups and events from a previously exported data from CoderLifeInsights application.</p>
 </div>
 <div class="paragraph">
-<p>Given below is the sequence diagram shows how the import operation works with the command <code>import life.csv</code>:</p>
+<p>Given below is an activity diagram shows how the import operation works with the command <code>import l/life.csv g/group.csv e/event.csv</code>:</p>
 </div>
-<div id="ImportFileSequenceDiagram" class="imageblock" style="text-align: center">
+<div id="ImportFileActivityDiagram" class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/ImportFileSequenceDiagram.png" alt="ImportFileSequenceDiagram">
+<img src="images/ImportFileActivityDiagram.png" alt="][pdfwidth=&quot;40%&quot;" width="40%">
 </div>
-<div class="title">Figure 9. Interaction for <code>import</code> Command operation between Logic Component and Model Component.</div>
-</div>
-<div class="paragraph">
-<p>The following is a brief explanation of <a href="#ImportFileSequenceDiagram">Figure 9, &#8220;Interaction for <code>import</code> Command operation between Logic Component and Model Component.&#8221;</a> :</p>
+<div class="title">Figure 9. Import feature activity diagram.</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User enters <code>import life.csv</code>.</p>
+<p>User enters <code>import l/life.csv g/group.csv e/event.csv</code>.</p>
 </li>
 <li>
-<p><code>AddressBookParser#parseCommand()</code> is being called by <code>LogicManager</code>.</p>
+<p>All 3 files would then be parsed by <code>ImportCommandParser</code> to check if the files exist with the path specified.</p>
 </li>
 <li>
-<p>This would create <code>ImportCommand</code> and checks if the input is valid.</p>
+<p>On successful check, <code>ImportCommand</code> would be created and calls <code>ImportFile#importCsv</code>, <code>ImportFile#importGroupCsv</code> and
+<code>ImportFile#importEventCsv`to check if the CSV file headers are valid.
+ qq4. `ImportCommand</code> would then call <code>Model#hasPersons</code>, <code>Model#hasGroups</code> and <code>Model#hasEvents</code> to check if the persons, groups and events are duplicates of the current CoderLifeInsights.</p>
 </li>
 <li>
-<p>Feedback would be returned to <code>AddressBookParser</code> and then to <code>LogicManager</code>.</p>
+<p>If the imported data are not duplicates, it will then create a valid list of persons, groups and events to be added to CoderLifeInsights.</p>
 </li>
 <li>
-<p><code>LogicManager</code> would then call <code>execute()</code> and creates <code>ImportFile</code>.</p>
-</li>
-<li>
-<p><code>ImportFile</code> would then call <code>importCsv()</code> to return a <code>List&lt;Person&gt;</code>.</p>
-</li>
-<li>
-<p><code>Model#importCsvToAddressBook(importedPeople)</code> is then being called by <code>LogicManager</code>
-passing on <code>List&lt;Person&gt;</code> to call <code>VersionedAddressBook#addPersons(importedPeople)</code></p>
-</li>
-<li>
-<p><code>VersionedAddressBook</code> would call the method <code>addAll</code> and populate the data accordingly.</p>
-</li>
-<li>
-<p>On successful import with no duplicates of person, it would return a success message to <code>LogicManager</code></p>
+<p>CoderLifeInsights will then populate the 3 lists to the current data.</p>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p>The following is an activity diagram when a user executes the import command:</p>
-</div>
-<div id="ImportFileActivityDiagram" class="imageblock" style="text-align: center">
-<div class="content">
-<img src="images/ImportFileActivityDiagram.png" alt="ImportFileActivityDiagram">
-</div>
-<div class="title">Figure 10. Import feature activity diagram.</div>
-</div>
-<div class="paragraph">
-<p>When a user executes the <code>import</code> command, a parser would check if the CSV is valid or not. That means it would check
-if the CSV file exists within the specified file path and whether the CSV file is valid for import in the application&#8217;s
-directory.</p>
-</div>
-<div class="paragraph">
-<p>If valid, the rows in the CSV file would then parsed and then creates a list of person to be imported.</p>
-</div>
-<div class="paragraph">
-<p>Following that, the list would then update the current data and saves into the CoderLifeInsights.</p>
-</div>
-<div class="paragraph">
-<p>The following class diagram illustrates the summary of the ImportFile class.</p>
-</div>
-<div id="ImportFileClassDiagram" class="imageblock" style="text-align: center">
-<div class="content">
-<img src="images/ImportFileClassDiagram.png" alt="][pdfwidth=&quot;30%&quot;" width="30%">
-</div>
-<div class="title">Figure 11. Import feature class diagram.</div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="csv-file-format-and-constraints"><a class="link" href="#csv-file-format-and-constraints">3.1.2. Csv file format and constraints</a></h4>
 <div class="paragraph">
-<p>In order for data to be imported into CoderLifeInsights, the CSV file provided must be in the exact format.
-There are 9 columns specified for <code>name</code>, <code>phone</code>, <code>email</code>, <code>address</code>, <code>tagged</code>, <code>time</code>, <code>places</code> , <code>activities</code> and
-=== Export feature
-==== Implementation</p>
+<p>In order for data to be imported into CoderLifeInsights, the CSV file provided must be in the exact format.</p>
 </div>
 <div class="paragraph">
-<p>The export feature allows users to export their current data into a comma-separated value file with file name specified.</p>
+<p>For <code>life.csv</code>:</p>
 </div>
 <div class="paragraph">
-<p>Given below is the sequence diagram illustrates how the export operation works with the command <code>export life.csv</code>:
-.Interaction for <code>export</code> Command operation between Logic Component and Model Component.</p>
+<p>Headers required:</p>
 </div>
-<div id="ExportFileSequenceDiagram" class="imageblock" style="text-align: center">
-<div class="content">
-<img src="images/ExportFileSequenceDiagram.png" alt="ExportFileSequenceDiagram">
-</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>name</code></p>
+</li>
+<li>
+<p><code>phone</code></p>
+</li>
+<li>
+<p><code>email</code></p>
+</li>
+<li>
+<p><code>address</code></p>
+</li>
+<li>
+<p><code>tagged</code></p>
+</li>
+<li>
+<p><code>time</code></p>
+</li>
+<li>
+<p><code>places</code></p>
+</li>
+<li>
+<p><code>activities</code></p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>The following is an activity diagram when a user executes the export command:</p>
+<p>Cell Formatting</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+<div class="ulist">
+<ul>
 <li>
-<p>User enters <code>export life.csv</code></p>
+<p>No leading and trailing spaces in a cell.</p>
 </li>
 <li>
-<p><code>AddressBookParser#parseCommand()</code> is being called by <code>LogicManager</code>.</p>
+<p>To specify a comma within a cell, the value of the cell should be inside double quotes.
+Eg:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>"Friends, Family"</p>
 </li>
 <li>
-<p>This would create <code>ExportCommand</code> and checks if the input is valid.</p>
+<p>"High School, Colleague"</p>
 </li>
-<li>
-<p>Feedback would be returned to <code>AddressBookParser</code> and then to <code>LogicManager</code>.</p>
-</li>
-<li>
-<p><code>LogicManager</code> would then call <code>execute()</code> and creates <code>ExportFile</code>.</p>
-</li>
-<li>
-<p><code>ExportFile</code> would then call <code>exportCsv()</code> with <code>Model#getAddressBookFilePath()</code> to return the current address
-book&#8217;s file path.</p>
-</li>
-<li>
-<p>On successful export, it would return a success message to <code>LogicManager</code>.</p>
-</li>
-</ol>
+</ul>
 </div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.3. Design Considerations</a></h4>
+<table class="tableblock frame-all grid-all" style="width: 80%;">
+<colgroup>
+<col style="width: 30%;">
+<col style="width: 30%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Aspect</th>
+<th class="tableblock halign-left valign-top">Alternative 1 (current choice)</th>
+<th class="tableblock halign-left valign-top">Alternative 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">How import executes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Imports the entire Csv file, converts all the rows into a list of <code>Person</code>, <code>Group</code> and
+<code>Event</code> objects and add the list into the spending list.</p>
+<p class="tableblock"><strong>Pros:</strong><br>
+Better performance.</p>
+<p class="tableblock"><strong>Cons:</strong><br>
+Requires additional methods to implement the features.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Imports the Csv file, converts all the rows into a list of <code>Person</code>, <code>Group</code> and <code>Event</code>
+objects respectively and add each object accordingly.</p>
+<p class="tableblock"><strong>Pros:</strong><br>
+Easy to implement.
+Re-use existing methods.</p>
+<p class="tableblock"><strong>Cons:</strong><br>
+May cause performance issues regarding memory issues.</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
-<p>The following is an activity diagram when a user executes the export command:</p>
-</div>
-<div id="ExportFileActivityDiagram" class="imageblock" style="text-align: center">
-<div class="content">
-<img src="images/ExportFileActivityDiagram.png" alt="][pdfwidth=&quot;60%&quot;" width="60%">
-</div>
-<div class="title">Figure 12. Export feature activity diagram.</div>
-</div>
-<div class="paragraph">
-<p>When a user executes <code>export</code> command, a parser would check if the CSV file name is valid.</p>
-</div>
-<div class="paragraph">
-<p>If valid, it would then proceed to export the current JSON data to the application&#8217;s directory with the
-CSV file name provided.</p>
-</div>
-<div class="paragraph">
-<p>The following class diagram illustrates the summary of the ExportFile class.</p>
-</div>
-<div id="ExportFileClassDiagram" class="imageblock" style="text-align: center">
-<div class="content">
-<img src="images/ExportFileClassDiagram.png" alt="][pdfwidth=&quot;30%&quot;" width="30%">
-</div>
-<div class="title">Figure 13. Export feature class diagram.</div>
+<p>The first alternative was chosen as performance of the application is prioritised over ease of implementation.
+There would be risk of the application stop responding if the second alternative was chosen.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-group-feature"><a class="link" href="#add-group-feature">3.2. Add Group Feature</a></h3>
+<h3 id="export-feature"><a class="link" href="#export-feature">3.2. Export feature</a></h3>
 <div class="sect3">
 <h4 id="implementation-3"><a class="link" href="#implementation-3">3.2.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The export feature allows users to export their current data into a comma-separated value file with file name specified.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an activity diagram illustrating how the export operation works with the command <code>export l/life.csv g/group.csv e/event.csv</code></p>
+</div>
+<div id="ExportFileActivityDiagram" class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/ExportFileActivityDiagram.png" alt="][pdfwidth=&quot;40%&quot;" width="40%">
+</div>
+<div class="title">Figure 10. Export feature activity diagram.</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters <code>export l/life.csv g/group.csv e/event.csv</code></p>
+</li>
+<li>
+<p>All 3 files would then be parsed by <code>ExportCommandParser</code> to check if the files specified exist within the specified file path.</p>
+</li>
+<li>
+<p>This is necessary to avoid existing files being overwritten.</p>
+</li>
+<li>
+<p>If files do not exist, <code>ExportCommand</code> would then be created and calls <code>ExportFile#exportCsv</code>, <code>ExportFile#exportGroupCsv</code>
+and <code>ExportFile#exportEventCsv</code>.</p>
+</li>
+<li>
+<p>Life, groups and events data would then be exported <code>life.csv</code>, <code>group.csv</code> and <code>event.csv</code> respectively.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="suggestion-feature"><a class="link" href="#suggestion-feature">3.3. Suggestion Feature</a></h3>
+<div class="sect3">
+<h4 id="implementation-4"><a class="link" href="#implementation-4">3.3.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The suggestion feature allows users to get a person to hangout with, a place to hangout or an activity to do.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an activity diagram illustrating how the suggestion operation works with the command <code>suggest person</code>.
+.Suggest person feature activity diagram.</p>
+</div>
+<div id="SuggestPersonActivityDiagram" class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/SuggestPersonActivityDiagram.png" alt="][pdfwidth=&quot;40%&quot;" width="40%">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters <code>suggest person</code>.</p>
+</li>
+<li>
+<p><code>SuggestCommand</code> would then check if keyword entered corresponds to <code>person</code>, <code>place</code> or <code>activity</code>.</p>
+</li>
+<li>
+<p>Upon valid keyword entered, <code>SuggestCommand</code> would call <code>Model#suggestPerson</code> to return a suggested person.</p>
+</li>
+<li>
+<p>ObservableList of filteredPersons would be iterated to get suggested person based on least time spent and reverse lexicographical order of name as a tie breaker.</p>
+</li>
+<li>
+<p>filteredPersonList would then be updated to reflect on the GUI as a suggestion.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>A similar approach would apply to <code>place</code> and <code>activity</code> where instead of <code>Model#suggestPerson</code>, it would be
+<code>Model#suggestPlace</code> or <code>Model#suggestActivity</code> where an ObservableList of filteredEvents would be iterated to get suggested place or activity based on the least frequency of the place visited or activity done.</p>
+</div>
+<div class="paragraph">
+<p>If there are multiple place visited or activity done has the same frequency, a tie breaker would be introduced where the first place/activity would be suggested based on chronological order.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-group-feature"><a class="link" href="#add-group-feature">3.4. Add Group Feature</a></h3>
+<div class="sect3">
+<h4 id="implementation-5"><a class="link" href="#implementation-5">3.4.1. Implementation</a></h4>
 <div class="paragraph">
 <p>To allow users to track social activities with a group of people, the <code>add_group</code> feature is implemented.
 The feature uses the <code>AddressBook</code> class stored in <code>ModelManager</code> instance of the app.</p>
@@ -517,21 +632,21 @@ The feature uses the <code>AddressBook</code> class stored in <code>ModelManager
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.4.2. Design Considerations</a></h4>
 
 </div>
 </div>
 <div class="sect2">
-<h3 id="delete-group-feature"><a class="link" href="#delete-group-feature">3.3. Delete Group Feature</a></h3>
+<h3 id="delete-group-feature"><a class="link" href="#delete-group-feature">3.5. Delete Group Feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-4"><a class="link" href="#implementation-4">3.3.1. Implementation</a></h4>
+<h4 id="implementation-6"><a class="link" href="#implementation-6">3.5.1. Implementation</a></h4>
 
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-group-feature"><a class="link" href="#list-group-feature">3.4. List Group Feature</a></h3>
+<h3 id="list-group-feature"><a class="link" href="#list-group-feature">3.6. List Group Feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-5"><a class="link" href="#implementation-5">3.4.1. Implementation</a></h4>
+<h4 id="implementation-7"><a class="link" href="#implementation-7">3.6.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The list feature allows users to view all the social groups currently in Coder Life Insights.</p>
 </div>
@@ -576,12 +691,12 @@ The feature uses the <code>AddressBook</code> class stored in <code>ModelManager
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-event-feature"><a class="link" href="#add-event-feature">3.5. Add Event Feature</a></h3>
+<h3 id="add-event-feature"><a class="link" href="#add-event-feature">3.7. Add Event Feature</a></h3>
 <div class="paragraph">
 <p>The add event feature allows users to add an event to a saved contact or group in CoderLifeInsights specified using the member <code>m/</code> tag or the group <code>g/</code> tag.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-6"><a class="link" href="#implementation-6">3.5.1. Implementation</a></h4>
+<h4 id="implementation-8"><a class="link" href="#implementation-8">3.7.1. Implementation</a></h4>
 <div class="paragraph">
 <p>Command: <code>add_event ACTIVITY m/INDEX time/TIME place/PLACE</code> or <code>add_event ACTIVITY g/INDEX time/TIME place/PLACE</code></p>
 </div>
@@ -718,31 +833,30 @@ The feature uses the <code>AddressBook</code> class stored in <code>ModelManager
 </div>
 </div>
 <div class="sect3">
-<h4 id="justification"><a class="link" href="#justification">3.5.2. Justification</a></h4>
+<h4 id="justification"><a class="link" href="#justification">3.7.2. Justification</a></h4>
 <div class="paragraph">
 <p>The Add Event feature and the relevant classes were added and implemented to add and store Events with relevant data that are used to generate output for other features such as insights.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="insights-feature"><a class="link" href="#insights-feature">3.6. Insights feature</a></h3>
+<h3 id="insights-feature"><a class="link" href="#insights-feature">3.8. Insights feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-7"><a class="link" href="#implementation-7">3.6.1. Implementation</a></h4>
+<h4 id="implementation-9"><a class="link" href="#implementation-9">3.8.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The Insights feature is facilitated by <code>FrequencyList</code>, which contains an <code>ObservableList</code>
 backed by an <code>ArrayList</code>, and uses a <code>HashMap</code> to ensure the uniqueness of each list.
 Each <code>Person</code> object contains two <code>FrequencyList</code> objects, a <code>placeList</code> and an <code>activityList</code>.
-At the same time, the <code>model</code> also has its own <code>FrequencyList</code>. When the View Command is
-activated, the <code>model</code> updates its own <code>FrequencyList</code> with the contents of the selected
-Person&#8217;s <code>placeList</code> or <code>activityList</code>. The View Command then switches the application
-display to show the model&#8217;s <code>FrequencyList</code>.</p>
+At the same time, the <code>model</code> also has its own <code>FrequencyList</code>.
+When the View Command is activated, the <code>model</code> updates its own <code>FrequencyList</code> with the contents of the selected Person&#8217;s <code>placeList</code> or <code>activityList</code>.
+The View Command then switches the application display to show the model&#8217;s <code>FrequencyList</code>.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.7. [Proposed] Undo/Redo feature</a></h3>
+<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.9. [Proposed] Undo/Redo feature</a></h3>
 <div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.7.1. Proposed Implementation</a></h4>
+<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.9.1. Proposed Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
 It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and
@@ -769,7 +883,8 @@ Additionally, it implements the following operations:</p>
 <p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the initial CoderLifeInsights state, and the <code>currentStatePointer</code> pointing to that single CoderLifeInsights state.</p>
+<p>Step 1. The user launches the application for the first time.
+The <code>VersionedAddressBook</code> will be initialized with the initial CoderLifeInsights state, and the <code>currentStatePointer</code> pointing to that single CoderLifeInsights state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -777,7 +892,8 @@ Additionally, it implements the following operations:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th person in the CoderLifeInsights. The <code>delete</code> command calls <code>Model#commitAddressBook()</code>, causing the modified state of the CoderLifeInsights after the <code>delete 5</code> command executes to be saved in the <code>addressBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
+<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th person in the CoderLifeInsights.
+The <code>delete</code> command calls <code>Model#commitAddressBook()</code>, causing the modified state of the CoderLifeInsights after the <code>delete 5</code> command executes to be saved in the <code>addressBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -785,7 +901,8 @@ Additionally, it implements the following operations:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new person. The <code>add</code> command also calls <code>Model#commitAddressBook()</code>, causing another modified CoderLifeInsights state to be saved into the <code>addressBookStateList</code>.</p>
+<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new person.
+The <code>add</code> command also calls <code>Model#commitAddressBook()</code>, causing another modified CoderLifeInsights state to be saved into the <code>addressBookStateList</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -805,7 +922,8 @@ If a command fails its execution, it will not call <code>Model#commitAddressBook
 </table>
 </div>
 <div class="paragraph">
-<p>Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoAddressBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous CoderLifeInsights state, and restores the CoderLifeInsights to that state.</p>
+<p>Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the <code>undo</code> command.
+The <code>undo</code> command will call <code>Model#undoAddressBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous CoderLifeInsights state, and restores the CoderLifeInsights to that state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -819,7 +937,9 @@ If a command fails its execution, it will not call <code>Model#commitAddressBook
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If the <code>currentStatePointer</code> is at index 0, pointing to the initial CoderLifeInsights state, then there are no previous CoderLifeInsights states to restore. The <code>undo</code> command uses <code>Model#canUndoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
+If the <code>currentStatePointer</code> is at index 0, pointing to the initial CoderLifeInsights state, then there are no previous CoderLifeInsights states to restore.
+The <code>undo</code> command uses <code>Model#canUndoAddressBook()</code> to check if this is the case.
+If so, it will return an error to the user rather than attempting to perform the undo.
 </td>
 </tr>
 </table>
@@ -854,13 +974,17 @@ The lifeline for <code>UndoCommand</code> should end at the destroy marker (X) b
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If the <code>currentStatePointer</code> is at index <code>addressBookStateList.size() - 1</code>, pointing to the latest CoderLifeInsights state, then there are no undone CoderLifeInsights states to restore. The <code>redo</code> command uses <code>Model#canRedoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
+If the <code>currentStatePointer</code> is at index <code>addressBookStateList.size() - 1</code>, pointing to the latest CoderLifeInsights state, then there are no undone CoderLifeInsights states to restore.
+The <code>redo</code> command uses <code>Model#canRedoAddressBook()</code> to check if this is the case.
+If so, it will return an error to the user rather than attempting to perform the redo.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the CoderLifeInsights, such as <code>list</code>, will usually not call <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> or <code>Model#redoAddressBook()</code>. Thus, the <code>addressBookStateList</code> remains unchanged.</p>
+<p>Step 5. The user then decides to execute the command <code>list</code>.
+Commands that do not modify the CoderLifeInsights, such as <code>list</code>, will usually not call <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> or <code>Model#redoAddressBook()</code>.
+Thus, the <code>addressBookStateList</code> remains unchanged.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -868,7 +992,10 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitAddressBook()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>addressBookStateList</code>, all CoderLifeInsights states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
+<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitAddressBook()</code>.
+Since the <code>currentStatePointer</code> is not pointing at the end of the <code>addressBookStateList</code>, all CoderLifeInsights states after the <code>currentStatePointer</code> will be purged.
+We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command.
+This is the behavior that most modern desktop applications follow.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -885,7 +1012,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.7.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.9.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -931,7 +1058,8 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
 </li>
 <li>
-<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedAddressBook</code>.</p>
+<p>Cons: Logic is duplicated twice.
+For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedAddressBook</code>.</p>
 </li>
 </ul>
 </div>
@@ -944,7 +1072,8 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <p>Pros: We do not need to maintain a separate list, and just reuse what is already in the codebase.</p>
 </li>
 <li>
-<p>Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
+<p>Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands.
+Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
 </li>
 </ul>
 </div>
@@ -955,20 +1084,21 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.8. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.10. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.9. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.11. Logging</a></h3>
 <div class="paragraph">
-<p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
+<p>We are using <code>java.util.logging</code> package for logging.
+The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.10, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.12, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -999,7 +1129,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.10. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.12. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1010,23 +1140,376 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <h2 id="documentation"><a class="link" href="#documentation">4. Documentation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Refer to the guide <a href="Documentation.html">here</a>.</p>
+<p>We use asciidoc for writing documentation.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+We chose asciidoc over Markdown because asciidoc, although a bit more complex than Markdown, provides more flexibility in formatting.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="editing-documentation"><a class="link" href="#editing-documentation">4.1. Editing Documentation</a></h3>
+<div class="paragraph">
+<p>See <a href="UsingGradle.html#rendering-asciidoc-files">UsingGradle.adoc</a> to learn how to render <code>.adoc</code> files locally to preview the end result of your edits.
+Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows you to preview the changes you have made to your <code>.adoc</code> files in real-time.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-diagrams"><a class="link" href="#editing-diagrams">4.2. Editing Diagrams</a></h3>
+<div class="paragraph">
+<p>See <a href="UsingPlantUml.html">UsingPlantUml.adoc</a> to find out how to create and update the UML diagrams in the developer guide.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="publishing-documentation"><a class="link" href="#publishing-documentation">4.3. Publishing Documentation</a></h3>
+<div class="paragraph">
+<p>See <a href="UsingTravis.html#deploying-github-pages">UsingTravis.adoc</a> to learn how to deploy GitHub Pages using Travis.</p>
+</div>
+<div class="sect3">
+<h4 id="converting-documentation-to-pdf-format"><a class="link" href="#converting-documentation-to-pdf-format">4.3.1. Converting Documentation to PDF format</a></h4>
+<div class="paragraph">
+<p>We use <a href="https://www.google.com/chrome/browser/desktop/">Google Chrome</a> for converting documentation to PDF format, as Chrome&#8217;s PDF engine preserves hyperlinks used in webpages.</p>
+</div>
+<div class="paragraph">
+<p>Here are the steps to convert the project documentation files to PDF format.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Follow the instructions in <a href="UsingGradle.html#rendering-asciidoc-files">UsingGradle.adoc</a> to convert the AsciiDoc files in the <code>docs/</code> directory to HTML format.</p>
+</li>
+<li>
+<p>Go to your generated HTML files in the <code>build/docs</code> folder, right click on them and select <code>Open with</code> &#8594; <code>Google Chrome</code>.</p>
+</li>
+<li>
+<p>Within Chrome, click on the <code>Print</code> option in Chrome&#8217;s menu.</p>
+</li>
+<li>
+<p>Set the destination to <code>Save as PDF</code>, then click <code>Save</code> to save a copy of the file in PDF format.
+For best results, use the settings indicated in the screenshot below.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
+</div>
+<div class="title">Figure 11. Saving documentation as PDF files in Chrome</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Docs-SiteWideDocSettings"><a class="link" href="#Docs-SiteWideDocSettings">4.4. Site-wide Documentation Settings</a></h3>
+<div class="paragraph">
+<p>The <a href="https://github.com/AY1920S2-CS2103-W14-4/main/build.gradle"><code>build.gradle</code></a> file specifies some project-specific <a href="https://asciidoctor.org/docs/user-manual/#attributes">asciidoc attributes</a> which affects how all documentation files within this project are rendered.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Attributes left unset in the <code>build.gradle</code> file will use their <strong>default value</strong>, if any.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 1. List of site-wide attributes</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 50%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribute name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>site-name</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>The name of the website.
+If set, the name will be displayed near the top of the page.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>not set</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>site-githuburl</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>URL to the site&#8217;s repository on <a href="https://github.com">GitHub</a>.
+Setting this will add a "View on GitHub" link in the navigation bar.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>not set</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>site-seedu</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Define this attribute if the project is an official SE-EDU project.
+This will render the SE-EDU navigation bar at the top of the page, and add some SE-EDU-specific navigation items.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>not set</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="Docs-PerFileDocSettings"><a class="link" href="#Docs-PerFileDocSettings">4.5. Per-file Documentation Settings</a></h3>
+<div class="paragraph">
+<p>Each <code>.adoc</code> file may also specify some file-specific <a href="https://asciidoctor.org/docs/user-manual/#attributes">asciidoc attributes</a> which affects how the file is rendered.</p>
+</div>
+<div class="paragraph">
+<p>Asciidoctor&#8217;s <a href="https://asciidoctor.org/docs/user-manual/#builtin-attributes">built-in attributes</a> may be specified and used as well.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Attributes left unset in <code>.adoc</code> files will use their <strong>default value</strong>, if any.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 2. List of per-file attributes, excluding Asciidoctor&#8217;s built-in attributes</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 50%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Attribute name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>site-section</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Site section that the document belongs to.
+This will cause the associated item in the navigation bar to be highlighted.
+One of: <code>UserGuide</code>, <code>DeveloperGuide</code>, <code>LearningOutcomes</code>*, <code>AboutUs</code>, <code>ContactUs</code></p>
+</div>
+<div class="paragraph">
+<p><em>* Official SE-EDU projects only</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>not set</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>no-site-header</code></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Set this attribute to remove the site navigation bar.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>not set</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="site-template"><a class="link" href="#site-template">4.6. Site Template</a></h3>
+<div class="paragraph">
+<p>The files in <a href="https://github.com/AY1920S2-CS2103-W14-4/main/docs/stylesheets"><code>docs/stylesheets</code></a> are the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS stylesheets</a> of the site.
+You can modify them to change some properties of the site&#8217;s design.</p>
+</div>
+<div class="paragraph">
+<p>The files in <a href="https://github.com/AY1920S2-CS2103-W14-4/main/docs/templates"><code>docs/templates</code></a> controls the rendering of <code>.adoc</code> files into HTML5. These template files are written in a mixture of <a href="https://www.ruby-lang.org">Ruby</a> and <a href="http://slim-lang.com">Slim</a>.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Modifying the template files in <a href="https://github.com/AY1920S2-CS2103-W14-4/main/docs/templates"><code>docs/templates</code></a> requires some knowledge and experience with Ruby and Asciidoctor&#8217;s API.
+You should only modify them if you need greater control over the site&#8217;s layout than what stylesheets can provide.
+The SE-EDU team does not provide support for modified template files.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="testing"><a class="link" href="#testing">5. Testing</a></h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="running-tests"><a class="link" href="#running-tests">5.1. Running Tests</a></h3>
 <div class="paragraph">
-<p>Refer to the guide <a href="Testing.html">here</a>.</p>
+<p>There are two ways to run tests.</p>
+</div>
+<div class="paragraph">
+<p><strong>Method 1: Using IntelliJ JUnit test runner</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To run all tests, right-click on the <code>src/test/java</code> folder and choose <code>Run 'All Tests'</code></p>
+</li>
+<li>
+<p>To run a subset of tests, you can right-click on a test package, test class, or a test and choose <code>Run 'ABC'</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Method 2: Using Gradle</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Open a console and run the command <code>gradlew clean test</code> (Mac/Linux: <code>./gradlew clean test</code>)</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+See <a href="UsingGradle.html">UsingGradle.adoc</a> for more info on how to run tests using Gradle.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="types-of-tests"><a class="link" href="#types-of-tests">5.2. Types of tests</a></h3>
+<div class="paragraph">
+<p>We have three types of tests:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><em>Unit tests</em> targeting the lowest level methods/classes.<br>
+e.g. <code>seedu.address.commons.StringUtilTest</code></p>
+</li>
+<li>
+<p><em>Integration tests</em> that are checking the integration of multiple code units (those code units are assumed to be working).<br>
+e.g. <code>seedu.address.storage.StorageManagerTest</code></p>
+</li>
+<li>
+<p>Hybrids of unit and integration tests.
+These test are checking multiple code units as well as how the are connected together.<br>
+e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="troubleshooting-testing"><a class="link" href="#troubleshooting-testing">5.3. Troubleshooting Testing</a></h3>
+<div class="paragraph">
+<p><strong>Problem: Keyboard and mouse movements are not simulated on macOS Mojave, resulting in GUI Tests failure.</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Reason: From macOS Mojave onwards, applications without <code>Accessibility</code> permission cannot simulate certain keyboard and mouse movements.</p>
+</li>
+<li>
+<p>Solution: Open <code>System Preferences</code>, click <code>Security and Privacy</code> &#8594; <code>Privacy</code> &#8594; <code>Accessibility</code>, and check the box beside <code>Intellij IDEA</code>.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/testfx-idea-accessibility-permissions.png" alt="testfx idea accessibility permissions" width="600">
+</div>
+<div class="title">Figure 12. <code>Accessibility</code> permission is granted to <code>IntelliJ IDEA</code></div>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="dev-ops"><a class="link" href="#dev-ops">6. Dev Ops</a></h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="build-automation"><a class="link" href="#build-automation">6.1. Build Automation</a></h3>
 <div class="paragraph">
-<p>Refer to the guide <a href="DevOps.html">here</a>.</p>
+<p>See <a href="UsingGradle.html">UsingGradle.adoc</a> to learn how to use Gradle for build automation.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="continuous-integration"><a class="link" href="#continuous-integration">6.2. Continuous Integration</a></h3>
+<div class="paragraph">
+<p>We use <a href="https://travis-ci.org/">Travis CI</a> and <a href="https://www.appveyor.com/">AppVeyor</a> to perform <em>Continuous Integration</em> on our projects.
+See <a href="UsingTravis.html">UsingTravis.adoc</a> and <a href="UsingAppVeyor.html">UsingAppVeyor.adoc</a> for more details.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="coverage-reporting"><a class="link" href="#coverage-reporting">6.3. Coverage Reporting</a></h3>
+<div class="paragraph">
+<p>We use <a href="https://coveralls.io/">Coveralls</a> to track the code coverage of our projects.
+See <a href="UsingCoveralls.html">UsingCoveralls.adoc</a> for more details.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="documentation-previews"><a class="link" href="#documentation-previews">6.4. Documentation Previews</a></h3>
+<div class="paragraph">
+<p>When a pull request has changes to asciidoc files, you can use <a href="https://www.netlify.com/">Netlify</a> to see a preview of how the HTML version of those asciidoc files will look like when the pull request is merged.
+See <a href="UsingNetlify.html">UsingNetlify.adoc</a> for more details.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="making-a-release"><a class="link" href="#making-a-release">6.5. Making a Release</a></h3>
+<div class="paragraph">
+<p>Here are the steps to create a new release.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Update the version number in <a href="https://github.com/AY1920S2-CS2103-W14-4/main/src/main/java/seedu/address/MainApp.java"><code>MainApp.java</code></a>.</p>
+</li>
+<li>
+<p>Generate a JAR file <a href="UsingGradle.html#creating-the-jar-file">using Gradle</a>.</p>
+</li>
+<li>
+<p>Tag the repo with the version number. e.g. <code>v0.1</code></p>
+</li>
+<li>
+<p><a href="https://help.github.com/articles/creating-releases/">Create a new release using GitHub</a> and upload the JAR file you created.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="managing-dependencies"><a class="link" href="#managing-dependencies">6.6. Managing Dependencies</a></h3>
+<div class="paragraph">
+<p>A project often depends on third-party libraries.
+For example, Address Book depends on the <a href="https://github.com/FasterXML/jackson">Jackson library</a> for JSON parsing.
+Managing these <em>dependencies</em> can be automated using Gradle.
+For example, Gradle can download the dependencies automatically, which is better than these alternatives:</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Include those libraries in the repo (this bloats the repo size)</p>
+</li>
+<li>
+<p>Require developers to download those libraries manually (this creates extra work for developers)</p>
+</li>
+</ol>
+</div>
 </div>
 </div>
 </div>
@@ -1202,56 +1685,44 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">get suggestions on an activity to do with a person</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">to know which activity is best to with that specific person.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">get suggestions on a person based time spent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know who to hangout with.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">get suggestions on an activity based on my recent activities</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">get suggestions on an activity based on my activities done</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">to know which activity to do.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">get suggestions on a place to go based on a person</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">know which place is best to with person specified.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">get suggestions on a place based on my recent places visited</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">get suggestions on a place based on my places visited</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">know which place to go to.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">get suggestions on a person based on group time spent</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">know which person to hang out with from a specific group.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">get insights on places I have been to (pie chart)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">get insights on places I have been to.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">get a glimpse of all the places I have been to.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">get insights on time spent with a specific group</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">get insights on time spent with all groups</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">know time spent distribution within a group.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">get insights on all activities done (pie chart)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">get insights on all activities done.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">know which activities I have done and their frequency.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">get insights on time spent with different groups (pie chart)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">know the spread of time with respect to different social groups.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">get insights on time spent with individuals</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know the spread of time with all individuals.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
@@ -1298,6 +1769,24 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="paragraph">
 <p><strong>Extensions</strong></p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>2a.
+The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a.
+Specific person selected to be deleted not in list.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
 <div class="sect2">
 <h3 id="use-case-add-person"><a class="link" href="#use-case-add-person">C.1. Use case: Add person</a></h3>
 <div class="paragraph">
@@ -1322,11 +1811,12 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist">
 <ul>
 <li>
-<p>3a. No details of the person provided as arguments.</p>
+<p>1a.
+No details of the person provided as arguments.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a1. CoderLifeInsights shows an error message.</p>
+<p>1a1. CoderLifeInsights shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
 </div>
@@ -1361,11 +1851,12 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist">
 <ul>
 <li>
-<p>3a. No details of the person provided as arguments.</p>
+<p>1a.
+No details of the person provided as arguments.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a1. CoderLifeInsights shows an error message.</p>
+<p>1a1. CoderLifeInsights shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
 </div>
@@ -1403,11 +1894,12 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist">
 <ul>
 <li>
-<p>3a. No details of the person provided as arguments.</p>
+<p>1a.
+No details of the person provided as arguments.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a1. CoderLifeInsights shows an error message.</p>
+<p>1a1. CoderLifeInsights shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
 </div>
@@ -1417,8 +1909,184 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </li>
 </ul>
 </div>
+</div>
+<div class="sect2">
+<h3 id="use-case-export-data"><a class="link" href="#use-case-export-data">C.4. Use case: Export data</a></h3>
 <div class="paragraph">
-<p><em>{More to be added}</em></p>
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to export life, group and event data to specified CSV file path.</p>
+</li>
+<li>
+<p>CoderLifeInsights exports data to specified CSV files.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>1a.
+No file path specified.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1a1. CoderLifeInsights shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-import-data"><a class="link" href="#use-case-import-data">C.5. Use case: Import data</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to import life, group and event data from specified CSV file path.</p>
+</li>
+<li>
+<p>CoderLifeInsights imports data from specified CSV files.</p>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong>
+* 1a.
+No file path specified.
+** 1a1. CoderLifeInsights shows an error message.</p>
+</div>
+<div class="paragraph">
+<p>+
+Use case resumes at step 2.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-suggest-person"><a class="link" href="#use-case-suggest-person">C.6. Use case: Suggest person</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests for suggestion of person.</p>
+</li>
+<li>
+<p>CoderLifeInsights suggests a person to hangout with.</p>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong>
+* 1a.
+No person available in CoderLifeInsights to suggest</p>
+</div>
+<div class="paragraph">
+<p>+
+Use case ends.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-suggest-place"><a class="link" href="#use-case-suggest-place">C.7. Use case: Suggest place</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests for suggestion of place.</p>
+</li>
+<li>
+<p>CoderLifeInsights suggests a place to visit.</p>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong>
+* 1a.
+No place available in CoderLifeInsights to suggest</p>
+</div>
+<div class="paragraph">
+<p>+
+Use case ends.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-suggest-activity"><a class="link" href="#use-case-suggest-activity">C.8. Use case: Suggest activity</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests for suggestion of activity.</p>
+</li>
+<li>
+<p>CoderLifeInsights suggests an activity to do.</p>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong>
+* 1a.
+No activity available in CoderLifeInsights to suggest</p>
+</div>
+<div class="paragraph">
+<p>+
+Use case ends.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-view-time"><a class="link" href="#use-case-view-time">C.9. Use case: View time</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong>
+1. User requests to view time comparison between individuals and groups.
+2. CoderLifeInsights displays pie char of Individual time spent vs Group time spent.</p>
+</div>
+<div class="paragraph">
+<p>+
+Use case ends</p>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>1a.
+No event data for group or individual available for comparison.</p>
+<div class="paragraph">
+<p>Use case ends</p>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -1438,75 +2106,63 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
 </li>
 <li>
-<p>Should be easy to log info onto the application. This can be achieved using dropdown menus and suggestive text.</p>
+<p>Should be easy to log info onto the application.</p>
+</li>
+<li>
+<p>Should not require user to install</p>
+</li>
+<li>
+<p>Features implemented should be testable using automated and manual testing.</p>
+</li>
+<li>
+<p>Should work for a single user only.</p>
+</li>
+<li>
+<p>Should be able to run with or without internet connection.</p>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="glossary"><a class="link" href="#glossary">Appendix E: Glossary</a></h2>
 <div class="sectionbody">
-<div class="dlist">
+<div id="mainstream-os" class="dlist">
 <dl>
-<dt class="hdlist1"><a id="mainstream-os"></a> Mainstream OS</dt>
+<dt class="hdlist1">Mainstream OS</dt>
 <dd>
 <p>Windows, Linux, Unix, OS-X</p>
 </dd>
-<dt class="hdlist1"><a id="private-contact-detail"></a> Private contact detail</dt>
+</dl>
+</div>
+<div id="private-contact-detail" class="dlist">
+<dl>
+<dt class="hdlist1">Private contact detail</dt>
 <dd>
 <p>A contact detail that is not meant to be shared with others</p>
 </dd>
-<dt class="hdlist1"><a id="social-group"></a> Social Group</dt>
+</dl>
+</div>
+<div id="social-group" class="dlist">
+<dl>
+<dt class="hdlist1">Social Group</dt>
 <dd>
 <p>A cluster of people with a commonality as identified by the user (eg same JC, same OG, etc)</p>
+</dd>
+</dl>
+</div>
+<div id="coderlifeinsights" class="dlist">
+<dl>
+<dt class="hdlist1">CoderLifeInsights</dt>
+<dd>
+<p>An application.</p>
 </dd>
 </dl>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="product-survey"><a class="link" href="#product-survey">Appendix F: Product Survey</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Product Name</strong></p>
-</div>
-<div class="paragraph">
-<p>Author: &#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>Pros:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Cons:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a></h2>
+<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">7. Instructions for Manual Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Given below are instructions to test the app manually.</p>
@@ -1524,7 +2180,7 @@ These instructions only provide a starting point for testers to work on; testers
 </table>
 </div>
 <div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">G.1. Launch and Shutdown</a></h3>
+<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">7.1. Launch and Shutdown</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1562,7 +2218,7 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">G.2. Deleting a person</a></h3>
+<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">7.2. Deleting a person</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1574,11 +2230,15 @@ Expected: The most recent window size and location is retained.</p>
 </li>
 <li>
 <p>Test case: <code>delete 1</code><br>
-Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.</p>
+Expected: First contact is deleted from the list.
+Details of the deleted contact shown in the status message.
+Timestamp in the status bar is updated.</p>
 </li>
 <li>
 <p>Test case: <code>delete 0</code><br>
-Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.</p>
+Expected: No person is deleted.
+Error details shown in the status message.
+Status bar remains the same.</p>
 </li>
 <li>
 <p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
@@ -1594,7 +2254,236 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">G.3. Saving data</a></h3>
+<h3 id="finding-a-person"><a class="link" href="#finding-a-person">7.3. Finding a person</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Finding a person with keywords</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Have person data containing keyword available for search.</p>
+</li>
+<li>
+<p>Test case: <code>find betty</code>
+Expected: Details of betty shown in GUI.</p>
+</li>
+<li>
+<p>Test case: <code>find jjjjjjjj</code>
+Expected: No detail of jjjjjjjj shown in GUI.
+0 persons listed! shown in status message.
+Nothing displayed in Person column.</p>
+</li>
+<li>
+<p>Other incorrect find commands to try: <code>find</code>, <code>find ukloiuj</code><br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="suggest-a-person"><a class="link" href="#suggest-a-person">7.4. Suggest a person</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Suggest a person to hangout with</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Have person data with event added for suggestion.</p>
+</li>
+<li>
+<p>Test case: <code>suggest person</code>
+Expected: Details of person with the least time spent shown in People column</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Suggest person with no events added.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Have person data with no events added.</p>
+</li>
+<li>
+<p>Test case: <code>suggest person</code>
+Expected: The last People alphabetically in CoderlifeInsights shown in People column.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Suggest person with no person data.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Have no person data in CoderLifeInsights</p>
+</li>
+<li>
+<p>Test case: <code>suggest person</code>
+Expected: Nothing shown in People column.
+Person suggestion provided shown in status message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="suggest-a-place"><a class="link" href="#suggest-a-place">7.5. Suggest a place</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Suggest a place to visit</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Have events added for suggestion.</p>
+</li>
+<li>
+<p>Test case: <code>suggest place</code>
+Expected: Details of place with the least frequency visited shown in Insights column</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Suggest place with no events added.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Have data with no events added.</p>
+</li>
+<li>
+<p>Test case: <code>suggest place</code>
+Expected: Nothing shown in Insights column.
+Place suggestion provided shown in status message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="suggest-an-activity"><a class="link" href="#suggest-an-activity">7.6. Suggest an activity</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Suggest an activity to do.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Have events added for suggestion.</p>
+</li>
+<li>
+<p>Test case: <code>suggest activity</code>
+Expected: Details of activity with the least frequency visited shown in Insights column</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Suggest activity with no events added.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Have data with no events added.</p>
+</li>
+<li>
+<p>Test case: <code>suggest activity</code>
+Expected: Nothing shown in Insights column.
+Activity suggestion provided shown in status message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="import-coderlifeinsights-data"><a class="link" href="#import-coderlifeinsights-data">7.7. Import CoderLifeInsights data</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Import life, group and event data.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: CSV files containing named <code>life.csv</code>, <code>group.csv</code>
+and <code>event.csv</code> data available in specified path.
+No duplicates of person, group and events available in CoderLifeInsights.</p>
+</li>
+<li>
+<p>Test case: <code>import l/life.csv g/group.csv e/event.csv</code>
+Expected: People column populated with person data.<br>
+Insights column populated with time data.<br>
+Groups column populated with group data.<br>
+Files imported: life.csv groups.csv events.csv shown in status message.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Import life, group and event data with non-existent file.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: CSV files of provided path does not exist.</p>
+</li>
+<li>
+<p>Test case: `import l/test.csv g/grouptest.csv e/eventtest.csv
+Expected: CoderLifeInsights will return error message showing that path provided does not exist.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="export-coderlifeinsights-data"><a class="link" href="#export-coderlifeinsights-data">7.8. Export CoderLifeInsights data</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Export life, group and event data.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: CSV files of provided file name must not exist.</p>
+</li>
+<li>
+<p>Test case: <code>export l/life.csv g/group.csv e/event.csv</code>
+Expected: All valid life, group and event data will be exported to the respective CSV files.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Export life, group and event data with CSV files that exist in path provided.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: CSV files of provided file name must exist.</p>
+</li>
+<li>
+<p>Test case: <code>export l/life.csv g/group.csv e/event.csv</code>
+Expected: CoderLifeInsights will return error message showing that files already exist.
+Another naming convention is required.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-data"><a class="link" href="#saving-data">7.9. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1602,16 +2491,14 @@ Expected: Similar to previous.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em></p>
+<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em>
+<em>{ more test cases &#8230;&#8203; }</em></p>
 </li>
 </ol>
 </div>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
 </div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 07:17:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 07:44:41 UTC</div></div></div></body></html>
