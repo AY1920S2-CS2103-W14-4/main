@@ -703,13 +703,13 @@ Format: <code>suggest SUGGESTION_PARAMETER</code></p>
 It allows users to bulk import their contacts, groups and events from a previously exported data from CoderLifeInsights application.</p>
 </div>
 <div class="paragraph">
-<p>Given below is an activity diagram shows how the import operation works with the command <code>import l/life.csv g/group.csv e/event.csv</code>:</p>
+<p>Given below is a sequence diagram to illustrate how the import operation interacts with the command <code>import l/life.csv g/group.csv e/event.csv</code> :</p>
 </div>
-<div id="ImportFileActivityDiagram" class="imageblock" style="text-align: center">
+<div id="ImportFileSequenceDiagram" class="imageblock" style="text-align: center">
 <div class="content">
-<img src="../images/ImportFileActivityDiagram.png" alt="][pdfwidth=&quot;40%&quot;" width="40%">
+<img src="../images/ImportFileSequenceDiagram.png" alt="][pdfwidth=&quot;70%&quot;" width="70%">
 </div>
-<div class="title">Figure 6. Import feature activity diagram.</div>
+<div class="title">Figure 6. Import feature sequence diagram.</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -721,8 +721,11 @@ It allows users to bulk import their contacts, groups and events from a previous
 </li>
 <li>
 <p>On successful check, <code>ImportCommand</code> would be created and calls <code>ImportFile#importCsv</code>, <code>ImportFile#importGroupCsv</code> and
-<code>ImportFile#importEventCsv`to check if the CSV file headers are valid.
- qq4. `ImportCommand</code> would then call <code>Model#hasPersons</code>, <code>Model#hasGroups</code> and <code>Model#hasEvents</code> to check if the persons, groups and events are duplicates of the current CoderLifeInsights.</p>
+`ImportFile#importEventCsv`to check if the CSV file headers are valid.</p>
+</li>
+<li>
+<p><code>ImportCommand</code> would then call <code>Model#importCsvToAddressBook</code>, <code>Model#importCsvGroupsToAddressBook</code> and <code>Model#importCsvEventsToAddressBook</code>
+to check if the persons, groups and events are duplicates of the current CoderLifeInsights.</p>
 </li>
 <li>
 <p>If the imported data are not duplicates, it will then create a valid list of persons, groups and events to be added to CoderLifeInsights.</p>
@@ -731,6 +734,15 @@ It allows users to bulk import their contacts, groups and events from a previous
 <p>CoderLifeInsights will then populate the 3 lists to the current data.</p>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p>Given below is an activity diagram to summarise the steps above.</p>
+</div>
+<div id="ImportFileActivityDiagram" class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/ImportFileActivityDiagram.png" alt="][pdfwidth=&quot;40%&quot;" width="40%">
+</div>
+<div class="title">Figure 7. Import feature activity diagram.</div>
 </div>
 </div>
 <div class="sect3">
@@ -845,13 +857,13 @@ There would be risk of the application stop responding if the second alternative
 <p>The export feature allows users to export their current data into a comma-separated value file with file name specified.</p>
 </div>
 <div class="paragraph">
-<p>Given below is an activity diagram illustrating how the export operation works with the command <code>export l/life.csv g/group.csv e/event.csv</code></p>
+<p>Given below is a sequence diagram to illustrate how the export operation interacts with the command <code>export l/life.csv g/group.csv e/event.csv</code> :</p>
 </div>
-<div id="ExportFileActivityDiagram" class="imageblock" style="text-align: center">
+<div id="ExportFileSequenceDiagram" class="imageblock" style="text-align: center">
 <div class="content">
-<img src="../images/ExportFileActivityDiagram.png" alt="][pdfwidth=&quot;40%&quot;" width="40%">
+<img src="../images/ExportFileSequenceDiagram.png" alt="][pdfwidth=&quot;70%&quot;" width="70%">
 </div>
-<div class="title">Figure 7. Export feature activity diagram.</div>
+<div class="title">Figure 8. Export feature activity diagram.</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -873,6 +885,15 @@ and <code>ExportFile#exportEventCsv</code>.</p>
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>Given below is an activity diagram to summarise the steps above.</p>
+</div>
+<div id="ExportFileActivityDiagram" class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/ExportFileActivityDiagram.png" alt="][pdfwidth=&quot;40%&quot;" width="40%">
+</div>
+<div class="title">Figure 9. Export feature activity diagram.</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -883,13 +904,13 @@ and <code>ExportFile#exportEventCsv</code>.</p>
 <p>The suggestion feature allows users to get a person to hangout with, a place to hangout or an activity to do.</p>
 </div>
 <div class="paragraph">
-<p>Given below is an activity diagram illustrating how the suggestion operation works with the command <code>suggest person</code>.
-.Suggest person feature activity diagram.</p>
+<p>Given below is an sequence diagram illustrating how the suggestion operation works with the command <code>suggest person</code>.</p>
 </div>
-<div id="SuggestPersonActivityDiagram" class="imageblock" style="text-align: center">
+<div id="SuggestPersonSequenceDiagram" class="imageblock" style="text-align: center">
 <div class="content">
-<img src="../images/SuggestPersonActivityDiagram.png" alt="][pdfwidth=&quot;40%&quot;" width="40%">
+<img src="../images/SuggestPersonSequenceDiagram.png" alt="][pdfwidth=&quot;70%&quot;" width="70%">
 </div>
+<div class="title">Figure 10. Suggest person feature sequence diagram.</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -897,13 +918,15 @@ and <code>ExportFile#exportEventCsv</code>.</p>
 <p>User enters <code>suggest person</code>.</p>
 </li>
 <li>
-<p><code>SuggestCommand</code> would then check if keyword entered corresponds to <code>person</code>, <code>place</code> or <code>activity</code>.</p>
+<p><code>SuggestCommandParser</code> would then check if keyword entered corresponds to <code>person</code>, <code>place</code> or <code>activity</code>.</p>
 </li>
 <li>
 <p>Upon valid keyword entered, <code>SuggestCommand</code> would call <code>Model#suggestPerson</code> to return a suggested person.</p>
 </li>
 <li>
-<p>ObservableList of filteredPersons would be iterated to get suggested person based on least time spent and reverse lexicographical order of name as a tie breaker.</p>
+<p>ObservableList of filteredPersons would be iterated to get suggested person based on least time spent and reverse
+lexicographical order of name as a tie breaker. <code>Model</code> would self-invoke the method <code>Model#updateFilteredPersonList</code>
+to update filteredPersonList.</p>
 </li>
 <li>
 <p>filteredPersonList would then be updated to reflect on the GUI as a suggestion.</p>
@@ -912,12 +935,22 @@ and <code>ExportFile#exportEventCsv</code>.</p>
 </div>
 <div class="paragraph">
 <p>A similar approach would apply to <code>place</code> and <code>activity</code> where instead of <code>Model#suggestPerson</code>, it would be
-<code>Model#suggestPlace</code> or <code>Model#suggestActivity</code> where an ObservableList of filteredEvents would be iterated to get suggested place or activity based on the least frequency of the place visited or activity done.</p>
+<code>Model#suggestPlace</code> or <code>Model#suggestActivity</code> where an ObservableList of filteredEvents would be iterated to get
+suggested place or activity based on the least frequency of the place visited or activity done.</p>
 </div>
 <div class="paragraph">
 <p>If there are multiple place visited or activity done has the same frequency, a tie breaker would be introduced where the first place/activity would be suggested based on chronological order.</p>
 </div>
+<div class="paragraph">
+<p>Given below is an activity diagram to summarise the steps above.</p>
+</div>
+<div id="SuggestPersonActivityDiagram" class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/SuggestPersonActivityDiagram.png" alt="][pdfwidth=&quot;40%&quot;" width="40%">
+</div>
+<div class="title">Figure 11. Suggest person feature activity diagram.</div>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 12:19:30 UTC</div></div></div></body></html>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 13:22:10 UTC</div></div></div></body></html>
