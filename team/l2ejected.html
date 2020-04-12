@@ -134,6 +134,22 @@ It required an in-depth analysis of design alternatives.</p>
 </div>
 </li>
 <li>
+<p><strong>Minor enhancement #2</strong>: Implementation of Insights feature for groups <code>view_groups</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: This enhancement allows the user to view the places visited and the activities done with a particular group. It also lists the number of times been to each place and number of times each activity is carried out with the group.</p>
+</li>
+<li>
+<p>Justification: This feature gives the user insights on the favourite places and activities of each group of friends in CoderLifeInsights.</p>
+</li>
+<li>
+<p>Highlights: This enhancement functions well with existing commands. It required an in-depth analysis of design alternatives.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
 <p><strong>Code contributed</strong>:[<a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#search=l2ejected&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2020-02-14&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false">RepoSense</a>]</p>
 </li>
 <li>
@@ -290,6 +306,73 @@ Insights and suggestions will be generated from the saved <code>PLACES</code>, <
 </tbody>
 </table>
 </div>
+<div class="sect2">
+<h3 id="insights-code-view_group-code"><a class="link" href="#insights-code-view_group-code">Insights: <code>view_group</code></a></h3>
+<div class="paragraph">
+<p>Lists insights about the user&#8217;s interactions with a particular group.
+These include places visited and activities done with that group.
+Format: `view_group INSIGHT_PARAMETER g/INDEX</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Remarks:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>INSIGHT_PARAMETERS include <code>places</code> and <code>activities</code>.</p>
+</li>
+<li>
+<p>INDEX must be an unsigned non-zero integer.</p>
+</li>
+<li>
+<p>Places and Activities are case-sensitive:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Swimming Pool</code> and <code>swimming pool</code> are considered different places</p>
+</li>
+<li>
+<p><code>SWIMMING</code> and <code>swimming</code> are considered different activities</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 80%;">
+<colgroup>
+<col style="width: 30%;">
+<col style="width: 30%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Example</th>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">View insights of places visited with first group</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view_group places g/1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CoderLifeInsights will return a table on the GUI displaying the places visited with the first group and the number of times the user has been there with the group</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">View insights of activities done with the second group</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view_group activities g/2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CoderLifeInsights will return a table on the GUI displaying the activities done with the second group and the number of times each activity has been done</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -313,7 +396,7 @@ Insights and suggestions will be generated from the saved <code>PLACES</code>, <
 <div class="sect3">
 <h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
 <div class="paragraph">
-<p>Command: <code>add_event [ACTIVITY] m/[INDEX] time/[TIME] place/[PLACE]</code></p>
+<p>Command: <code>add_event ACTIVITY m/INDEX time/TIME place/PLACE</code> or <code>add_event ACTIVITY g/INDEX time/TIME place/PLACE</code></p>
 </div>
 <div class="paragraph">
 <p>Remarks:</p>
@@ -321,10 +404,16 @@ Insights and suggestions will be generated from the saved <code>PLACES</code>, <
 <div class="ulist">
 <ul>
 <li>
-<p>[TIME] is the variable used to store the time the user has spent with a saved contact or group.</p>
+<p>TIME is the variable used to store the time the user has spent with a saved contact or group.</p>
 </li>
 <li>
-<p>[TIME] parameter must contain at least 2 digits. For example: A time of 1 hour and 30 minutes will be input as <code>130</code>.</p>
+<p>TIME parameter must contain at least 2 digits. For example: A time of 1 hour and 30 minutes will be input as <code>130</code>.</p>
+</li>
+<li>
+<p>An event added must have time of at least 1 minute. e.g. time/01</p>
+</li>
+<li>
+<p>Place and Activity are case-sensitive</p>
 </li>
 </ul>
 </div>
@@ -337,10 +426,10 @@ Insights and suggestions will be generated from the saved <code>PLACES</code>, <
 <div class="ulist">
 <ul>
 <li>
-<p>Activity <code>date night</code> into the Person&#8217;s activity list.</p>
+<p>Activity <code>date night</code> into the Person&#8217;s activityList.</p>
 </li>
 <li>
-<p>Place <code>Gardens by the Bay</code> into the Person&#8217;s place list.</p>
+<p>Place <code>Gardens by the Bay</code> into the Person&#8217;s placeList.</p>
 </li>
 <li>
 <p>Time <code>230</code> which equals 2 hours and 30 minutes, will be added to the Person&#8217;s time.</p>
@@ -348,11 +437,36 @@ Insights and suggestions will be generated from the saved <code>PLACES</code>, <
 </ul>
 </div>
 <div class="paragraph">
+<p>It will also create an Event with the following attributes:
+* Activity: <code>date night</code>
+* Place: <code>Gardens by the Bay</code>
+* Time: <code>2h 30m</code></p>
+</div>
+<div class="paragraph">
+<p>Depicted below is the class diagram of the Event class:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/EventClassDiagram.png" alt="EventClassDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The Event created is stored in an UniqueEventList, which is saved to the Json file as well. The Events saved are used to generate output for features.</p>
+</div>
+<div class="paragraph">
 <p>The sequence diagram below showcases how the command works with a valid input:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/addEventSequence.png" alt="addEventSequence" width="92.5%">
+</div>
+</div>
+<div class="paragraph">
+<p>The following class diagram shows how the Time, PlaceList and ActivityList are associated with a Person object:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/addEventClassDiagram.png" alt="addEventClassDiagram">
 </div>
 </div>
 <div class="paragraph">
@@ -388,19 +502,19 @@ Insights and suggestions will be generated from the saved <code>PLACES</code>, <
 <p><code>AddEventCommand#execute()</code> then computes the new Time by retrieving the Person&#8217;s current Time with the call to <code>person#getTime()</code> ,then adding it to the input Time.</p>
 </li>
 <li>
-<p><code>AddEventCommand#execute()</code> then creates a new Person object with all the same attributes except for the Time which is replaced by the new Time computed, with the call to the Person constructor.</p>
+<p><code>AddEventCommand#execute()</code> then creates a new ActivityList by retrieving the Person&#8217;s ActivityList with the call to <code>person#getActivityList2()</code>, followed by <code>ActivityList#addActivity()</code>, which returns a new ActivityList with the new activity added.</p>
+</li>
+<li>
+<p><code>AddEventCommand#execute()</code> then creates a new PlaceList by retrieving the Person&#8217;s PlaceList with the call to <code>person#getPlaceList2()</code>, followed by <code>PlaceList#addPlace()</code>, which returns a new PlaceList with the new place added.</p>
+</li>
+<li>
+<p><code>AddEventCommand#execute()</code> then creates a new Person object with all the same attributes except for the Time, PlaceList, and ActivityList which is replaced by the new Time computed, the new PlaceList and the new ActivityList with the call to the Person constructor.</p>
 </li>
 <li>
 <p><code>AddEventCommand#execute()</code> then replaces the existing Person object with the new Person object with the call to <code>model#setPerson()</code>.</p>
 </li>
 <li>
 <p><code>AddEventCommand#execute()</code> then updates the filtered list with the call to <code>model#updateFilteredPersonList()</code>.</p>
-</li>
-<li>
-<p><code>AddEventCommand#execute()</code> then calls the new Person object and adds <code>date night</code> into its frequencyList with the call to <code>person#addActivity</code>.</p>
-</li>
-<li>
-<p><code>AddEventCommand#execute()</code> then calls the new Person object and adds <code>Gardens by the Bay</code> into its frequencyList with the call to <code>person#addPlace</code>.</p>
 </li>
 <li>
 <p><code>AddEventCommand</code> returns the <code>CommandResult</code> to <code>AddressBookParser</code>.</p>
@@ -416,6 +530,12 @@ Insights and suggestions will be generated from the saved <code>PLACES</code>, <
 </div>
 </div>
 </div>
+<div class="sect3">
+<h4 id="justification"><a class="link" href="#justification">Justification</a></h4>
+<div class="paragraph">
+<p>The Add Event feature and the relevant classes were added and implemented to add and store Events with relevant data that are used to generate output for other features such as insights.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 10:47:24 UTC</div></div></div></body></html>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 02:50:48 UTC</div></div></div></body></html>
