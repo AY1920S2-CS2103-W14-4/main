@@ -28,12 +28,13 @@
 <li><a href="#add-group-feature">3.4. Add Group Feature</a></li>
 <li><a href="#delete-group-feature">3.5. Delete Group Feature</a></li>
 <li><a href="#list-group-feature">3.6. List Group Feature</a></li>
-<li><a href="#add-event-feature">3.7. Add Event Feature</a></li>
-<li><a href="#insights-feature">3.8. Insights feature</a></li>
-<li><a href="#proposed-undo-redo-feature">3.9. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.10. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.11. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.12. Configuration</a></li>
+<li><a href="#edit-group-feature">3.7. Edit Group Feature</a></li>
+<li><a href="#add-event-feature">3.8. Add Event Feature</a></li>
+<li><a href="#insights-feature">3.9. Insights feature</a></li>
+<li><a href="#proposed-undo-redo-feature">3.10. [Proposed] Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">3.11. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.12. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.13. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -640,7 +641,11 @@ The feature uses the <code>AddressBook</code> class stored in <code>ModelManager
 <h3 id="delete-group-feature"><a class="link" href="#delete-group-feature">3.5. Delete Group Feature</a></h3>
 <div class="sect3">
 <h4 id="implementation-6"><a class="link" href="#implementation-6">3.5.1. Implementation</a></h4>
-
+<div id="DeleteGroupSequenceDiagram" class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/DeleteGroupSequenceDiagram.png" alt="DeleteGroupSequenceDiagram">
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -691,12 +696,23 @@ The feature uses the <code>AddressBook</code> class stored in <code>ModelManager
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-event-feature"><a class="link" href="#add-event-feature">3.7. Add Event Feature</a></h3>
+<h3 id="edit-group-feature"><a class="link" href="#edit-group-feature">3.7. Edit Group Feature</a></h3>
+<div class="sect3">
+<h4 id="implementation-8"><a class="link" href="#implementation-8">3.7.1. Implementation</a></h4>
+<div id="EditGroupSequenceDiagram" class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/EditGroupSequenceDiagram.png" alt="EditGroupSequenceDiagram">
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-event-feature"><a class="link" href="#add-event-feature">3.8. Add Event Feature</a></h3>
 <div class="paragraph">
 <p>The add event feature allows users to add an event to a saved contact or group in CoderLifeInsights specified using the member <code>m/</code> tag or the group <code>g/</code> tag.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-8"><a class="link" href="#implementation-8">3.7.1. Implementation</a></h4>
+<h4 id="implementation-9"><a class="link" href="#implementation-9">3.8.1. Implementation</a></h4>
 <div class="paragraph">
 <p>Command: <code>add_event ACTIVITY m/INDEX time/TIME place/PLACE</code> or <code>add_event ACTIVITY g/INDEX time/TIME place/PLACE</code></p>
 </div>
@@ -833,16 +849,16 @@ The feature uses the <code>AddressBook</code> class stored in <code>ModelManager
 </div>
 </div>
 <div class="sect3">
-<h4 id="justification"><a class="link" href="#justification">3.7.2. Justification</a></h4>
+<h4 id="justification"><a class="link" href="#justification">3.8.2. Justification</a></h4>
 <div class="paragraph">
 <p>The Add Event feature and the relevant classes were added and implemented to add and store Events with relevant data that are used to generate output for other features such as insights.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="insights-feature"><a class="link" href="#insights-feature">3.8. Insights feature</a></h3>
+<h3 id="insights-feature"><a class="link" href="#insights-feature">3.9. Insights feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-9"><a class="link" href="#implementation-9">3.8.1. Implementation</a></h4>
+<h4 id="implementation-10"><a class="link" href="#implementation-10">3.9.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The Insights feature is facilitated by <code>FrequencyList</code>, which contains an <code>ObservableList</code>
 backed by an <code>ArrayList</code>, and uses a <code>HashMap</code> to ensure the uniqueness of each list.
@@ -854,9 +870,9 @@ The View Command then switches the application display to show the model&#8217;s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.9. [Proposed] Undo/Redo feature</a></h3>
+<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.10. [Proposed] Undo/Redo feature</a></h3>
 <div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.9.1. Proposed Implementation</a></h4>
+<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.10.1. Proposed Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
 It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and
@@ -1012,7 +1028,7 @@ This is the behavior that most modern desktop applications follow.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.9.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.10.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -1084,13 +1100,13 @@ Violates Single Responsibility Principle and Separation of Concerns as <code>His
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.10. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.11. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.11. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.12. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging.
 The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
@@ -1098,7 +1114,7 @@ The <code>LogsCenter</code> class is used to manage the logging levels and loggi
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.12, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.13, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1129,7 +1145,7 @@ The <code>LogsCenter</code> class is used to manage the logging levels and loggi
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.12. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.13. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2501,4 +2517,4 @@ Another naming convention is required.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 11:33:33 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 12:19:30 UTC</div></div></div></body></html>
