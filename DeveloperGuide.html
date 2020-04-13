@@ -59,10 +59,11 @@
 <ul class="sectlevel2">
 <li><a href="#build-automation">7.1. Build Automation</a></li>
 <li><a href="#continuous-integration">7.2. Continuous Integration</a></li>
-<li><a href="#coverage-reporting">7.3. Coverage Reporting</a></li>
-<li><a href="#documentation-previews">7.4. Documentation Previews</a></li>
-<li><a href="#making-a-release">7.5. Making a Release</a></li>
-<li><a href="#managing-dependencies">7.6. Managing Dependencies</a></li>
+<li><a href="#continuous-deployment">7.3. Continuous Deployment</a></li>
+<li><a href="#coverage-reporting">7.4. Coverage Reporting</a></li>
+<li><a href="#documentation-previews">7.5. Documentation Previews</a></li>
+<li><a href="#making-a-release">7.6. Making a Release</a></li>
+<li><a href="#managing-dependencies">7.7. Managing Dependencies</a></li>
 </ul>
 </li>
 <li><a href="#product-scope">Appendix A: Product Scope</a></li>
@@ -875,7 +876,7 @@ feature is shown using the following Sequence Diagram.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Alternative 1: Separate <code>DeleteGroupCommand</code> and <code>DeleteGroup</code> classes to support the feature.<br>
+<p>Alternative 1 (current choice) : Separate <code>DeleteGroupCommand</code> and <code>DeleteGroup</code> classes to support the feature.<br>
 Pros: clear class responsibility, easier to trace bugs. Since this follows the design of most other commands,
 intuitive to understand for new developers<br>
 Cons: increases the amount of code, which might introduce more errors.</p>
@@ -891,10 +892,13 @@ Cons: Can cause confusion among developers regarding the class responsibility.</
 </div>
 <div class="sect2">
 <h3 id="list-group-feature"><a class="link" href="#list-group-feature">4.6. List Group Feature</a></h3>
+<div class="paragraph">
+<p>The list group feature allows users to view all the <code>Group</code> instances currently stored in CoderLifeInsights.</p>
+</div>
 <div class="sect3">
 <h4 id="implementation-7"><a class="link" href="#implementation-7">4.6.1. Implementation</a></h4>
 <div class="paragraph">
-<p>The list feature allows users to view all the social <code>Group</code> instances currently stored in CoderLifeInsights.</p>
+<p>This feature is mainly supported by the <code>ListGroupCommand</code>, which extends the abstract class <code>Command</code>.</p>
 </div>
 <div class="paragraph">
 <p>Here below is a sequence diagram showcasing how the command works.</p>
@@ -905,7 +909,7 @@ Cons: Can cause confusion among developers regarding the class responsibility.</
 </div>
 </div>
 <div class="paragraph">
-<p>The following activity diagram depicts the step-by-step scenario when a user executes the <code>list_groups</code> command:</p>
+<p>The following is an example usage scenario and how the list group mechanism behaves at each step.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -913,10 +917,10 @@ Cons: Can cause confusion among developers regarding the class responsibility.</
 <p>User enters <code>list_groups</code> into the command prompt</p>
 </li>
 <li>
-<p>The <code>LogicManager</code> calls <code>AddressBookParser#parseCommand()</code></p>
+<p>The <code>LogicManager</code> calls <code>AddressBookParser#parseCommand()</code> with the arguments supplied by the user</p>
 </li>
 <li>
-<p>The method <code>AddressBookParser#parseCommand()</code> creates a <code>ListGroupCommand</code> and checks if the input is valid.</p>
+<p>The method <code>AddressBookParser#parseCommand()</code> checks if the input is valid and if yes, creates a <code>ListGroupCommand</code>.</p>
 </li>
 <li>
 <p>The <code>ListGroupCommand</code> calls the <code>updateFilteredGroupList</code> method of <code>Model</code> to update the GUI.</p>
@@ -929,6 +933,9 @@ Cons: Can cause confusion among developers regarding the class responsibility.</
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>The following activity diagram summarises the workflow for the list group feature.</p>
+</div>
 <div id="ListGroupCommandActivity" class="imageblock" style="text-align: center">
 <div class="content">
 <img src="images/ListGroupCommandActivity.png" alt="ListGroupCommandActivity" width="50%">
@@ -938,12 +945,155 @@ Cons: Can cause confusion among developers regarding the class responsibility.</
 </div>
 <div class="sect2">
 <h3 id="edit-group-feature"><a class="link" href="#edit-group-feature">4.7. Edit Group Feature</a></h3>
+<div class="paragraph">
+<p>The Edit Group Feature allows the user to edit an existing <code>Group</code> in the app.</p>
+</div>
 <div class="sect3">
 <h4 id="implementation-8"><a class="link" href="#implementation-8">4.7.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The Edit Group Feature is facilitated by the <code>EditGroupCommand</code>, which extends the abstract class <code>Command</code>, and
+the <code>EditGroupCommandParser</code>, which implements the <code>Parser</code> interface. Both of these classes are part of the <code>Logic</code>
+package. Additionally, a private and static <code>EditGroupDescriptor</code> class is present in <code>EditGroupCommand</code> as a container
+class to encapsulate attributes to be edited for a <code>Group</code>.</p>
+</div>
+<div class="paragraph">
+<p>he following operations are implemented and used for accomplishing this feature:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>EditGroupCommandParser#parser(String args)</code> - Parses the input to obtain the arguments and returns an
+<code>EditGroupCommand</code> instance with the arguments.</p>
+</li>
+<li>
+<p><code>EditGroupCommandParser#arePrefixesPresent(ArgumentMultimap argumentMultiMap, Prefix&#8230;&#8203; prefixes)</code> - checks if the
+member indexes are supplied by the user.</p>
+</li>
+<li>
+<p><code>EditGroupCommand#EditGroupCommand(Index index, EditGroupDescriptor editGroupDescriptor)</code> - Creates a new
+<code>EditGroupCommand</code> instance with the supplied index and editGroupDescriptor.</p>
+</li>
+<li>
+<p><code>EditGroupCommand#createEditedGroup(Group groupToEdit, EditGroupDescriptor editGroupDescriptor)</code> - Modifies the given
+<code>groupToEdit</code> with the details given in <code>editGroupDescriptor</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following is an example usage scenario and how the edit group mechanism behaves at each step:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User types <code>edit_group index n/new_name</code> or <code>edit_group index m/index &#8230;&#8203;</code> into the app.</p>
+</li>
+<li>
+<p>The request is handled by <code>LogicManager#execute(String)</code>, which then calls and passes the input to
+the <code>AddressBookParser#parseCommand(String)</code> method.</p>
+</li>
+<li>
+<p><code>AddressBookParser</code> detects the command word <code>edit_group</code> in the input string and creates a new
+<code>EditGroupCommandParser</code> to parse inputs according to the format specified for <code>EditGroupCommand</code>.</p>
+</li>
+<li>
+<p>Input is parsed using the <code>EditGroupCommandParser#parse(String)</code> method, which also performs input validation. The
+method creates a <code>EditGroupDescriptor</code> using the parsed inputs by calling the static constructor inside <code>EditGroupCommand</code>.</p>
+</li>
+<li>
+<p>The <code>EditGroupCommandParser</code> creates a new <code>EditGroupCommand</code> instance with the given <code>index</code> and newly created
+<code>EditGroupDescriptor</code> object and returns it to <code>AddressBookParser</code>, which in turn returns it to <code>LogicManager</code>.</p>
+</li>
+<li>
+<p><code>LogicManager</code> calls the <code>EditGroupCommand#execute(model)</code> method.</p>
+</li>
+<li>
+<p><code>EditGroupCommand</code> obtains a copy of the <code>FilteredPersonList</code> by calling the <code>Model#getFilteredPersonList()</code> method.
+This is used to check if the member indexes supplied by the user exist in the app and that there are no duplicate person
+indexes in the command.</p>
+</li>
+<li>
+<p><code>EditGroupCommand</code> edits the group at given index by calling its own private static method
+<code>EditGroupCommand#createEditGroup(Group, EditGroupDescriptor)</code>.</p>
+</li>
+<li>
+<p><code>EditGroupCommand</code> obtains a copy of the <code>FilteredGroupList</code> by calling the <code>Model#getFilteredGroupList()</code> method.
+This is used to check if the edited group already exits in the app.</p>
+</li>
+<li>
+<p>As a last step, <code>EditGroupCommand</code> creates a <code>CommandResult</code> with <code>SuccessMessage</code> and <code>ViewType</code> and returns it to
+<code>LogicManager</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The above process is shown in the following sequence diagram:</p>
+</div>
 <div id="EditGroupSequenceDiagram" class="imageblock" style="text-align: center">
 <div class="content">
 <img src="images/EditGroupSequenceDiagram.png" alt="EditGroupSequenceDiagram">
 </div>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarises the general workflow for the Edit Group Feature</p>
+</div>
+<div id="EditGroupActivityDiagram" class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/EditGroupActivityDiagram.png" alt="EditGroupActivityDiagram">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.7.2. Design Considerations</a></h4>
+<div class="paragraph">
+<p>Aspect: What and how to edit</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Alternative 1 (current choice): Only edit parameters that are supplied. For the parameters that are supplied,
+overwrite the existing entry.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The single edit group feature can achieve both addition and deletion of members
+as well as renaming of the group. Better maintainability of code.</p>
+</li>
+<li>
+<p>Cons: Overwriting all existing entries might affect usability as the user will have to re-enter the current member
+indexes if they want to add to member indexes rather than delete.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alternative 2: Only edit parameters that are supplied. For the parameters that are supplied, add to the existing
+entries instead of overwriting.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The user will not have to re-enter member indexes if they choose to retain members inside a group.</p>
+</li>
+<li>
+<p>Cons: Will require implementing a separate command to then delete member indexes from a group. This can also confuse
+the user if there are too many commands.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alternative 3: Edit all parameters. Overwrite all existing entries.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Simplest to implement in terms of code. Will require less code than alternative 1 and 2.</p>
+</li>
+<li>
+<p>Cons: Cumbersome for the user as they have to enter an attribute value even if they don&#8217;t want to change it.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -1269,7 +1419,7 @@ This is the behavior that most modern desktop applications follow.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.10.2. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.10.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -1719,21 +1869,29 @@ for more details.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="coverage-reporting"><a class="link" href="#coverage-reporting">7.3. Coverage Reporting</a></h3>
+<h3 id="continuous-deployment"><a class="link" href="#continuous-deployment">7.3. Continuous Deployment</a></h3>
+<div class="paragraph">
+<p>We maintain a site for this project <a href="https://ay1920s2-cs2103-w14-4.github.io/main/">here</a>. To ensure that each PR complies
+with our site requirements for auto-deploy, we use Netlify for Continuous Deployment. Read
+<a href="https://docs.netlify.com/configure-builds/get-started/#basic-build-settings">this guide</a> to get upto speed with Netlify CD.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="coverage-reporting"><a class="link" href="#coverage-reporting">7.4. Coverage Reporting</a></h3>
 <div class="paragraph">
 <p>We use <a href="https://coveralls.io/">Coveralls</a> to track the code coverage of our projects.
 See <a href="UsingCoveralls.html">UsingCoveralls.adoc</a> for more details.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="documentation-previews"><a class="link" href="#documentation-previews">7.4. Documentation Previews</a></h3>
+<h3 id="documentation-previews"><a class="link" href="#documentation-previews">7.5. Documentation Previews</a></h3>
 <div class="paragraph">
 <p>When a pull request has changes to asciidoc files, you can use <a href="https://www.netlify.com/">Netlify</a> to see a preview of how the HTML version of those asciidoc files will look like when the pull request is merged.
 See <a href="UsingNetlify.html">UsingNetlify.adoc</a> for more details.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="making-a-release"><a class="link" href="#making-a-release">7.5. Making a Release</a></h3>
+<h3 id="making-a-release"><a class="link" href="#making-a-release">7.6. Making a Release</a></h3>
 <div class="paragraph">
 <p>Here are the steps to create a new release.</p>
 </div>
@@ -1755,7 +1913,7 @@ See <a href="UsingNetlify.html">UsingNetlify.adoc</a> for more details.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="managing-dependencies"><a class="link" href="#managing-dependencies">7.6. Managing Dependencies</a></h3>
+<h3 id="managing-dependencies"><a class="link" href="#managing-dependencies">7.7. Managing Dependencies</a></h3>
 <div class="paragraph">
 <p>A project often depends on third-party libraries.
 For example, Address Book depends on the <a href="https://github.com/FasterXML/jackson">Jackson library</a> for JSON parsing.
@@ -3087,4 +3245,4 @@ A success message will be shown to the user.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 01:04:00 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 02:54:10 UTC</div></div></div></body></html>

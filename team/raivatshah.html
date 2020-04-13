@@ -480,10 +480,13 @@ Format: <code>view [INDEX] INSIGHT_PARAMETER</code></p>
 </table>
 <div class="sect2">
 <h3 id="list-group-feature"><a class="link" href="#list-group-feature">List Group Feature</a></h3>
+<div class="paragraph">
+<p>The list group feature allows users to view all the <code>Group</code> instances currently stored in CoderLifeInsights.</p>
+</div>
 <div class="sect3">
 <h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
 <div class="paragraph">
-<p>The list feature allows users to view all the social <code>Group</code> instances currently stored in CoderLifeInsights.</p>
+<p>This feature is mainly supported by the <code>ListGroupCommand</code>, which extends the abstract class <code>Command</code>.</p>
 </div>
 <div class="paragraph">
 <p>Here below is a sequence diagram showcasing how the command works.</p>
@@ -494,7 +497,7 @@ Format: <code>view [INDEX] INSIGHT_PARAMETER</code></p>
 </div>
 </div>
 <div class="paragraph">
-<p>The following activity diagram depicts the step-by-step scenario when a user executes the <code>list_groups</code> command:</p>
+<p>The following is an example usage scenario and how the list group mechanism behaves at each step.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -502,10 +505,10 @@ Format: <code>view [INDEX] INSIGHT_PARAMETER</code></p>
 <p>User enters <code>list_groups</code> into the command prompt</p>
 </li>
 <li>
-<p>The <code>LogicManager</code> calls <code>AddressBookParser#parseCommand()</code></p>
+<p>The <code>LogicManager</code> calls <code>AddressBookParser#parseCommand()</code> with the arguments supplied by the user</p>
 </li>
 <li>
-<p>The method <code>AddressBookParser#parseCommand()</code> creates a <code>ListGroupCommand</code> and checks if the input is valid.</p>
+<p>The method <code>AddressBookParser#parseCommand()</code> checks if the input is valid and if yes, creates a <code>ListGroupCommand</code>.</p>
 </li>
 <li>
 <p>The <code>ListGroupCommand</code> calls the <code>updateFilteredGroupList</code> method of <code>Model</code> to update the GUI.</p>
@@ -518,6 +521,9 @@ Format: <code>view [INDEX] INSIGHT_PARAMETER</code></p>
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>The following activity diagram summarises the workflow for the list group feature.</p>
+</div>
 <div id="ListGroupCommandActivity" class="imageblock" style="text-align: center">
 <div class="content">
 <img src="../images/ListGroupCommandActivity.png" alt="ListGroupCommandActivity" width="50%">
@@ -526,4 +532,4 @@ Format: <code>view [INDEX] INSIGHT_PARAMETER</code></p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 01:04:00 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 02:54:10 UTC</div></div></div></body></html>
