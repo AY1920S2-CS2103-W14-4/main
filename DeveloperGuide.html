@@ -62,7 +62,8 @@
 <li><a href="#coverage-reporting">7.4. Coverage Reporting</a></li>
 <li><a href="#documentation-previews">7.5. Documentation Previews</a></li>
 <li><a href="#making-a-release">7.6. Making a Release</a></li>
-<li><a href="#managing-dependencies">7.7. Managing Dependencies</a></li>
+<li><a href="#pull-requests">7.7. Pull Requests</a></li>
+<li><a href="#managing-dependencies">7.8. Managing Dependencies</a></li>
 </ul>
 </li>
 <li><a href="#product-scope">Appendix A: Product Scope</a></li>
@@ -88,23 +89,25 @@
 </li>
 <li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
 <li><a href="#glossary">Appendix E: Glossary</a></li>
-<li><a href="#instructions-for-manual-testing">8. Instructions for Manual Testing</a>
+<li><a href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
-<li><a href="#launch-and-shutdown">8.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-person">8.2. Deleting a person</a></li>
-<li><a href="#finding-a-person">8.3. Finding a person</a></li>
-<li><a href="#suggest-a-person">8.4. Suggest a person</a></li>
-<li><a href="#suggest-a-place">8.5. Suggest a place</a></li>
-<li><a href="#suggest-an-activity">8.6. Suggest an activity</a></li>
-<li><a href="#import-coderlifeinsights-data">8.7. Import CoderLifeInsights data</a></li>
-<li><a href="#export-coderlifeinsights-data">8.8. Export CoderLifeInsights data</a></li>
-<li><a href="#adding-an-event">8.9. Adding an event</a></li>
-<li><a href="#add-a-group">8.10. Add a Group</a></li>
-<li><a href="#delete-a-group">8.11. Delete a Group</a></li>
-<li><a href="#edit-a-group">8.12. Edit a Group</a></li>
-<li><a href="#list-all-groups">8.13. List all Groups</a></li>
+<li><a href="#launch-and-shutdown">F.1. Launch and Shutdown</a></li>
+<li><a href="#deleting-a-person">F.2. Deleting a person</a></li>
+<li><a href="#finding-a-person">F.3. Finding a person</a></li>
+<li><a href="#suggest-a-person">F.4. Suggest a person</a></li>
+<li><a href="#suggest-a-place">F.5. Suggest a place</a></li>
+<li><a href="#suggest-an-activity">F.6. Suggest an activity</a></li>
+<li><a href="#import-coderlifeinsights-data">F.7. Import CoderLifeInsights data</a></li>
+<li><a href="#export-coderlifeinsights-data">F.8. Export CoderLifeInsights data</a></li>
+<li><a href="#adding-an-event">F.9. Adding an event</a></li>
+<li><a href="#add-a-group">F.10. Add a Group</a></li>
+<li><a href="#delete-a-group">F.11. Delete a Group</a></li>
+<li><a href="#edit-a-group">F.12. Edit a Group</a></li>
+<li><a href="#list-all-groups">F.13. List all Groups</a></li>
+<li><a href="#exiting-the-program">F.14. Exiting the program</a></li>
 </ul>
 </li>
+<li><a href="#effort">Appendix G: Effort</a></li>
 </ul>
 </div>
 </div>
@@ -2006,7 +2009,14 @@ See <a href="UsingNetlify.html">UsingNetlify.adoc</a> for more details.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="managing-dependencies"><a class="link" href="#managing-dependencies">7.7. Managing Dependencies</a></h3>
+<h3 id="pull-requests"><a class="link" href="#pull-requests">7.7. Pull Requests</a></h3>
+<div class="paragraph">
+<p>Branch protection was applied to the master branch of the repository to protect from rogue merges. A mandatory review is required
+before a pull request can be merged into the master branch.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="managing-dependencies"><a class="link" href="#managing-dependencies">7.8. Managing Dependencies</a></h3>
 <div class="paragraph">
 <p>A project often depends on third-party libraries.
 For example, Address Book depends on the <a href="https://github.com/FasterXML/jackson">Jackson library</a> for JSON parsing.
@@ -3010,7 +3020,7 @@ number of minutes (between 0 and 59 inclusive).</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">8. Instructions for Manual Testing</a></h2>
+<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Given below are instructions to test the app manually.</p>
@@ -3028,7 +3038,7 @@ These instructions only provide a starting point for testers to work on; testers
 </table>
 </div>
 <div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">8.1. Launch and Shutdown</a></h3>
+<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">F.1. Launch and Shutdown</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3063,7 +3073,7 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">8.2. Deleting a person</a></h3>
+<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">F.2. Deleting a person</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3096,7 +3106,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="finding-a-person"><a class="link" href="#finding-a-person">8.3. Finding a person</a></h3>
+<h3 id="finding-a-person"><a class="link" href="#finding-a-person">F.3. Finding a person</a></h3>
 <div class="paragraph">
 <p><code>[written by: Cheng Lit Yaw]</code></p>
 </div>
@@ -3130,7 +3140,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="suggest-a-person"><a class="link" href="#suggest-a-person">8.4. Suggest a person</a></h3>
+<h3 id="suggest-a-person"><a class="link" href="#suggest-a-person">F.4. Suggest a person</a></h3>
 <div class="paragraph">
 <p><code>[written by: Cheng Lit Yaw]</code></p>
 </div>
@@ -3183,7 +3193,7 @@ Person suggestion provided shown in status message.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="suggest-a-place"><a class="link" href="#suggest-a-place">8.5. Suggest a place</a></h3>
+<h3 id="suggest-a-place"><a class="link" href="#suggest-a-place">F.5. Suggest a place</a></h3>
 <div class="paragraph">
 <p><code>[written by: Cheng Lit Yaw]</code></p>
 </div>
@@ -3222,7 +3232,7 @@ Place suggestion provided shown in status message.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="suggest-an-activity"><a class="link" href="#suggest-an-activity">8.6. Suggest an activity</a></h3>
+<h3 id="suggest-an-activity"><a class="link" href="#suggest-an-activity">F.6. Suggest an activity</a></h3>
 <div class="paragraph">
 <p><code>[written by: Cheng Lit Yaw]</code></p>
 </div>
@@ -3261,7 +3271,7 @@ Activity suggestion provided shown in status message.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="import-coderlifeinsights-data"><a class="link" href="#import-coderlifeinsights-data">8.7. Import CoderLifeInsights data</a></h3>
+<h3 id="import-coderlifeinsights-data"><a class="link" href="#import-coderlifeinsights-data">F.7. Import CoderLifeInsights data</a></h3>
 <div class="paragraph">
 <p><code>[written by: Cheng Lit Yaw]</code></p>
 </div>
@@ -3304,7 +3314,7 @@ Expected: CoderLifeInsights will return error message showing that path provided
 </div>
 </div>
 <div class="sect2">
-<h3 id="export-coderlifeinsights-data"><a class="link" href="#export-coderlifeinsights-data">8.8. Export CoderLifeInsights data</a></h3>
+<h3 id="export-coderlifeinsights-data"><a class="link" href="#export-coderlifeinsights-data">F.8. Export CoderLifeInsights data</a></h3>
 <div class="paragraph">
 <p><code>[written by: Cheng Lit Yaw]</code></p>
 </div>
@@ -3343,7 +3353,7 @@ Another naming convention is required.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-an-event"><a class="link" href="#adding-an-event">8.9. Adding an event</a></h3>
+<h3 id="adding-an-event"><a class="link" href="#adding-an-event">F.9. Adding an event</a></h3>
 <div class="paragraph">
 <p><code>[written by: Ernest Lian Qi Quan]</code></p>
 </div>
@@ -3504,7 +3514,7 @@ Example: add_event Dancing place/SCAPE m/1 time/300</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-a-group"><a class="link" href="#add-a-group">8.10. Add a Group</a></h3>
+<h3 id="add-a-group"><a class="link" href="#add-a-group">F.10. Add a Group</a></h3>
 <div class="paragraph">
 <p><code>[written by: Raivat Bhupesh Shah]</code></p>
 </div>
@@ -3554,7 +3564,7 @@ to the user.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="delete-a-group"><a class="link" href="#delete-a-group">8.11. Delete a Group</a></h3>
+<h3 id="delete-a-group"><a class="link" href="#delete-a-group">F.11. Delete a Group</a></h3>
 <div class="paragraph">
 <p><code>[written by: Raivat Bhupesh Shah]</code></p>
 </div>
@@ -3603,7 +3613,7 @@ specified is invalid.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="edit-a-group"><a class="link" href="#edit-a-group">8.12. Edit a Group</a></h3>
+<h3 id="edit-a-group"><a class="link" href="#edit-a-group">F.12. Edit a Group</a></h3>
 <div class="paragraph">
 <p><code>[written by: Raivat Bhupesh Shah]</code></p>
 </div>
@@ -3676,7 +3686,7 @@ Expected: Error message saying group index is invalid is displayed to the user.<
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-all-groups"><a class="link" href="#list-all-groups">8.13. List all Groups</a></h3>
+<h3 id="list-all-groups"><a class="link" href="#list-all-groups">F.13. List all Groups</a></h3>
 <div class="paragraph">
 <p><code>[written by: Raivat Bhupesh Shah]</code></p>
 </div>
@@ -3700,5 +3710,96 @@ A success message will be shown to the user.</p>
 </ol>
 </div>
 </div>
+<div class="sect2">
+<h3 id="exiting-the-program"><a class="link" href="#exiting-the-program">F.14. Exiting the program</a></h3>
+<div class="paragraph">
+<p><code>[written by: Cheng Lit Yaw]</code></p>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 09:26:12 UTC</div></div></div></body></html>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Exit the program</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test Case: <code>exit</code><br>
+Expected: Exits the program.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="effort"><a class="link" href="#effort">Appendix G: Effort</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To develop and implement the features we have for CoderLifeInsights was difficult and time consuming. For a project
+of this size, effective communication was required amongst the team members and the situation was made worse due to quarantine
+measures of the COVID-19. As a result, conflicts arose in the group but was quickly resolved for the better of the project.
+All of us dealt with the situation professionally and was determined to complete and deliver CoderLifeInsights as a working application.</p>
+</div>
+<div class="paragraph">
+<p>Some difficulties that we face during implementation of CoderLifeInsights:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Multiple entity implementation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Designing <code>Event</code> and <code>Group</code> class was challenging as we had to consider the data being stored in each class that would be independent
+of the existing <code>Person</code> class. A great deal architecture analysis was done to avoid dependency between classes. At the same time,
+we enhanced the <code>Person</code> class to store additional information according to our user&#8217;s needs.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>JSON Implementation</p>
+<div class="ulist">
+<ul>
+<li>
+<p>We have to learn about the JSON packages that were available and apply it to not only existing <code>Person</code> class but also <code>Event</code>
+in the form of <code>UniqueEventList</code> and <code>Group</code> class similar to <code>Person</code>. This also required an in-depth understanding of Java
+data structures and <code>Optional</code> class.</p>
+</li>
+<li>
+<p>With this implementation, we were able to develop the <code>import</code> and <code>export</code> features to enable the user to transfer data from
+one computer to another. This is crucial to our user as programmers would work between multiple computers and would want to keep
+a backup and keep their data in sync across computers.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Redesigning UI of AB3</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Considering our lack of knowledge in UI designs and JavaFX, we had to learn to implement the PanelLists as well as the Pie Chart class
+to display meaningful information to our users. In total we had more than 3 PanelLists and all of which had to interact with each of the
+features implemented. The flow of the application in between each command was also well thought out and seamless.</p>
+</li>
+<li>
+<p>We further enhanced the UI from AB3 from a single column application to a resizable multiple column application. In order for
+the application columns to fit the desired window size of the user, each column size was carefully measured and well thought out to
+fit our user&#8217;s need as a programmer. The colors were carefully selected to brighten up the user&#8217;s mood after a long day of work.
+As it is a social application, bright color scheme would be ideal.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>After going through this project, we not only learnt good Software Engineering practices but also communication skills between
+team members that was crucial to the success of CoderLifeInsights. As we have invested a significant amount of time towards this project,
+we aim to continue developing the application during the summer holidays to further enhance the features of the project.</p>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 09:31:07 UTC</div></div></div></body></html>
