@@ -33,9 +33,8 @@
 <li><a href="#add-event-feature">4.8. Add Event Feature</a></li>
 <li><a href="#insights-feature">4.9. Insights feature</a></li>
 <li><a href="#proposed-undo-redo-feature">4.10. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">4.11. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">4.12. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.13. Configuration</a></li>
+<li><a href="#logging">4.11. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.12. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -104,7 +103,6 @@
 <li><a href="#delete-a-group">8.11. Delete a Group</a></li>
 <li><a href="#edit-a-group">8.12. Edit a Group</a></li>
 <li><a href="#list-all-groups">8.13. List all Groups</a></li>
-<li><a href="#saving-data">8.14. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -113,6 +111,9 @@
 <div class="sect1">
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p><code>[written by: Raivat Bhupesh Shah]</code></p>
+</div>
 <div class="paragraph">
 <p>CoderLifeInsights is a desktop application that provides you insights and suggestions to your social life as
 a programmer using a CLI (Command Line Interface).</p>
@@ -342,6 +343,9 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 </div>
 <div class="sect2">
 <h3 id="Design-Model"><a class="link" href="#Design-Model">3.4. Model component</a></h3>
+<div class="paragraph">
+<p><code>[written by: Raivat Bhupesh Shah]</code></p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
@@ -433,6 +437,9 @@ An example of how such a model may look like is given below.<br>
 </div>
 <div class="sect2">
 <h3 id="import-feature"><a class="link" href="#import-feature">4.1. Import feature</a></h3>
+<div class="paragraph">
+<p><code>[written by: Cheng Lit Yaw]</code></p>
+</div>
 <div class="sect3">
 <h4 id="implementation-2"><a class="link" href="#implementation-2">4.1.1. Implementation</a></h4>
 <div class="paragraph">
@@ -588,6 +595,9 @@ There would be risk of the application stop responding if the second alternative
 </div>
 <div class="sect2">
 <h3 id="export-feature"><a class="link" href="#export-feature">4.2. Export feature</a></h3>
+<div class="paragraph">
+<p><code>[written by: Cheng Lit Yaw]</code></p>
+</div>
 <div class="sect3">
 <h4 id="implementation-3"><a class="link" href="#implementation-3">4.2.1. Implementation</a></h4>
 <div class="paragraph">
@@ -635,6 +645,9 @@ and <code>ExportFile#exportEventCsv</code>.</p>
 </div>
 <div class="sect2">
 <h3 id="suggestion-feature"><a class="link" href="#suggestion-feature">4.3. Suggestion Feature</a></h3>
+<div class="paragraph">
+<p><code>[written by: Cheng Lit Yaw]</code></p>
+</div>
 <div class="sect3">
 <h4 id="implementation-4"><a class="link" href="#implementation-4">4.3.1. Implementation</a></h4>
 <div class="paragraph">
@@ -691,6 +704,9 @@ suggested place or activity based on the least frequency of the place visited or
 </div>
 <div class="sect2">
 <h3 id="add-group-feature"><a class="link" href="#add-group-feature">4.4. Add Group Feature</a></h3>
+<div class="paragraph">
+<p><code>[written by: Raivat Bhupesh Shah]</code></p>
+</div>
 <div class="sect3">
 <h4 id="implementation-5"><a class="link" href="#implementation-5">4.4.1. Implementation</a></h4>
 <div class="paragraph">
@@ -714,7 +730,7 @@ key attributes and methods:</p>
 </div>
 <div id="AddGroupClassDiagram" class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/AddGroupClassDiagram.png" alt="AddGroupClassDiagram">
+<img src="images/AddGroupClassDiagram.png" alt="][pdfwidth=&quot;50%&quot;" width="50%">
 </div>
 </div>
 <div class="paragraph">
@@ -848,6 +864,9 @@ depend upon the Group class, which can be error-prone.</p>
 </div>
 <div class="sect2">
 <h3 id="delete-group-feature"><a class="link" href="#delete-group-feature">4.5. Delete Group Feature</a></h3>
+<div class="paragraph">
+<p><code>[written by: Raivat Bhupesh Shah]</code></p>
+</div>
 <div class="sect3">
 <h4 id="implementation-6"><a class="link" href="#implementation-6">4.5.1. Implementation</a></h4>
 <div class="paragraph">
@@ -860,9 +879,9 @@ is omitted for conciseness.</p>
 <div class="paragraph">
 <p>Here below is an example workflow, which is shown using an activity diagram:</p>
 </div>
-<div id="DeleteGroupSequenceDiagram" class="imageblock" style="text-align: center">
+<div id="DeleteGroupActivityDiagram" class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/DeleteGroupActivityDiagram.png" alt="DeleteGroupActivityDiagram">
+<img src="images/DeleteGroupActivityDiagram.png" alt="[pdfwidth=&quot;50%&quot;" width="50%">
 </div>
 </div>
 <div class="paragraph">
@@ -899,6 +918,9 @@ Cons: Can cause confusion among developers regarding the class responsibility.</
 </div>
 <div class="sect2">
 <h3 id="list-group-feature"><a class="link" href="#list-group-feature">4.6. List Group Feature</a></h3>
+<div class="paragraph">
+<p><code>[written by: Raivat Bhupesh Shah]</code></p>
+</div>
 <div class="paragraph">
 <p>The list group feature allows users to view all the <code>Group</code> instances currently stored in CoderLifeInsights.</p>
 </div>
@@ -945,13 +967,16 @@ Cons: Can cause confusion among developers regarding the class responsibility.</
 </div>
 <div id="ListGroupCommandActivity" class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/ListGroupCommandActivity.png" alt="ListGroupCommandActivity" width="50%">
+<img src="images/ListGroupCommandActivity.png" alt="ListGroupCommandActivity" width="30%">
 </div>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="edit-group-feature"><a class="link" href="#edit-group-feature">4.7. Edit Group Feature</a></h3>
+<div class="paragraph">
+<p><code>[written by: Raivat Bhupesh Shah]</code></p>
+</div>
 <div class="paragraph">
 <p>The Edit Group Feature allows the user to edit an existing <code>Group</code> in the app.</p>
 </div>
@@ -1045,7 +1070,7 @@ This is used to check if the edited group already exits in the app.</p>
 </div>
 <div id="EditGroupActivityDiagram" class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/EditGroupActivityDiagram.png" alt="EditGroupActivityDiagram">
+<img src="images/EditGroupActivityDiagram.png" alt="][pdfwidth=&quot;60%&quot;" width="60%">
 </div>
 </div>
 </div>
@@ -1106,6 +1131,9 @@ the user if there are too many commands.</p>
 </div>
 <div class="sect2">
 <h3 id="add-event-feature"><a class="link" href="#add-event-feature">4.8. Add Event Feature</a></h3>
+<div class="paragraph">
+<p><code>[written by: Ernest Lian Qi Quan]</code></p>
+</div>
 <div class="paragraph">
 <p>The add event feature allows users to add an event to a saved contact or group in CoderLifeInsights specified using the member <code>m/</code> tag or the group <code>g/</code> tag.</p>
 </div>
@@ -1282,6 +1310,9 @@ These information are also saved for the Group object when an Event is added to 
 </div>
 <div class="sect2">
 <h3 id="insights-feature"><a class="link" href="#insights-feature">4.9. Insights feature</a></h3>
+<div class="paragraph">
+<p><code>[written by: Mah Cai Jun, Terence]</code></p>
+</div>
 <div class="sect3">
 <h4 id="implementation-10"><a class="link" href="#implementation-10">4.9.1. Implementation</a></h4>
 <div class="paragraph">
@@ -1525,13 +1556,7 @@ Violates Single Responsibility Principle and Separation of Concerns as <code>His
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.11. [Proposed] Data Encryption</a></h3>
-<div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.12. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.11. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging.
 The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
@@ -1539,7 +1564,7 @@ The <code>LogsCenter</code> class is used to manage the logging levels and loggi
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.13, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.12, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1570,7 +1595,7 @@ The <code>LogsCenter</code> class is used to manage the logging levels and loggi
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.13. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.12. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1905,6 +1930,9 @@ for more details.</p>
 <div class="sect2">
 <h3 id="continuous-deployment"><a class="link" href="#continuous-deployment">7.3. Continuous Deployment</a></h3>
 <div class="paragraph">
+<p><code>[written by: Raivat Bhupesh Shah]</code></p>
+</div>
+<div class="paragraph">
 <p>We maintain a site for this project <a href="https://ay1920s2-cs2103-w14-4.github.io/main/">here</a>. To ensure that each PR complies
 with our site requirements for auto-deploy, we use Netlify for Continuous Deployment. Read
 <a href="https://docs.netlify.com/configure-builds/get-started/#basic-build-settings">this guide</a> to get upto speed with Netlify CD.</p>
@@ -1971,6 +1999,9 @@ For example, Gradle can download the dependencies automatically, which is better
 <h2 id="product-scope"><a class="link" href="#product-scope">Appendix A: Product Scope</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
+<p><code>[written by: Raivat Bhupesh Shah]</code></p>
+</div>
+<div class="paragraph">
 <p><strong>Target user profile</strong>:</p>
 </div>
 <div class="ulist">
@@ -2003,6 +2034,9 @@ For example, Gradle can download the dependencies automatically, which is better
 <div class="sect1">
 <h2 id="user-stories"><a class="link" href="#user-stories">Appendix B: User Stories</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p><code>[written by: Raivat Bhupesh Shah]</code></p>
+</div>
 <div class="paragraph">
 <p>Priorities: High (must have) - <code>* * *</code>, Medium (nice to have) - <code>* *</code>, Low (unlikely to have) - <code>*</code></p>
 </div>
@@ -2192,9 +2226,6 @@ For example, Gradle can download the dependencies automatically, which is better
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -2204,6 +2235,9 @@ For example, Gradle can download the dependencies automatically, which is better
 <p>(For all use cases below, the <strong>System</strong> is the <code>CoderLifeInsights</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
 <h3 id="use-case-delete-person" class="discrete">Use case: Delete person</h3>
+<div class="paragraph">
+<p><code>[written by: Cheng Lit Yaw]</code></p>
+</div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2290,6 +2324,9 @@ No details of the person provided as arguments.</p>
 <div class="sect2">
 <h3 id="use-case-find-a-person-by-name"><a class="link" href="#use-case-find-a-person-by-name">C.2. Use case: Find a person by name</a></h3>
 <div class="paragraph">
+<p><code>[written by: Cheng Lit Yaw]</code></p>
+</div>
+<div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
@@ -2326,12 +2363,12 @@ No details of the person provided as arguments.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
-</div>
 </div>
 <div class="sect2">
 <h3 id="use-case-add-group"><a class="link" href="#use-case-add-group">C.3. Use case: Add group</a></h3>
+<div class="paragraph">
+<p><code>[written by: Raivat Bhupesh Shah]</code></p>
+</div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2389,6 +2426,9 @@ Use case resumes at step 2.</p>
 <div class="sect2">
 <h3 id="use-case-delete-group"><a class="link" href="#use-case-delete-group">C.4. Use case: Delete Group</a></h3>
 <div class="paragraph">
+<p><code>[written by: Raivat Bhupesh Shah]</code></p>
+</div>
+<div class="paragraph">
 <p>Preconditions: group to be deleted exists in the app<br>
 <strong>MSS</strong></p>
 </div>
@@ -2409,6 +2449,9 @@ Use case resumes at step 2.</p>
 <div class="sect2">
 <h3 id="use-case-edit-group"><a class="link" href="#use-case-edit-group">C.5. Use case: Edit Group</a></h3>
 <div class="paragraph">
+<p><code>[written by: Raivat Bhupesh Shah]</code></p>
+</div>
+<div class="paragraph">
 <p>Preconditions: group to be deleted exists in the app<br>
 <strong>MSS</strong></p>
 </div>
@@ -2418,10 +2461,8 @@ Use case resumes at step 2.</p>
 <p>User requests to edit group with specified index</p>
 </li>
 <li>
-<p>CodeLifeInsights deletes the group and displays its details</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
+<p>CodeLifeInsights deletes the group and displays its details<br>
+Use case ends.</p>
 </li>
 </ol>
 </div>
@@ -2436,26 +2477,22 @@ No values to edit are provided</p>
 <div class="ulist">
 <ul>
 <li>
-<p>1a1. CoderLifeInsights shows an error message telling the user a group can&#8217;t be edited with no new info.</p>
-<div class="paragraph">
-<p>Step 1 continues until at least one new value is provided.<br>
+<p>1a1. CoderLifeInsights shows an error message telling the user a group can&#8217;t be edited with no new info.<br>
+Step 1 continues until at least one new value is provided.<br>
 Use case resumes at step 2</p>
-</div>
 </li>
 </ul>
 </div>
 </li>
 <li>
 <p>1b.
-If member indexes are provided, they are invalid (don&#8217;t exist in the app)</p>
+If member indexes are provided, they are invalid (don&#8217;t exist in the app)<br></p>
 <div class="ulist">
 <ul>
 <li>
-<p>1b1. CoderLifeInsights shows an error message telling the user that one or more member indexes are invalid.</p>
-<div class="paragraph">
-<p>Step 1 continues until all member indexes provided are correct or no new member indexes are provided at all.<br>
+<p>1b1. CoderLifeInsights shows an error message telling the user that one or more member indexes are invalid.<br>
+Step 1 continues until all member indexes provided are correct or no new member indexes are provided at all.<br>
 Use case resumes at step 2</p>
-</div>
 </li>
 </ul>
 </div>
@@ -2466,6 +2503,9 @@ Use case resumes at step 2</p>
 <div class="sect2">
 <h3 id="use-case-list-group"><a class="link" href="#use-case-list-group">C.6. Use case: List Group</a></h3>
 <div class="paragraph">
+<p><code>[written by: Raivat Bhupesh Shah]</code></p>
+</div>
+<div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
@@ -2475,16 +2515,17 @@ Use case resumes at step 2</p>
 </li>
 <li>
 <p>CoderLifeInsights displays all the groups in a list format with their indexes, time spent, member indexes, and
-event ids.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
+event ids.<br>
+Use case ends.</p>
 </li>
 </ol>
 </div>
 </div>
 <div class="sect2">
 <h3 id="use-case-export-data"><a class="link" href="#use-case-export-data">C.7. Use case: Export data</a></h3>
+<div class="paragraph">
+<p><code>[written by: Cheng Lit Yaw]</code></p>
+</div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2526,6 +2567,9 @@ No file path specified.</p>
 <div class="sect2">
 <h3 id="use-case-import-data"><a class="link" href="#use-case-import-data">C.8. Use case: Import data</a></h3>
 <div class="paragraph">
+<p><code>[written by: Cheng Lit Yaw]</code></p>
+</div>
+<div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
@@ -2534,10 +2578,8 @@ No file path specified.</p>
 <p>User requests to import life, group and event data from specified CSV file path.</p>
 </li>
 <li>
-<p>CoderLifeInsights imports data from specified CSV files.</p>
-<div class="paragraph">
-<p>Use case ends</p>
-</div>
+<p>CoderLifeInsights imports data from specified CSV files.<br>
+Use case ends</p>
 </li>
 </ol>
 </div>
@@ -2555,6 +2597,9 @@ Use case resumes at step 2.</p>
 <div class="sect2">
 <h3 id="use-case-suggest-person"><a class="link" href="#use-case-suggest-person">C.9. Use case: Suggest person</a></h3>
 <div class="paragraph">
+<p><code>[written by: Cheng Lit Yaw]</code></p>
+</div>
+<div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
@@ -2563,25 +2608,23 @@ Use case resumes at step 2.</p>
 <p>User requests for suggestion of person.</p>
 </li>
 <li>
-<p>CoderLifeInsights suggests a person to hangout with.</p>
-<div class="paragraph">
-<p>Use case ends</p>
-</div>
+<p>CoderLifeInsights suggests a person to hangout with.<br>
+Use case ends</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
 <p><strong>Extensions</strong>
 * 1a.
-No person available in CoderLifeInsights to suggest</p>
-</div>
-<div class="paragraph">
-<p>+
+No person available in CoderLifeInsights to suggest<br>
 Use case ends.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="use-case-suggest-place"><a class="link" href="#use-case-suggest-place">C.10. Use case: Suggest place</a></h3>
+<div class="paragraph">
+<p><code>[written by: Cheng Lit Yaw]</code></p>
+</div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2591,25 +2634,23 @@ Use case ends.</p>
 <p>User requests for suggestion of place.</p>
 </li>
 <li>
-<p>CoderLifeInsights suggests a place to visit.</p>
-<div class="paragraph">
-<p>Use case ends</p>
-</div>
+<p>CoderLifeInsights suggests a place to visit.<br>
+Use case ends</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
 <p><strong>Extensions</strong>
 * 1a.
-No place available in CoderLifeInsights to suggest</p>
-</div>
-<div class="paragraph">
-<p>+
+No place available in CoderLifeInsights to suggest<br>
 Use case ends.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="use-case-suggest-activity"><a class="link" href="#use-case-suggest-activity">C.11. Use case: Suggest activity</a></h3>
+<div class="paragraph">
+<p><code>[written by: Cheng Lit Yaw]</code></p>
+</div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2619,32 +2660,27 @@ Use case ends.</p>
 <p>User requests for suggestion of activity.</p>
 </li>
 <li>
-<p>CoderLifeInsights suggests an activity to do.</p>
-<div class="paragraph">
-<p>Use case ends</p>
-</div>
+<p>CoderLifeInsights suggests an activity to do.<br>
+Use case ends</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
 <p><strong>Extensions</strong>
 * 1a.
-No activity available in CoderLifeInsights to suggest</p>
-</div>
-<div class="paragraph">
-<p>+
+No activity available in CoderLifeInsights to suggest<br>
 Use case ends.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="use-case-view-time"><a class="link" href="#use-case-view-time">C.12. Use case: View time</a></h3>
 <div class="paragraph">
-<p><strong>MSS</strong>
-1. User requests to view time comparison between individuals and groups.
-2. CoderLifeInsights displays pie chart of Individual time spent vs Group time spent.</p>
+<p><code>[written by: Cheng Lit Yaw]</code></p>
 </div>
 <div class="paragraph">
-<p>+
+<p><strong>MSS</strong>
+1. User requests to view time comparison between individuals and groups.
+2. CoderLifeInsights displays pie chart of Individual time spent vs Group time spent.<br>
 Use case ends</p>
 </div>
 <div class="paragraph">
@@ -2654,16 +2690,17 @@ Use case ends</p>
 <ul>
 <li>
 <p>1a.
-No event data for group or individual available for comparison.</p>
-<div class="paragraph">
-<p>Use case ends</p>
-</div>
+No event data for group or individual available for comparison.<br>
+Use case ends</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
 <h3 id="use-case-add-an-event-with-a-person"><a class="link" href="#use-case-add-an-event-with-a-person">C.13. Use case: Add an event with a person</a></h3>
+<div class="paragraph">
+<p><code>[written by: Ernest Lian Qi Quan]</code></p>
+</div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2735,6 +2772,9 @@ Use case resumes at 3.</p>
 <div class="sect2">
 <h3 id="use-case-add-an-event-with-a-group"><a class="link" href="#use-case-add-an-event-with-a-group">C.14. Use case: Add an event with a group</a></h3>
 <div class="paragraph">
+<p><code>[written by: Ernest Lian Qi Quan]</code></p>
+</div>
+<div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
@@ -2804,6 +2844,9 @@ Use case resumes at 3.</p>
 </div>
 <div class="sect2">
 <h3 id="use-case-view-the-places-or-activities-visited-with-a-group"><a class="link" href="#use-case-view-the-places-or-activities-visited-with-a-group">C.15. Use case: View the places or activities visited with a group</a></h3>
+<div class="paragraph">
+<p><code>[written by: Ernest Lian Qi Quan]</code></p>
+</div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2987,9 +3030,6 @@ Expected: The most recent window size and location is retained.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
 </div>
 <div class="sect2">
 <h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">8.2. Deleting a person</a></h3>
@@ -3023,12 +3063,12 @@ Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
 </div>
 <div class="sect2">
 <h3 id="finding-a-person"><a class="link" href="#finding-a-person">8.3. Finding a person</a></h3>
+<div class="paragraph">
+<p><code>[written by: Cheng Lit Yaw]</code></p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3060,6 +3100,9 @@ Expected: Similar to previous.</p>
 </div>
 <div class="sect2">
 <h3 id="suggest-a-person"><a class="link" href="#suggest-a-person">8.4. Suggest a person</a></h3>
+<div class="paragraph">
+<p><code>[written by: Cheng Lit Yaw]</code></p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3110,6 +3153,9 @@ Person suggestion provided shown in status message.</p>
 </div>
 <div class="sect2">
 <h3 id="suggest-a-place"><a class="link" href="#suggest-a-place">8.5. Suggest a place</a></h3>
+<div class="paragraph">
+<p><code>[written by: Cheng Lit Yaw]</code></p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3146,6 +3192,9 @@ Place suggestion provided shown in status message.</p>
 </div>
 <div class="sect2">
 <h3 id="suggest-an-activity"><a class="link" href="#suggest-an-activity">8.6. Suggest an activity</a></h3>
+<div class="paragraph">
+<p><code>[written by: Cheng Lit Yaw]</code></p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3182,6 +3231,9 @@ Activity suggestion provided shown in status message.</p>
 </div>
 <div class="sect2">
 <h3 id="import-coderlifeinsights-data"><a class="link" href="#import-coderlifeinsights-data">8.7. Import CoderLifeInsights data</a></h3>
+<div class="paragraph">
+<p><code>[written by: Cheng Lit Yaw]</code></p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3222,6 +3274,9 @@ Expected: CoderLifeInsights will return error message showing that path provided
 </div>
 <div class="sect2">
 <h3 id="export-coderlifeinsights-data"><a class="link" href="#export-coderlifeinsights-data">8.8. Export CoderLifeInsights data</a></h3>
+<div class="paragraph">
+<p><code>[written by: Cheng Lit Yaw]</code></p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3258,6 +3313,9 @@ Another naming convention is required.</p>
 </div>
 <div class="sect2">
 <h3 id="adding-an-event"><a class="link" href="#adding-an-event">8.9. Adding an event</a></h3>
+<div class="paragraph">
+<p><code>[written by: Ernest Lian Qi Quan]</code></p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3416,6 +3474,9 @@ Example: add_event Dancing place/SCAPE m/1 time/300</p>
 </div>
 <div class="sect2">
 <h3 id="add-a-group"><a class="link" href="#add-a-group">8.10. Add a Group</a></h3>
+<div class="paragraph">
+<p><code>[written by: Raivat Bhupesh Shah]</code></p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3463,6 +3524,9 @@ to the user.</p>
 </div>
 <div class="sect2">
 <h3 id="delete-a-group"><a class="link" href="#delete-a-group">8.11. Delete a Group</a></h3>
+<div class="paragraph">
+<p><code>[written by: Raivat Bhupesh Shah]</code></p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3509,6 +3573,9 @@ specified is invalid.</p>
 </div>
 <div class="sect2">
 <h3 id="edit-a-group"><a class="link" href="#edit-a-group">8.12. Edit a Group</a></h3>
+<div class="paragraph">
+<p><code>[written by: Raivat Bhupesh Shah]</code></p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3579,6 +3646,9 @@ Expected: Error message saying group index is invalid is displayed to the user.<
 </div>
 <div class="sect2">
 <h3 id="list-all-groups"><a class="link" href="#list-all-groups">8.13. List all Groups</a></h3>
+<div class="paragraph">
+<p><code>[written by: Raivat Bhupesh Shah]</code></p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3599,23 +3669,5 @@ A success message will be shown to the user.</p>
 </ol>
 </div>
 </div>
-<div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">8.14. Saving data</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Dealing with missing/corrupted data files</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em>
-<em>{ more test cases &#8230;&#8203; }</em></p>
-</li>
-</ol>
 </div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 07:29:33 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 07:40:46 UTC</div></div></div></body></html>

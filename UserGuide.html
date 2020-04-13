@@ -22,18 +22,17 @@
 <li><a href="#adding-an-event-code-add_event-code">3.7. Adding an Event: <code>add_event</code></a></li>
 <li><a href="#suggestions-code-suggest-code">3.8. Suggestions: <code>suggest</code></a></li>
 <li><a href="#insights-code-view-code">3.9. Insights: <code>view</code></a></li>
-<li><a href="#insights-code-view_group-code-refactored-into-view-command">3.10. Insights: <code>view_group</code> [Refactored into view command]</a></li>
-<li><a href="#locating-persons-by-name-code-find-code">3.11. Locating persons by name: <code>find</code></a></li>
-<li><a href="#import-life-csv-code-import-code">3.12. Import Life CSV: <code>import</code></a></li>
-<li><a href="#export-life-csv-code-export-code">3.13. Export Life CSV: <code>export</code></a></li>
-<li><a href="#deleting-a-person-or-a-group-code-delete-code">3.14. Deleting a Person or a Group : <code>delete</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.15. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.16. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.17. Saving the data</a></li>
-<li><a href="#getting-a-random-person-code-random-code-code-coming-in-v2-0-code">3.18. Getting a random person: <code>random</code> <code>[coming in v2.0]</code></a></li>
-<li><a href="#deleting-an-event-code-delete_event-code-code-coming-in-v2-0-code">3.19. Deleting an event: <code>delete_event</code> <code>[coming in v2.0]</code></a></li>
-<li><a href="#editing-an-event-code-edit_event-code-code-coming-in-v2-0-code">3.20. Editing an event: <code>edit_event</code> <code>[coming in v2.0]</code></a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.21. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#locating-persons-by-name-code-find-code">3.10. Locating persons by name: <code>find</code></a></li>
+<li><a href="#import-life-csv-code-import-code">3.11. Import Life CSV: <code>import</code></a></li>
+<li><a href="#export-life-csv-code-export-code">3.12. Export Life CSV: <code>export</code></a></li>
+<li><a href="#deleting-a-person-or-a-group-code-delete-code">3.13. Deleting a Person or a Group : <code>delete</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.14. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.15. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.16. Saving the data</a></li>
+<li><a href="#getting-a-random-person-code-random-code-code-coming-in-v2-0-code">3.17. Getting a random person: <code>random</code> <code>[coming in v2.0]</code></a></li>
+<li><a href="#deleting-an-event-code-delete_event-code-code-coming-in-v2-0-code">3.18. Deleting an event: <code>delete_event</code> <code>[coming in v2.0]</code></a></li>
+<li><a href="#editing-an-event-code-edit_event-code-code-coming-in-v2-0-code">3.19. Editing an event: <code>edit_event</code> <code>[coming in v2.0]</code></a></li>
+<li><a href="#toggle-command-shortcuts-code-toggle-shortcuts-code-code-coming-in-v2-0-code">3.20. Toggle command shortcuts : <code>toggle shortcuts</code> <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -44,6 +43,9 @@
 <div class="sect1">
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p><code>[written by Cheng Lit Yaw]</code></p>
+</div>
 <div class="paragraph">
 <p>CoderLifeInsights is a CLI (Command Line Interface) driven desktop application that a programmer can use to record his or her social interactions with individual friends, or group of friends.<br>
 CoderLifeInsights gives the programmer insights into his or her social life, and provides suggestions to liven up their social life by analysing the social events recorded in CoderLifeInsight through the CLI.</p>
@@ -114,6 +116,9 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
+<p>ALL commands are case sensitive.</p>
+</li>
+<li>
 <p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/John Doe</code>.</p>
 </li>
 <li>
@@ -140,6 +145,9 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 <div class="sect2">
 <h3 id="adding-a-person-code-add_person-code"><a class="link" href="#adding-a-person-code-add_person-code">3.2. Adding a person: <code>add_person</code></a></h3>
+<div class="paragraph">
+<p><code>[written by: Ernest Lian Qi Quan]</code></p>
+</div>
 <div class="paragraph">
 <p>Adds a person to the CoderLifeInsights<br>
 Format: <code>add_person n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
@@ -188,6 +196,9 @@ A person can have any number of tags (including 0)
 </div>
 <div class="sect2">
 <h3 id="listing-saved-data-code-list-code"><a class="link" href="#listing-saved-data-code-list-code">3.3. Listing saved data : <code>list</code></a></h3>
+<div class="paragraph">
+<p><code>[written by: Ernest Lian Qi Quan]</code></p>
+</div>
 <div class="paragraph">
 <p>Shows a list of recorded information in CoderLifeInsights.<br>
 Format: <code>list_LIST_PARAMETER</code></p>
@@ -238,6 +249,9 @@ Format: <code>list_LIST_PARAMETER</code></p>
 </div>
 <div class="sect2">
 <h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></h3>
+<div class="paragraph">
+<p><code>[written by: Ernest Lian Qi Quan]</code></p>
+</div>
 <div class="paragraph">
 <p>Edits an existing person in the CoderLifeInsights.<br>
 Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
@@ -299,6 +313,9 @@ The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p
 </div>
 <div class="sect2">
 <h3 id="adding-a-group-code-add_group-code"><a class="link" href="#adding-a-group-code-add_group-code">3.5. Adding a Group: <code>add_group</code></a></h3>
+<div class="paragraph">
+<p><code>[written by: Raivat Bhupesh Shah]</code></p>
+</div>
 <div class="paragraph">
 <p>Creates an empty social group with given name.<br>
 Format: <code>add_group n/GROUP_NAME m/MEMBER_IDs &#8230;&#8203;</code></p>
@@ -366,6 +383,9 @@ to the user after creation.</p></td>
 <div class="sect2">
 <h3 id="editing-a-group-code-edit_group-code"><a class="link" href="#editing-a-group-code-edit_group-code">3.6. Editing a Group: <code>edit_group</code></a></h3>
 <div class="paragraph">
+<p><code>[written by: Raivat Bhupesh Shah]</code></p>
+</div>
+<div class="paragraph">
 <p>Edit a group with a given group index<br>
 Format: <code>edit_group GROUP_INDEX n/GROUP_NAME m/MEMBER_IDs</code></p>
 </div>
@@ -420,6 +440,9 @@ it was before. Member list overwritten, Name stays the same.</p></td>
 </div>
 <div class="sect2">
 <h3 id="adding-an-event-code-add_event-code"><a class="link" href="#adding-an-event-code-add_event-code">3.7. Adding an Event: <code>add_event</code></a></h3>
+<div class="paragraph">
+<p><code>[written by: Ernest Lian Qi Quan]</code></p>
+</div>
 <div class="paragraph">
 <p>Adds an event to a person or a group at the specified INDEX.<br>
 Format for adding to a person: <code>add_event ACTIVITY_NAME place/PLACE_NAME time/TIME m/INDEX</code><br>
@@ -495,6 +518,9 @@ Insights and suggestions will be generated from the saved <code>PLACES</code>, <
 </div>
 <div class="sect2">
 <h3 id="suggestions-code-suggest-code"><a class="link" href="#suggestions-code-suggest-code">3.8. Suggestions: <code>suggest</code></a></h3>
+<div class="paragraph">
+<p><code>[written by: Cheng Lit Yaw]</code></p>
+</div>
 <div class="paragraph">
 <p>Suggests a person to hang out with, a place to go or an activity to do.<br>
 Format: <code>suggest SUGGESTION_PARAMETER</code></p>
@@ -603,6 +629,9 @@ Format: <code>suggest SUGGESTION_PARAMETER</code></p>
 <div class="sect2">
 <h3 id="insights-code-view-code"><a class="link" href="#insights-code-view-code">3.9. Insights: <code>view</code></a></h3>
 <div class="paragraph">
+<p><code>[written by: Ernest Lian Qi Quan and Mah Cai Jun, Terence]</code></p>
+</div>
+<div class="paragraph">
 <p>Displays various insights about the person&#8217;s, groups and events stored in Coder Life Insights.
 (You might need to enlarge the application window for the best view.)</p>
 </div>
@@ -637,7 +666,7 @@ Also, whether an index is required or possibly not allowed depends on the insigh
 </div>
 <div id="ViewPlacesExample" class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/viewplacesexample.png" alt="viewplacesexample">
+<img src="images/viewplacesexample.png" alt="][pdfwidth=&quot;50%&quot;" width="50%">
 </div>
 <div class="title">Figure 1. View Places example</div>
 </div>
@@ -657,7 +686,7 @@ Also, whether an index is required or possibly not allowed depends on the insigh
 </div>
 <div id="ViewActivitiesExample" class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/viewactivitiesexample.png" alt="viewactivitiesexample">
+<img src="images/viewactivitiesexample.png" alt="][pdfwidth=&quot;50%&quot;" width="50%">
 </div>
 <div class="title">Figure 2. View Activities example</div>
 </div>
@@ -683,7 +712,7 @@ Also, whether an index is required or possibly not allowed depends on the insigh
 </div>
 <div id="ViewRecentExample" class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/viewrecentexample.png" alt="viewrecentexample">
+<img src="images/viewrecentexample.png" alt="][pdfwidth=&quot;50%&quot;" width="50%">
 </div>
 <div class="title">Figure 3. View Recent example</div>
 </div>
@@ -706,7 +735,7 @@ Also, whether an index is required or possibly not allowed depends on the insigh
 </div>
 <div id="ViewAllExample" class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/viewallexample.png" alt="viewallexample">
+<img src="images/viewallexample.png" alt="][pdfwidth=&quot;50%&quot;" width="50%">
 </div>
 <div class="title">Figure 4. View All example</div>
 </div>
@@ -726,7 +755,7 @@ Also, whether an index is required or possibly not allowed depends on the insigh
 </div>
 <div id="ViewTimeExample" class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/viewtimeexample.png" alt="viewtimeexample">
+<img src="images/viewtimeexample.png" alt="][pdfwidth=&quot;50%&quot;" width="50%">
 </div>
 <div class="title">Figure 5. View Time example</div>
 </div>
@@ -792,74 +821,10 @@ Also, whether an index is required or possibly not allowed depends on the insigh
 </div>
 </div>
 <div class="sect2">
-<h3 id="insights-code-view_group-code-refactored-into-view-command"><a class="link" href="#insights-code-view_group-code-refactored-into-view-command">3.10. Insights: <code>view_group</code> [Refactored into view command]</a></h3>
+<h3 id="locating-persons-by-name-code-find-code"><a class="link" href="#locating-persons-by-name-code-find-code">3.10. Locating persons by name: <code>find</code></a></h3>
 <div class="paragraph">
-<p>Lists insights about the user&#8217;s interactions with a particular group.
-These include places visited and activities done with that group.
-Format: `view_group INSIGHT_PARAMETER g/INDEX</p>
+<p><code>[written by: Ernest Lian Qi Quan]</code></p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>Remarks:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>INSIGHT_PARAMETERS include <code>places</code> and <code>activities</code>.</p>
-</li>
-<li>
-<p>INDEX must be an unsigned non-zero integer.</p>
-</li>
-<li>
-<p>Places and Activities are case-sensitive:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>Swimming Pool</code> and <code>swimming pool</code> are considered different places</p>
-</li>
-<li>
-<p><code>SWIMMING</code> and <code>swimming</code> are considered different activities</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<table class="tableblock frame-all grid-all" style="width: 80%;">
-<colgroup>
-<col style="width: 30%;">
-<col style="width: 30%;">
-<col style="width: 40%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Example</th>
-<th class="tableblock halign-left valign-top">Command</th>
-<th class="tableblock halign-left valign-top">Result</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">View insights of places visited with first group</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">view_group places g/1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CoderLifeInsights will return a table on the GUI displaying the places visited with the first group and the number of times the user has been there with the group</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">View insights of activities done with the second group</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">view_group activities g/2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CoderLifeInsights will return a table on the GUI displaying the activities done with the second group and the number of times each activity has been done</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="locating-persons-by-name-code-find-code"><a class="link" href="#locating-persons-by-name-code-find-code">3.11. Locating persons by name: <code>find</code></a></h3>
 <div class="paragraph">
 <p>Finds persons whose names contain any of the given keywords.<br>
 Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
@@ -918,7 +883,10 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="import-life-csv-code-import-code"><a class="link" href="#import-life-csv-code-import-code">3.12. Import Life CSV: <code>import</code></a></h3>
+<h3 id="import-life-csv-code-import-code"><a class="link" href="#import-life-csv-code-import-code">3.11. Import Life CSV: <code>import</code></a></h3>
+<div class="paragraph">
+<p><code>[written by: Cheng Lit Yaw]</code></p>
+</div>
 <div class="paragraph">
 <p>Imports your existing Life CSV into the application<br>
 Format: <code>import l/LIFE_FILE_PATH g/GROUP_FILE_PATH e/EVENT_FILE_PATH</code></p>
@@ -988,7 +956,7 @@ and your Events from <code>./Desktop/events.csv</code>.</p></td>
 </tbody>
 </table>
 <div class="sect3">
-<h4 id="retrieving-file-path"><a class="link" href="#retrieving-file-path">3.12.1. Retrieving File Path</a></h4>
+<h4 id="retrieving-file-path"><a class="link" href="#retrieving-file-path">3.11.1. Retrieving File Path</a></h4>
 <div class="paragraph">
 <p>For Windows:</p>
 </div>
@@ -1025,7 +993,7 @@ and your Events from <code>./Desktop/events.csv</code>.</p></td>
 </div>
 </div>
 <div class="sect3">
-<h4 id="csv-file-constraints"><a class="link" href="#csv-file-constraints">3.12.2. CSV File Constraints</a></h4>
+<h4 id="csv-file-constraints"><a class="link" href="#csv-file-constraints">3.11.2. CSV File Constraints</a></h4>
 <div class="paragraph">
 <p>For <code>Life.csv</code>:</p>
 </div>
@@ -1186,7 +1154,10 @@ and your Events from <code>./Desktop/events.csv</code>.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="export-life-csv-code-export-code"><a class="link" href="#export-life-csv-code-export-code">3.13. Export Life CSV: <code>export</code></a></h3>
+<h3 id="export-life-csv-code-export-code"><a class="link" href="#export-life-csv-code-export-code">3.12. Export Life CSV: <code>export</code></a></h3>
+<div class="paragraph">
+<p><code>[written by: Cheng Lit Yaw]</code></p>
+</div>
 <div class="paragraph">
 <p>Exports your existing Life into a CSV file.<br>
 Format: <code>export l/LIFE_FILE_NAME g/GROUP_FILE_NAME e/EVENT_FILE_NAME</code></p>
@@ -1247,7 +1218,10 @@ Exports your event data to <code>events.csv</code></p></td>
 </table>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person-or-a-group-code-delete-code"><a class="link" href="#deleting-a-person-or-a-group-code-delete-code">3.14. Deleting a Person or a Group : <code>delete</code></a></h3>
+<h3 id="deleting-a-person-or-a-group-code-delete-code"><a class="link" href="#deleting-a-person-or-a-group-code-delete-code">3.13. Deleting a Person or a Group : <code>delete</code></a></h3>
+<div class="paragraph">
+<p><code>[written by: Raivat Bhupesh Shah]</code></p>
+</div>
 <div class="paragraph">
 <p>Deletes an entity, such as a Person or Group from the CoderLifeInsights<br>
 Format: <code>delete_person PERSON_INDEX</code> (for person)<br>
@@ -1306,28 +1280,31 @@ Remarks: CoderLifeInsights uses 1-indexing.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.15. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.14. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the CoderLifeInsights.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.16. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.15. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.17. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.16. Saving the data</a></h3>
 <div class="paragraph">
 <p>CoderLifeInsights data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="getting-a-random-person-code-random-code-code-coming-in-v2-0-code"><a class="link" href="#getting-a-random-person-code-random-code-code-coming-in-v2-0-code">3.18. Getting a random person: <code>random</code> <code>[coming in v2.0]</code></a></h3>
+<h3 id="getting-a-random-person-code-random-code-code-coming-in-v2-0-code"><a class="link" href="#getting-a-random-person-code-random-code-code-coming-in-v2-0-code">3.17. Getting a random person: <code>random</code> <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p><code>[written by: Ernest Lian Qi Quan]</code></p>
+</div>
 <div class="paragraph">
 <p>Finds a random person from contacts saved in CoderLifeInsights.<br>
 Format: <code>random</code></p>
@@ -1362,14 +1339,20 @@ Returns the name of a random person saved in CoderLifeInsights.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-an-event-code-delete_event-code-code-coming-in-v2-0-code"><a class="link" href="#deleting-an-event-code-delete_event-code-code-coming-in-v2-0-code">3.19. Deleting an event: <code>delete_event</code> <code>[coming in v2.0]</code></a></h3>
+<h3 id="deleting-an-event-code-delete_event-code-code-coming-in-v2-0-code"><a class="link" href="#deleting-an-event-code-delete_event-code-code-coming-in-v2-0-code">3.18. Deleting an event: <code>delete_event</code> <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p><code>[written by: Ernest Lian Qi Quan]</code></p>
+</div>
 <div class="paragraph">
 <p>Deletes an event from a person or group saved in CoderLifeInsights.<br>
 Format: <code>delete_event EVENTID m/INDEX</code> or <code>delete_event EVENTID g/INDEX</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-an-event-code-edit_event-code-code-coming-in-v2-0-code"><a class="link" href="#editing-an-event-code-edit_event-code-code-coming-in-v2-0-code">3.20. Editing an event: <code>edit_event</code> <code>[coming in v2.0]</code></a></h3>
+<h3 id="editing-an-event-code-edit_event-code-code-coming-in-v2-0-code"><a class="link" href="#editing-an-event-code-edit_event-code-code-coming-in-v2-0-code">3.19. Editing an event: <code>edit_event</code> <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p><code>[written by: Ernest Lian Qi Quan]</code></p>
+</div>
 <div class="paragraph">
 <p>Edit the information of an event with a person or group saved in CoderLifeInsights.<br>
 Format: <code>edit_event EVENTID m/INDEX [activity/ACTIVITY] [place/PLACE] [time/TIME]</code> or <code>edit_event EVENTID g/INDEX [activity/ACTIVITY] [place/PLACE] [time/TIME]</code><br>
@@ -1377,9 +1360,16 @@ Edits the event&#8217;s respective details to the one specified in the command.<
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.21. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="toggle-command-shortcuts-code-toggle-shortcuts-code-code-coming-in-v2-0-code"><a class="link" href="#toggle-command-shortcuts-code-toggle-shortcuts-code-code-coming-in-v2-0-code">3.20. Toggle command shortcuts : <code>toggle shortcuts</code> <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
-<p><em>{explain how the user can enable/disable data encryption}</em></p>
+<p><code>[written by: Cheng Lit Yaw]</code></p>
+</div>
+<div class="paragraph">
+<p>Enable toggle command shortcuts to have commands shortened.
+Instead of <code>add_group</code>, <code>ag</code> would suffice when adding groups to CoderLifeInsights<br></p>
+</div>
+<div class="paragraph">
+<p>Format <code>toggle shortcuts</code></p>
 </div>
 </div>
 </div>
@@ -1396,6 +1386,9 @@ Edits the event&#8217;s respective details to the one specified in the command.<
 <div class="sect1">
 <h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p><code>[written by: Cheng Lit Yaw]</code></p>
+</div>
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 30%;">
@@ -1458,8 +1451,9 @@ Edits the event&#8217;s respective details to the one specified in the command.<
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>View</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>view INSIGHT_PARAMETER</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>view 1 places</code><br></p>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>view INSIGHT_PARAMETER [m/PERSON_INDEX] [g/GROUP_INDEX]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>view places m/1</code><br></p>
+<p class="tableblock"><code>view activity g/1</code><br></p>
 <p class="tableblock"><code>view time</code><br></p>
 <p class="tableblock"><code>view recent</code><br></p>
 <p class="tableblock"><code>view all</code></p></td>
@@ -1505,4 +1499,4 @@ Edits the event&#8217;s respective details to the one specified in the command.<
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 07:29:33 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 07:40:46 UTC</div></div></div></body></html>
