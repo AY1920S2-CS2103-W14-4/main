@@ -82,6 +82,9 @@
 <li><a href="#use-case-suggest-place">C.10. Use case: Suggest place</a></li>
 <li><a href="#use-case-suggest-activity">C.11. Use case: Suggest activity</a></li>
 <li><a href="#use-case-view-time">C.12. Use case: View time</a></li>
+<li><a href="#use-case-add-an-event-with-a-person">C.13. Use case: Add an event with a person</a></li>
+<li><a href="#use-case-add-an-event-with-a-group">C.14. Use case: Add an event with a group</a></li>
+<li><a href="#use-case-view-the-places-or-activities-visited-with-a-group">C.15. Use case: View the places or activities visited with a group</a></li>
 </ul>
 </li>
 <li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
@@ -96,11 +99,12 @@
 <li><a href="#suggest-an-activity">8.6. Suggest an activity</a></li>
 <li><a href="#import-coderlifeinsights-data">8.7. Import CoderLifeInsights data</a></li>
 <li><a href="#export-coderlifeinsights-data">8.8. Export CoderLifeInsights data</a></li>
-<li><a href="#add-a-group">8.9. Add a Group</a></li>
-<li><a href="#delete-a-group">8.10. Delete a Group</a></li>
-<li><a href="#edit-a-group">8.11. Edit a Group</a></li>
-<li><a href="#list-all-groups">8.12. List all Groups</a></li>
-<li><a href="#saving-data">8.13. Saving data</a></li>
+<li><a href="#adding-an-event">8.9. Adding an event</a></li>
+<li><a href="#add-a-group">8.10. Add a Group</a></li>
+<li><a href="#delete-a-group">8.11. Delete a Group</a></li>
+<li><a href="#edit-a-group">8.12. Edit a Group</a></li>
+<li><a href="#list-all-groups">8.13. List all Groups</a></li>
+<li><a href="#saving-data">8.14. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -1152,17 +1156,6 @@ the user if there are too many commands.</p>
 * Time: <code>2h 30m</code></p>
 </div>
 <div class="paragraph">
-<p>Depicted below is the class diagram of the Event class:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/EventClassDiagram.png" alt="EventClassDiagram" width="92.5%">
-</div>
-</div>
-<div class="paragraph">
-<p>The Event created is stored in an UniqueEventList, which is saved to the Json file as well. The Events saved are used to generate output for features.</p>
-</div>
-<div class="paragraph">
 <p>The sequence diagram below showcases how the command works with a valid input:</p>
 </div>
 <div class="imageblock">
@@ -1170,14 +1163,36 @@ the user if there are too many commands.</p>
 <img src="images/addEventSequence.png" alt="addEventSequence" width="92.5%">
 </div>
 </div>
+<hr>
 <div class="paragraph">
-<p>The following class diagram shows how the Time, PlaceList and ActivityList are associated with a Person object:</p>
+<p>Depicted below is the class diagram of the Event class, displaying how the UniqueEventList and Event classes are associated to the AddressBook class:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/AddEventClassDiagram.png" alt="AddEventClassDiagram" width="92.5%">
+<img src="images/EventClassDiagram.png" alt="EventClassDiagram" width="100%">
 </div>
 </div>
+<div class="paragraph">
+<p>The Event created is stored in an UniqueEventList, which is saved to the Json file as well.
+The Events saved are used to generate output for features.</p>
+</div>
+<div class="paragraph">
+<p>The following class diagram shows how the Time, PlaceList and ActivityList are associated with a Person object.
+The Person class only displays relevant information to the Time, PlaceList and ActivityList classes:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddEventClassDiagram.png" alt="AddEventClassDiagram" width="100%">
+</div>
+</div>
+<div class="paragraph">
+<p>The Time, ActivityList and PlaceList classes were implemented similar to a Person&#8217;s Name or Address. A Person&#8217;s Time is displayed on the GUI as well for users to know how much time they have spent with that Person.
+The reason behind this implementation was to ensure that information added from the AddEventCommand would be saved through changes to Persons or Groups in CoderLifeInsights.
+The pertinent information would then be used in following features which require these data to generate output.<br>
+A Group object also has the same implementation of Time, PlaceList and ActivityList and its class diagram is similar to the diagram above, with the Person class being substituted by the Group class.
+These information are also saved for the Group object when an Event is added to a Group object.</p>
+</div>
+<hr>
 <div class="paragraph">
 <p>The following activity diagram depicts the following scenario:</p>
 </div>
@@ -1196,7 +1211,10 @@ the user if there are too many commands.</p>
 <p><code>AddEventCommandParser#parse()</code> checks if input is valid.</p>
 </li>
 <li>
-<p><code>AddEventCommandParser#parse()</code> then creates a new instance of <code>AddEventCommand</code>.</p>
+<p><code>AddEventCommandParser#parse()</code> then creates a new instance of an <code>Event</code>.</p>
+</li>
+<li>
+<p><code>AddEventCommandParser#parse()</code> then creates a new instance of <code>AddEventCommand</code>, with the created <code>Event</code> as it&#8217;s parameter.</p>
 </li>
 <li>
 <p><code>AddEventCommand</code> calls the <code>AddEventCommand#execute()</code> method.</p>
@@ -1224,6 +1242,9 @@ the user if there are too many commands.</p>
 </li>
 <li>
 <p><code>AddEventCommand#execute()</code> then updates the filtered list with the call to <code>model#updateFilteredPersonList()</code>.</p>
+</li>
+<li>
+<p><code>AddEventCommand#execute()</code> then updates the UniqueEventList with the call to <code>model#addEvent()</code>, which adds the created <code>Event</code> to the UniqueEventList.</p>
 </li>
 <li>
 <p><code>AddEventCommand</code> returns the <code>CommandResult</code> to <code>AddressBookParser</code>.</p>
@@ -2607,7 +2628,7 @@ Use case ends.</p>
 <div class="paragraph">
 <p><strong>MSS</strong>
 1. User requests to view time comparison between individuals and groups.
-2. CoderLifeInsights displays pie char of Individual time spent vs Group time spent.</p>
+2. CoderLifeInsights displays pie chart of Individual time spent vs Group time spent.</p>
 </div>
 <div class="paragraph">
 <p>+
@@ -2623,6 +2644,187 @@ Use case ends</p>
 No event data for group or individual available for comparison.</p>
 <div class="paragraph">
 <p>Use case ends</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-add-an-event-with-a-person"><a class="link" href="#use-case-add-an-event-with-a-person">C.13. Use case: Add an event with a person</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User wants to add an Event with the following details to the first person displayed on the Person List on CoderLifeInsights:<br>
+Activity: <code>swimming</code> Place: <code>pool</code> Time: <code>1 hour and 30 minutes</code></p>
+</li>
+<li>
+<p>User enters correct command with valid input and prefixes</p>
+</li>
+<li>
+<p>Event is created and added to the Person<br>
+<strong>Use case ends</strong></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>2a. User enters incorrect command</p>
+<div class="ulist">
+<ul>
+<li>
+<p>2a1. Invalid command error is displayed</p>
+</li>
+<li>
+<p>2a2. User re-enters valid command with valid input<br>
+Use case resumes at 3.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>2b. User enters correct command but invalid input</p>
+<div class="ulist">
+<ul>
+<li>
+<p>2b1. Invalid command error is displayed</p>
+</li>
+<li>
+<p>2b2. User re-enters valid and correct command with valid input<br>
+Use case resumes at 3.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>2c. Person index specified is out of bounds</p>
+<div class="ulist">
+<ul>
+<li>
+<p>2c1. Invalid person index error message is displayed</p>
+</li>
+<li>
+<p>2c2. User re-enters command with correct and valid person index<br>
+Use case resumes at 3.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-add-an-event-with-a-group"><a class="link" href="#use-case-add-an-event-with-a-group">C.14. Use case: Add an event with a group</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User wants to add an Event with the following details to the first group displayed on the Group List on CoderLifeInsights:<br>
+Activity: <code>dancing</code> Place: <code>dance studio</code> Time: <code>1 hour and 30 minutes</code></p>
+</li>
+<li>
+<p>User enters correct command with valid input and prefixes</p>
+</li>
+<li>
+<p>Event is created and added to the Group<br>
+<strong>Use case ends</strong></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>2a. User enters incorrect command</p>
+<div class="ulist">
+<ul>
+<li>
+<p>2a1. Invalid command error is displayed</p>
+</li>
+<li>
+<p>2a2. User re-enters valid command with valid input<br>
+Use case resumes at 3.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>2b. User enters correct command but invalid input</p>
+<div class="ulist">
+<ul>
+<li>
+<p>2b1. Invalid command error is displayed</p>
+</li>
+<li>
+<p>2b2. User re-enters valid and correct command with valid input<br>
+Use case resumes at 3.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>2c. Group index specified is out of bounds</p>
+<div class="ulist">
+<ul>
+<li>
+<p>2c1. Invalid group index error message is displayed</p>
+</li>
+<li>
+<p>2c2. User re-enters command with correct and valid group index<br>
+Use case resumes at 3.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-view-the-places-or-activities-visited-with-a-group"><a class="link" href="#use-case-view-the-places-or-activities-visited-with-a-group">C.15. Use case: View the places or activities visited with a group</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User wants to view insights on the places or activities been to or carried out with a group.</p>
+</li>
+<li>
+<p>User enters view group command</p>
+</li>
+<li>
+<p>CoderLifeInsights displays the requested information in table form for the user.<br>
+<strong>Use case ends</strong></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>2a. User enters valid command with invalid group index</p>
+<div class="ulist">
+<ul>
+<li>
+<p>2a1. Invalid group index error message is displayed</p>
+</li>
+<li>
+<p>2a2. User re-enters command with a valid group index<br>
+Use case resumes at 3.</p>
+</li>
+</ul>
 </div>
 </li>
 </ul>
@@ -3042,7 +3244,165 @@ Another naming convention is required.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-a-group"><a class="link" href="#add-a-group">8.9. Add a Group</a></h3>
+<h3 id="adding-an-event"><a class="link" href="#adding-an-event">8.9. Adding an event</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Add an event to a person or group saved in CoderLifeInsights</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Have a person or group saved in CoderLifeInsights</p>
+</li>
+<li>
+<p>Test case 1 (adding an event to a person): <code>add_event anything place/anywhere time/30 m/1</code><br>
+Expected: New event successfully added: Event: anything place: anywhere for 0h 30m</p>
+</li>
+<li>
+<p>Test case 2 (adding an event to a group): <code>add_event anything place/anywhere time/30 g/1</code><br>
+Expected: New event successfully added: Event: anything place: anywhere for 0h 30m</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Adding an event to a person or group not saved in CoderLifeInsights</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Choose an index that is greater than the number of persons and groups saved in CoderLifeInsights, for example, 100 for the sample test data</p>
+</li>
+<li>
+<p>Test case 1(adding an event to a person): <code>add_event anything place/anywhere time/30 m/100</code><br>
+Expected: The person index provided is invalid</p>
+</li>
+<li>
+<p>Test case 2 (adding an event to a group): <code>add_event anything place/anywhere time/30 g/100</code><br>
+Expected: The group index provided is invalid</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Adding an event to a person or group with time spent of 0 hours and 0 minutes:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Have a person or group saved in CoderLifeInsights</p>
+</li>
+<li>
+<p>Test case 1 (adding an event to a person): <code>add_event anything place/anywhere time/00 m/1</code>+
+Expected: Time parameter has to be greater than 0 minutes</p>
+</li>
+<li>
+<p>Test case 2 (adding an event to a group): <code>add_event anything place/anywhere time/00 g/1</code><br>
+Expected: Time parameter has to be greater than 0 minutes</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Adding an event with required fields missing:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Have a person or group saved in CoderLifeInsights</p>
+</li>
+<li>
+<p>Testcase 1: <code>add_event place/anywhere time/30 m/1</code></p>
+</li>
+<li>
+<p>Testcase 2: <code>add_event anything place/ time/30 m/1</code></p>
+</li>
+<li>
+<p>Testcase 3: <code>add_event anything time/30 m/1</code></p>
+</li>
+<li>
+<p>Testcase 4: <code>add_event anything place/anywhere time/ m/1</code></p>
+</li>
+<li>
+<p>Testcase 5: <code>add_event anything place/anywhere m/1</code></p>
+</li>
+<li>
+<p>Testcase 6: <code>add_event anything place/anywhere time/30</code></p>
+</li>
+<li>
+<p>Testcase 7: <code>add_event</code><br>
+Expected: Invalid command format!<br>
+add_event: Creates an event with a group or an individual that adds an activity, place and time to the subject.<br>
+Parameters: ACTIVITY place/PLACE m/INDEX time/TIME<br>
+OR<br>
+Parameters: ACTIVITY place/PLACE g/INDEX time/TIME<br>
+Example: add_event Dancing place/SCAPE m/1 time/300</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Adding an event with an invalid person or group index</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Have a person or group saved in CoderLifeInsights</p>
+</li>
+<li>
+<p>Testcase 1: <code>add_event anything place/anywhere time/30 m/</code></p>
+</li>
+<li>
+<p>Testcase 2: <code>add_event anything place/anywhere time/30 m/s</code></p>
+</li>
+<li>
+<p>Testcase 3: <code>add_event anything place/anywhere time/30 m/1 s</code><br>
+Expected: Index is not a non-zero unsigned integer.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Adding an event with an invalid time</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Have a person or group saved in CoderLifeInsights</p>
+</li>
+<li>
+<p>Testcase 1: <code>add_event anything place/anywhere time/0 m/s</code></p>
+</li>
+<li>
+<p>Testcase 2: <code>add_event anything place/anywhere time/30s m/s</code></p>
+</li>
+<li>
+<p>Testcase 3: <code>add_event anything place/anywhere time/test m/s</code><br>
+Expected: Time parameter needs to be unsigned integers of at least 2 digits.<br>
+For example: [5 minutes = 05]; [1 hour = 100]; [10 hours and 30 minutes = 1030]</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Adding an event to both group and member at the same time</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: None</p>
+</li>
+<li>
+<p>Testcase 1: <code>add_event anything place/anywhere time/30s m/1 g/1</code><br>
+Expected: Invalid command format!<br>
+add_event: Creates an event with a group or an individual that adds an activity, place and time to the subject.<br>
+Parameters: ACTIVITY place/PLACE m/INDEX time/TIME<br>
+OR<br>
+Parameters: ACTIVITY place/PLACE g/INDEX time/TIME<br>
+Example: add_event Dancing place/SCAPE m/1 time/300</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-a-group"><a class="link" href="#add-a-group">8.10. Add a Group</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3089,7 +3449,7 @@ to the user.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="delete-a-group"><a class="link" href="#delete-a-group">8.10. Delete a Group</a></h3>
+<h3 id="delete-a-group"><a class="link" href="#delete-a-group">8.11. Delete a Group</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3135,7 +3495,7 @@ specified is invalid.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="edit-a-group"><a class="link" href="#edit-a-group">8.11. Edit a Group</a></h3>
+<h3 id="edit-a-group"><a class="link" href="#edit-a-group">8.12. Edit a Group</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3205,7 +3565,7 @@ Expected: Error message saying group index is invalid is displayed to the user.<
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-all-groups"><a class="link" href="#list-all-groups">8.12. List all Groups</a></h3>
+<h3 id="list-all-groups"><a class="link" href="#list-all-groups">8.13. List all Groups</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3227,7 +3587,7 @@ A success message will be shown to the user.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">8.13. Saving data</a></h3>
+<h3 id="saving-data"><a class="link" href="#saving-data">8.14. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3245,4 +3605,4 @@ A success message will be shown to the user.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 02:54:10 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 03:28:12 UTC</div></div></div></body></html>

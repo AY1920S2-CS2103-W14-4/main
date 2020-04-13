@@ -4,16 +4,16 @@
 <h2 id="project-coderlifeinsights"><a class="link" href="#project-coderlifeinsights">PROJECT: CoderLifeInsights</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>CoderLifeInsights (CLI) is a desktop application that provides you insights and suggestions to your social life as a programmer using a CLI (Command Line Interface)</p>
+<p>CoderLifeInsights is a CLI (Command Line Interface) driven desktop application that a programmer can use to record his or her social interactions with individual friends, or group of friends.<br>
+CoderLifeInsights gives the programmer insights into his or her social life, and provides suggestions to liven up their social life by analysing the social events recorded in CoderLifeInsight through the CLI.</p>
 </div>
-<hr>
 </div>
 </div>
 <div class="sect1">
 <h2 id="my-role"><a class="link" href="#my-role">My Role</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>I was tasked to implement the AddEventCommand with its relevant classes, and making the inputs from the aforementioned command savable to the hard disk.
+<p>I was tasked to implement the AddEventCommand with its relevant classes, namely the Time, PlaceList and ActivityList classes. I also made the inputs from the aforementioned command savable to the hard disk.
 This command and its implementation is the backbone of all our relevant features.
 I also made minor changes to the GUI displays, as well as contributions to the Developers' Guide and User Guide.</p>
 </div>
@@ -134,7 +134,7 @@ It required an in-depth analysis of design alternatives.</p>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement #2</strong>: Implementation of Insights feature for groups <code>view_groups</code></p>
+<p><strong>Minor enhancement #3</strong>: Implementation of Insights feature for groups <code>view_groups</code></p>
 <div class="ulist">
 <ul>
 <li>
@@ -158,6 +158,19 @@ It required an in-depth analysis of design alternatives.</p>
 <ul>
 <li>
 <p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Tasked to ensure deliverables were submitted and deadlines were met by all members of the group.</p>
+</li>
+<li>
+<p>Tasked to test and discover potential bugs in the software.</p>
+</li>
+<li>
+<p>Tasked to ensure documentation for all code written, as well as ensuring that the User Guide is understandable and not confusing.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Enhancements to existing features:</p>
@@ -189,10 +202,10 @@ It required an in-depth analysis of design alternatives.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Added and revised contents of the User Guide (Pull requests: <a href="https://github.com/AY1920S2-CS2103-W14-4/main/pull/53">#53</a>, <a href="https://github.com/AY1920S2-CS2103-W14-4/main/pull/94">#94</a>, <a href="https://github.com/AY1920S2-CS2103-W14-4/main/pull/128">#128</a>)</p>
+<p>Added and revised contents of the User Guide (Pull requests: <a href="https://github.com/AY1920S2-CS2103-W14-4/main/pull/53">#53</a>, <a href="https://github.com/AY1920S2-CS2103-W14-4/main/pull/94">#94</a>, <a href="https://github.com/AY1920S2-CS2103-W14-4/main/pull/128">#128</a>, <a href="https://github.com/AY1920S2-CS2103-W14-4/main/pull/160">#160</a>, <a href="https://github.com/AY1920S2-CS2103-W14-4/main/pull/172">#172</a>)</p>
 </li>
 <li>
-<p>Added contents of the Developer Guide (Pull requests: <a href="https://github.com/AY1920S2-CS2103-W14-4/main/pull/79">#79</a>)</p>
+<p>Added contents of the Developer Guide (Pull requests: <a href="https://github.com/AY1920S2-CS2103-W14-4/main/pull/79">#79</a>, <a href="https://github.com/AY1920S2-CS2103-W14-4/main/pull/160">#160</a>, <a href="https://github.com/AY1920S2-CS2103-W14-4/main/pull/172">#172</a>)</p>
 </li>
 </ul>
 </div>
@@ -202,7 +215,7 @@ It required an in-depth analysis of design alternatives.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed:</p>
+<p>PRs reviewed: (Pull requests: <a href="https://github.com/AY1920S2-CS2103-W14-4/main/pull/86">#86</a>, <a href="https://github.com/AY1920S2-CS2103-W14-4/main/pull/131">#131</a>, <a href="https://github.com/AY1920S2-CS2103-W14-4/main/pull/136">#136</a>)</p>
 </li>
 </ul>
 </div>
@@ -231,6 +244,56 @@ It required an in-depth analysis of design alternatives.</p>
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="listing-saved-data-code-list-code"><a class="link" href="#listing-saved-data-code-list-code">Listing saved data : <code>list</code></a></h3>
+<div class="paragraph">
+<p>Shows a list of recorded information in CoderLifeInsights.<br>
+Format: <code>list_LIST_PARAMETER</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>LIST_PARAMETER include <code>persons</code>,<code>groups</code>.</p>
+</li>
+<li>
+<p>CoderLifeInsights will display an indexed list of the saved <code>LIST_PARAMATER</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 75%;">
+<colgroup>
+<col style="width: 27.2727%;">
+<col style="width: 18.1818%;">
+<col style="width: 54.5455%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Example</th>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Show all persons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list_persons</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns a list of the saved persons in CoderLifeInsights.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Show all groups</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list_groups</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns a list of the saved groups in CoderLifeInsights.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="sect2">
 <h3 id="adding-an-event-code-add_event-code"><a class="link" href="#adding-an-event-code-add_event-code">Adding an Event: <code>add_event</code></a></h3>
 <div class="paragraph">
@@ -443,17 +506,6 @@ Format: `view_group INSIGHT_PARAMETER g/INDEX</p>
 * Time: <code>2h 30m</code></p>
 </div>
 <div class="paragraph">
-<p>Depicted below is the class diagram of the Event class:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/EventClassDiagram.png" alt="EventClassDiagram" width="92.5%">
-</div>
-</div>
-<div class="paragraph">
-<p>The Event created is stored in an UniqueEventList, which is saved to the Json file as well. The Events saved are used to generate output for features.</p>
-</div>
-<div class="paragraph">
 <p>The sequence diagram below showcases how the command works with a valid input:</p>
 </div>
 <div class="imageblock">
@@ -461,14 +513,36 @@ Format: `view_group INSIGHT_PARAMETER g/INDEX</p>
 <img src="../images/addEventSequence.png" alt="addEventSequence" width="92.5%">
 </div>
 </div>
+<hr>
 <div class="paragraph">
-<p>The following class diagram shows how the Time, PlaceList and ActivityList are associated with a Person object:</p>
+<p>Depicted below is the class diagram of the Event class, displaying how the UniqueEventList and Event classes are associated to the AddressBook class:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/AddEventClassDiagram.png" alt="AddEventClassDiagram" width="92.5%">
+<img src="../images/EventClassDiagram.png" alt="EventClassDiagram" width="100%">
 </div>
 </div>
+<div class="paragraph">
+<p>The Event created is stored in an UniqueEventList, which is saved to the Json file as well.
+The Events saved are used to generate output for features.</p>
+</div>
+<div class="paragraph">
+<p>The following class diagram shows how the Time, PlaceList and ActivityList are associated with a Person object.
+The Person class only displays relevant information to the Time, PlaceList and ActivityList classes:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddEventClassDiagram.png" alt="AddEventClassDiagram" width="100%">
+</div>
+</div>
+<div class="paragraph">
+<p>The Time, ActivityList and PlaceList classes were implemented similar to a Person&#8217;s Name or Address. A Person&#8217;s Time is displayed on the GUI as well for users to know how much time they have spent with that Person.
+The reason behind this implementation was to ensure that information added from the AddEventCommand would be saved through changes to Persons or Groups in CoderLifeInsights.
+The pertinent information would then be used in following features which require these data to generate output.<br>
+A Group object also has the same implementation of Time, PlaceList and ActivityList and its class diagram is similar to the diagram above, with the Person class being substituted by the Group class.
+These information are also saved for the Group object when an Event is added to a Group object.</p>
+</div>
+<hr>
 <div class="paragraph">
 <p>The following activity diagram depicts the following scenario:</p>
 </div>
@@ -487,7 +561,10 @@ Format: `view_group INSIGHT_PARAMETER g/INDEX</p>
 <p><code>AddEventCommandParser#parse()</code> checks if input is valid.</p>
 </li>
 <li>
-<p><code>AddEventCommandParser#parse()</code> then creates a new instance of <code>AddEventCommand</code>.</p>
+<p><code>AddEventCommandParser#parse()</code> then creates a new instance of an <code>Event</code>.</p>
+</li>
+<li>
+<p><code>AddEventCommandParser#parse()</code> then creates a new instance of <code>AddEventCommand</code>, with the created <code>Event</code> as it&#8217;s parameter.</p>
 </li>
 <li>
 <p><code>AddEventCommand</code> calls the <code>AddEventCommand#execute()</code> method.</p>
@@ -517,6 +594,9 @@ Format: `view_group INSIGHT_PARAMETER g/INDEX</p>
 <p><code>AddEventCommand#execute()</code> then updates the filtered list with the call to <code>model#updateFilteredPersonList()</code>.</p>
 </li>
 <li>
+<p><code>AddEventCommand#execute()</code> then updates the UniqueEventList with the call to <code>model#addEvent()</code>, which adds the created <code>Event</code> to the UniqueEventList.</p>
+</li>
+<li>
 <p><code>AddEventCommand</code> returns the <code>CommandResult</code> to <code>AddressBookParser</code>.</p>
 </li>
 <li>
@@ -538,4 +618,4 @@ Format: `view_group INSIGHT_PARAMETER g/INDEX</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 02:54:10 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 03:28:12 UTC</div></div></div></body></html>
