@@ -32,17 +32,18 @@ I have also made notable contributions to the User Guide and Developer Guide.</p
 <ul>
 <li>
 <p>What they do: They allow the user of CoderLifeInsights to add a social group, delete a social group or edit the
-group for adding/removing members or changing the name of the group.</p>
+group for adding/removing members or changing the name of the group. The <code>list_group</code> command lists all the groups in the app.
+It was planned and implemented in anticipation of a <code>find_group</code> command in the future that could change the group list view in the app.</p>
 </li>
 <li>
 <p>Justification: A social group is a crucial aspect of the
 CoderLifeInsights app as it allows the users to distinguish between time spent in group interactions and individual,
-one-to-one interactions. They are implemented similar to <code>add_person</code>, <code>delete_person</code> and <code>edit_person</code>
-features of the addressbook3 due to the robust design and defensive programming style.</p>
+one-to-one interactions. The group features are essential to record and track data regarding social groups. The commands
+are implemented similar to <code>add_person</code>, <code>delete_person</code> and <code>edit_person</code>
+features of the addressbook3 due to the clear design and defensive programming style.</p>
 </li>
 <li>
-<p>Highlights: This enhancement functions well with existing commands as it adds more CoderLifeInsights into the list,
-all the other features such as groups, and events are updated as well. It required an in-depth analysis
+<p>Highlights: This enhancement functions well with existing commands and adds a crucial ability to add social groups. It required an in-depth analysis
 of design alternatives.</p>
 </li>
 <li>
@@ -106,7 +107,7 @@ between Java Classes such as <code>Group</code> and <code>Event</code> and JSON 
 customised need of the app.</p>
 </li>
 <li>
-<p>Highlights: This enhancement functions well with all the classes that depend upon it and use it. This required an
+<p>Highlights: This enhancement functions well with all the classes that depend upon it and use it. This required a
 thorough understanding of the different use cases.</p>
 </li>
 </ul>
@@ -139,7 +140,7 @@ thorough understanding of the different use cases.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Model: [<a href="https://github.com/AY1920S2-CS2103-W14-4/main/blob/master/src/test/java/seedu/address/model/group/GroupTest.java">GroupTest</a>, [<a href="https://github.com/AY1920S2-CS2103-W14-4/main/blob/master/src/test/java/seedu/address/model/group/UniqueGroupListTest.java">UniqueGroupList</a>].</p>
+<p>Model: [<a href="https://github.com/AY1920S2-CS2103-W14-4/main/blob/master/src/test/java/seedu/address/model/group/GroupTest.java">GroupTest</a>], [<a href="https://github.com/AY1920S2-CS2103-W14-4/main/blob/master/src/test/java/seedu/address/model/group/UniqueGroupListTest.java">UniqueGroupList</a>].</p>
 </li>
 <li>
 <p>Logic: [<a href="https://github.com/AY1920S2-CS2103-W14-4/main/blob/master/src/test/java/seedu/address/logic/commands/AddGroupCommandTest.java">AddCommandTest</a>], [<a href="https://github.com/AY1920S2-CS2103-W14-4/main/blob/master/src/test/java/seedu/address/logic/commands/ListGroupCommandTest.java">ListGroupCommandTest</a>], [<a href="https://github.com/AY1920S2-CS2103-W14-4/main/blob/master/src/test/java/seedu/address/logic/commands/DeleteGroupCommandTest.java">DeleteGroupCommandTest</a>], [<a href="https://github.com/AY1920S2-CS2103-W14-4/main/blob/master/src/test/java/seedu/address/logic/commands/EditGroupCommandTest.java">EditGroupCommandTest</a>] and parser tests.</p>
@@ -199,8 +200,10 @@ thorough understanding of the different use cases.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed: <a href="https://github.com/AY1920S2-CS2103-W14-4/main/pull/132">#132</a>,
-<a href="https://github.com/AY1920S2-CS2103-W14-4/main/pull/95">#95</a></p>
+<p>Reviewed and Merged PRs such as: <a href="https://github.com/AY1920S2-CS2103-W14-4/main/pull/74">#74</a>,
+<a href="https://github.com/AY1920S2-CS2103-W14-4/main/pull/95">#95</a>,
+<a href="https://github.com/AY1920S2-CS2103-W14-4/main/pull/132">#132</a>,
+<a href="https://github.com/AY1920S2-CS2103-W14-4/main/pull/166">#166</a>.</p>
 </li>
 </ul>
 </div>
@@ -210,7 +213,7 @@ thorough understanding of the different use cases.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Integrated Codeacy to automate code quality checks</p>
+<p>Integrated <a href="https://www.codacy.com/">Codacy</a> to automate code quality checks</p>
 </li>
 <li>
 <p>Used Creately to create initial class diagrams to visualise the relationship between Objects (Person, Group, Event)
@@ -403,12 +406,12 @@ it was before. Member list overwritten, Name stays the same.</p></td>
 <div class="paragraph">
 <p>The Add Group feature is implemented to allow users to track social activities with a group of people
 (instead of just one person). A <code>Group</code> represents a social group containing
-1 or more <code>Person</code>. To avoid dependencies, a <code>Group</code> class stores the index of <code>Person</code> instead of the <code>Person</code> object
-itself. A <code>Group</code> can be created with or without <code>Person</code> as member(s), but have a <code>Name</code>.</p>
+1 or more <code>Person</code>. To avoid dependencies, a <code>Group</code> class stores the index of a <code>Person</code> instead of the <code>Person</code> object
+itself. A <code>Group</code> can be created with or without <code>Person</code> as member(s), but must have a <code>Name</code>.</p>
 </div>
 <div class="paragraph">
 <p>This feature creates a new <code>Group</code> instance, which is then stored in an instance of <code>UniqueGroupList</code>,
-which in turn is stored in the <code>AddressBook</code>.These classes are part of the <code>model</code> package.</p>
+which in turn is stored in the <code>AddressBook</code>. These classes are part of the <code>model</code> package.</p>
 </div>
 <div class="paragraph">
 <p>The feature is supported by the <code>AddGroupCommand</code> class, which extends the abstract
@@ -430,38 +433,37 @@ key attributes and methods:</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User adds a group called <code>group_name</code> by typing <code>add_group n/group_name</code></p>
+<p>User enters <code>add_group n/group_name</code> or <code>add_group n/group_name m/index &#8230;&#8203;</code> into the app.</p>
 </li>
 <li>
-<p>The request is handled by the <code>Logic Manager</code>, which then directs it to the <code>AddressBookParser</code>
-for parsing.</p>
+<p>The request is handled by the <code>LogicManager#execute(String)</code>, which then calls and passes the input to the <code>AddressBookParser#parseCommand(String)</code>
+method.</p>
 </li>
 <li>
-<p><code>AddressBookParser</code> detects the <code>Command Word</code> <strong>add_group</strong> and creates an <code>AddGroupCommandParser</code> to parse inputs
+<p><code>AddressBookParser</code> detects the command word <code>add_group</code> in the input string and creates an <code>AddGroupCommandParser</code> to parse inputs
 according to the format specified for <code>AddGroupCommand</code>.</p>
 </li>
 <li>
 <p><code>AddGroupCommandParser</code> parses the input and also performs input validation to check for correct types
-(eg alphanumeric characters for <code>Name</code> and <code>Integer</code> for memberIDs).</p>
+(eg alphanumeric characters for <code>Name</code> and <code>Integer</code> for memberIDs) using the <code>AddGroupCommandParser#parse(String)</code> method.</p>
 </li>
 <li>
-<p>If the inputs are valid,<code>AddressBookParser</code> calls the constructor of <code>Group</code> and creates a new <code>Group</code> instance with
-the inputs from the user. It creates a new <code>AddGroupCommand</code> and passes to it the newly created <code>Group</code></p>
+<p><code>AddressBookParser#parse(String)</code> calls the constructor of <code>Group</code> and creates a new <code>Group</code> instance with
+the inputs from the user. It creates a new <code>AddGroupCommand</code> and passes the newly created <code>Group</code> to it.</p>
 </li>
 <li>
 <p><code>AddressBookParser</code> returns the new <code>Command</code> object to the <code>AddressBookParser</code>, which in turn returns it to
 <code>LogicManager</code>.</p>
 </li>
 <li>
-<p><code>LogicManager</code> calls the <code>execute</code> method with the <code>AddGroupCommand</code>.</p>
+<p><code>LogicManager</code> calls the <code>AddGroupCommand#execute(model)</code> method</p>
 </li>
 <li>
-<p>The <code>AddGroupCommand</code> instance obtains a copy of the <code>filteredPersonList</code> from <code>Model</code> using the <code>getFilteredList()</code>
-method. Using the list, the command verifies if the member indexes in the <code>Group</code> instance exist in the <code>Person</code> list.</p>
+<p>The <code>AddGroupCommand#execute(model)</code> method obtains a copy of the <code>FilteredPersonList</code> from <code>Model</code> using the <code>Model#getFilteredList()</code>
+method. Using the list, the method verifies if the member indexes in the <code>Group</code> instance exist in the <code>Person</code> list.</p>
 </li>
 <li>
-<p>If the indexes are valid, the <code>AddGroupCommand</code> adds the group to the app by calling the <code>addGroup</code> method of
-<code>Model</code>.</p>
+<p>the <code>AddGroupCommand</code> adds the group to the app by calling the <code>Model#addGroup(Group)</code> method.</p>
 </li>
 <li>
 <p>As a last step, the <code>AddGroupCommand</code> creates a <code>CommandResult</code> with <code>SuccessMessage</code> and <code>ViewType</code> and returns it
@@ -743,4 +745,4 @@ the user if there are too many commands.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 09:31:07 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 10:00:45 UTC</div></div></div></body></html>

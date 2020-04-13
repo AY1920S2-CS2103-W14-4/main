@@ -169,7 +169,7 @@ The <strong><em>Architecture Diagram</em></strong> given above explains the high
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-The <code>.puml</code> files used to create diagrams in this document can be found in the <a href="https://github.com/AY1920S2-CS2103-W14-4/main/docs/diagrams/">diagrams</a> folder.
+The <code>.puml</code> files used to create diagrams in this document can be found in the <a href="https://github.com/AY1920S2-CS2103-W14-4/main/tree/master/docs/diagrams">diagrams</a> folder.
 Refer to the <a href="UsingPlantUml.html">Using PlantUML guide</a> to learn how to create and edit diagrams.
 </td>
 </tr>
@@ -348,7 +348,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="sect2">
 <h3 id="Design-Model"><a class="link" href="#Design-Model">3.4. Model component</a></h3>
 <div class="paragraph">
-<p><code>[written by: Raivat Bhupesh Shah]</code></p>
+<p><code>[section modified by: Raivat Bhupesh Shah]</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -402,6 +402,9 @@ An example of how such a model may look like is given below.<br>
 </div>
 <div class="sect2">
 <h3 id="Design-Storage"><a class="link" href="#Design-Storage">3.5. Storage component</a></h3>
+<div class="paragraph">
+<p><code>[section modified by: Raivat Bhupesh Shah]</code></p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
@@ -716,12 +719,12 @@ suggested place or activity based on the least frequency of the place visited or
 <div class="paragraph">
 <p>The Add Group feature is implemented to allow users to track social activities with a group of people
 (instead of just one person). A <code>Group</code> represents a social group containing
-1 or more <code>Person</code>. To avoid dependencies, a <code>Group</code> class stores the index of <code>Person</code> instead of the <code>Person</code> object
-itself. A <code>Group</code> can be created with or without <code>Person</code> as member(s), but have a <code>Name</code>.</p>
+1 or more <code>Person</code>. To avoid dependencies, a <code>Group</code> class stores the index of a <code>Person</code> instead of the <code>Person</code> object
+itself. A <code>Group</code> can be created with or without <code>Person</code> as member(s), but must have a <code>Name</code>.</p>
 </div>
 <div class="paragraph">
 <p>This feature creates a new <code>Group</code> instance, which is then stored in an instance of <code>UniqueGroupList</code>,
-which in turn is stored in the <code>AddressBook</code>.These classes are part of the <code>model</code> package.</p>
+which in turn is stored in the <code>AddressBook</code>. These classes are part of the <code>model</code> package.</p>
 </div>
 <div class="paragraph">
 <p>The feature is supported by the <code>AddGroupCommand</code> class, which extends the abstract
@@ -743,38 +746,37 @@ key attributes and methods:</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User adds a group called <code>group_name</code> by typing <code>add_group n/group_name</code></p>
+<p>User enters <code>add_group n/group_name</code> or <code>add_group n/group_name m/index &#8230;&#8203;</code> into the app.</p>
 </li>
 <li>
-<p>The request is handled by the <code>Logic Manager</code>, which then directs it to the <code>AddressBookParser</code>
-for parsing.</p>
+<p>The request is handled by the <code>LogicManager#execute(String)</code>, which then calls and passes the input to the <code>AddressBookParser#parseCommand(String)</code>
+method.</p>
 </li>
 <li>
-<p><code>AddressBookParser</code> detects the <code>Command Word</code> <strong>add_group</strong> and creates an <code>AddGroupCommandParser</code> to parse inputs
+<p><code>AddressBookParser</code> detects the command word <code>add_group</code> in the input string and creates an <code>AddGroupCommandParser</code> to parse inputs
 according to the format specified for <code>AddGroupCommand</code>.</p>
 </li>
 <li>
 <p><code>AddGroupCommandParser</code> parses the input and also performs input validation to check for correct types
-(eg alphanumeric characters for <code>Name</code> and <code>Integer</code> for memberIDs).</p>
+(eg alphanumeric characters for <code>Name</code> and <code>Integer</code> for memberIDs) using the <code>AddGroupCommandParser#parse(String)</code> method.</p>
 </li>
 <li>
-<p>If the inputs are valid,<code>AddressBookParser</code> calls the constructor of <code>Group</code> and creates a new <code>Group</code> instance with
-the inputs from the user. It creates a new <code>AddGroupCommand</code> and passes to it the newly created <code>Group</code></p>
+<p><code>AddressBookParser#parse(String)</code> calls the constructor of <code>Group</code> and creates a new <code>Group</code> instance with
+the inputs from the user. It creates a new <code>AddGroupCommand</code> and passes the newly created <code>Group</code> to it.</p>
 </li>
 <li>
 <p><code>AddressBookParser</code> returns the new <code>Command</code> object to the <code>AddressBookParser</code>, which in turn returns it to
 <code>LogicManager</code>.</p>
 </li>
 <li>
-<p><code>LogicManager</code> calls the <code>execute</code> method with the <code>AddGroupCommand</code>.</p>
+<p><code>LogicManager</code> calls the <code>AddGroupCommand#execute(model)</code> method</p>
 </li>
 <li>
-<p>The <code>AddGroupCommand</code> instance obtains a copy of the <code>filteredPersonList</code> from <code>Model</code> using the <code>getFilteredList()</code>
-method. Using the list, the command verifies if the member indexes in the <code>Group</code> instance exist in the <code>Person</code> list.</p>
+<p>The <code>AddGroupCommand#execute(model)</code> method obtains a copy of the <code>FilteredPersonList</code> from <code>Model</code> using the <code>Model#getFilteredList()</code>
+method. Using the list, the method verifies if the member indexes in the <code>Group</code> instance exist in the <code>Person</code> list.</p>
 </li>
 <li>
-<p>If the indexes are valid, the <code>AddGroupCommand</code> adds the group to the app by calling the <code>addGroup</code> method of
-<code>Model</code>.</p>
+<p>the <code>AddGroupCommand</code> adds the group to the app by calling the <code>Model#addGroup(Group)</code> method.</p>
 </li>
 <li>
 <p>As a last step, the <code>AddGroupCommand</code> creates a <code>CommandResult</code> with <code>SuccessMessage</code> and <code>ViewType</code> and returns it
@@ -3802,4 +3804,4 @@ team members that was crucial to the success of CoderLifeInsights. As we have in
 we aim to continue developing the application during the summer holidays to further enhance the features of the project.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 09:31:07 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 10:00:45 UTC</div></div></div></body></html>
