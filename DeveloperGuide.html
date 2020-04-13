@@ -1313,15 +1313,45 @@ These information are also saved for the Group object when an Event is added to 
 <div class="paragraph">
 <p><code>[written by: Mah Cai Jun, Terence]</code></p>
 </div>
+<div class="paragraph">
+<p>The Insights feature displays various insights about the persons, groups and events stored in Coder Life Insights.
+It is activated by the command word <code>view</code>.</p>
+</div>
 <div class="sect3">
 <h4 id="implementation-10"><a class="link" href="#implementation-10">4.9.1. Implementation</a></h4>
+<div id="ViewCommandCondensedGenericSequenceDiagram" class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/ViewCommandCondensedGenericSequenceDiagram.png" alt="ViewCommandCondensedGenericSequenceDiagram" width="100%">
+</div>
+</div>
 <div class="paragraph">
-<p>The Insights feature is facilitated by <code>FrequencyList</code>, which contains an <code>ObservableList</code>
-backed by an <code>ArrayList</code>, and uses a <code>HashMap</code> to ensure the uniqueness of each list.
-Each <code>Person</code> object contains two <code>FrequencyList</code> objects, a <code>placeList</code> and an <code>activityList</code>.
-At the same time, the <code>model</code> also has its own <code>FrequencyList</code>.
-When the View Command is activated, the <code>model</code> updates its own <code>FrequencyList</code> with the contents of the selected Person&#8217;s <code>placeList</code> or <code>activityList</code>.
-The View Command then switches the application display to show the model&#8217;s <code>FrequencyList</code>.</p>
+<p>There are 4 key steps, as labelled in the diagram above, that are essential to how the Insights feature
+and <code>view</code> functionality are implemented. Rather than updating the model with incoming information, this
+command is concerned with retrieving updated information from the model, and displaying the right information
+by switching between the various possible view panels on the GUI.</p>
+</div>
+<div class="paragraph">
+<p>To ensure that up-to-date information is retrieved, the Model contains <code>ObservableLists</code> which allow
+listeners to be updated whenever the list contents are updated.</p>
+</div>
+<div class="paragraph">
+<p>In Step 1, the <code>ViewCommand</code> object updates the relevant <code>ObservableList</code> in the <code>ModelManager</code>
+with the user&#8217;s desired information. It checks the appropriate view panel for displaying the desired
+information, represented as a <code>ViewType</code> Enum within the returned <code>CommandResult</code>. In Step 2,
+the <code>MainWindow</code> retrieves the appropriate <code>ViewType</code> from the <code>CommandResult</code>, thus knowing which
+view panel to use. In Step 3, it retrieves the appropriate <code>ObservableList</code> from the Model, previously
+updated by the <code>ViewCommand</code>. In Step 4, it displays, on the view panel determined in Step 2, the
+information retrieved from Step 3.</p>
+</div>
+<div class="paragraph">
+<p>The class diagram below depicts the key relationships between the important features.
+The main GUI controller, <code>MainWindow</code>, composes the Logic component, which in turn composes
+the Model component. This allows <code>MainWindow</code> to access the <code>ObservableLists</code> in the Model.</p>
+</div>
+<div id="ViewCommandClassDiagram" class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/ViewCommandClassDiagram.png" alt="ViewCommandClassDiagram" width="100%">
+</div>
 </div>
 </div>
 </div>
@@ -3670,4 +3700,4 @@ A success message will be shown to the user.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 08:56:32 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 09:02:51 UTC</div></div></div></body></html>
