@@ -89,7 +89,12 @@ The information being saved to the hard disk allows the user to make use of feat
 <li>
 <p>Highlights: This enhancement functions well with existing commands as it updates each Person with a Time, PlaceList and ActivityList variable that represents the time the user has spent with that person, the activities done with that person, and the places been to with that person respectively, in CoderLifeInsights which is displayed in each person&#8217;s details.
 It also saves the added information to the hard disk. Many improvements and features such as Insights and Suggest stem from the data recorded by this command in the Person and Group objects.
-It required an in-depth analysis of design alternatives.</p>
+It required an in-depth analysis of design alternatives.<br>
+This major enhancement took much effort as it required the implementation of 3 new classes.
+These 3 classes were used in the two entities, Person and Group.
+Also, the attributes added to the Person and Group class were also implemented in a way such that it would be saved to the Json file, as well as work with the import and exporting features.
+Significant architectural analysis was required to ensure these classes worked they way they were intended and did not break existing features of AB3 as they were integrated into the Person object.
+Furthermore, the data stored in these attributes were the backbone of a majority of all other features, which generated output through analysis of the data stored.</p>
 </li>
 </ul>
 </div>
@@ -112,7 +117,8 @@ It required an in-depth analysis of design alternatives.</p>
 <p>Justification: This feature allows the user to not lose information from events added when switching computers.</p>
 </li>
 <li>
-<p>Highlights: This enhancement functions well with existing commands. It required an in-depth analysis of design alternatives.</p>
+<p>Highlights: This enhancement functions well with existing commands. It required an in-depth analysis of design alternatives.<br>
+This allowed the Time, PlaceList and ActivityList of each person saved in the Json file to be converted successfully to the CSV file.</p>
 </li>
 </ul>
 </div>
@@ -145,6 +151,20 @@ It required an in-depth analysis of design alternatives.</p>
 </li>
 <li>
 <p>Highlights: This enhancement functions well with existing commands. It required an in-depth analysis of design alternatives.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement #4</strong>: Integration of the PlaceList and ActivityList classes with the Group entity</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: This enhancement integrated the PlaceList and ActivityList into the Group object.<br>
+It allowed relevant information to be added to a Group object, as well as ensured that the relevant data was stored to the Group object and Json file as well.</p>
+</li>
+<li>
+<p>Highlights: This enhancement functions well with existing commands and features. It required an in-depth analysis of design alternatives.</p>
 </li>
 </ul>
 </div>
@@ -910,4 +930,4 @@ Use case resumes at 3.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 12:09:13 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 12:14:36 UTC</div></div></div></body></html>
