@@ -17,8 +17,8 @@
 <li><a href="#adding-a-person-code-add_person-code">3.2. Adding a person: <code>add_person</code></a></li>
 <li><a href="#listing-saved-data-code-list-code">3.3. Listing saved data : <code>list</code></a></li>
 <li><a href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></li>
-<li><a href="#social-group-code-add_group-code">3.5. Social Group: <code>add_group</code></a></li>
-<li><a href="#edit-group-code-edit_group-code">3.6. Edit Group: <code>edit_group</code></a></li>
+<li><a href="#adding-a-group-code-add_group-code">3.5. Adding a Group: <code>add_group</code></a></li>
+<li><a href="#editing-a-group-code-edit_group-code">3.6. Editing a Group: <code>edit_group</code></a></li>
 <li><a href="#adding-an-event-code-add_event-code">3.7. Adding an Event: <code>add_event</code></a></li>
 <li><a href="#suggestions-code-suggest-code">3.8. Suggestions: <code>suggest</code></a></li>
 <li><a href="#insights-code-view-code">3.9. Insights: <code>view</code></a></li>
@@ -26,16 +26,16 @@
 <li><a href="#locating-persons-by-name-code-find-code">3.11. Locating persons by name: <code>find</code></a></li>
 <li><a href="#import-life-csv-code-import-code">3.12. Import Life CSV: <code>import</code></a></li>
 <li><a href="#export-life-csv-code-export-code">3.13. Export Life CSV: <code>export</code></a></li>
-<li><a href="#deleting-an-object-code-delete-code">3.14. Deleting an object : <code>delete</code></a></li>
+<li><a href="#deleting-a-person-or-a-group-code-delete-code">3.14. Deleting a Person or a Group : <code>delete</code></a></li>
 <li><a href="#clearing-all-entries-code-clear-code">3.15. Clearing all entries : <code>clear</code></a></li>
 <li><a href="#exiting-the-program-code-exit-code">3.16. Exiting the program : <code>exit</code></a></li>
 <li><a href="#saving-the-data">3.17. Saving the data</a></li>
 <li><a href="#getting-a-random-person-code-random-code-code-coming-in-v2-0-code">3.18. Getting a random person: <code>random</code> <code>[coming in v2.0]</code></a></li>
 <li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.19. Encrypting data files <code>[coming in v2.0]</code></a></li>
-<li><a href="#faq">3.20. FAQ</a></li>
-<li><a href="#command-summary">3.21. Command Summary</a></li>
 </ul>
 </li>
+<li><a href="#faq">4. FAQ</a></li>
+<li><a href="#command-summary">5. Command Summary</a></li>
 </ul>
 </div>
 </div>
@@ -107,7 +107,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p><strong>Command Format</strong></p>
+<p><strong>Command Format and Specifications</strong></p>
 </div>
 <div class="ulist">
 <ul>
@@ -122,6 +122,9 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </li>
 <li>
 <p>Parameters can be in any order e.g. if the command specifies <code>n/NAME p/PHONE_NUMBER</code>,<code>p/PHONE_NUMBER n/NAME</code> is also acceptable.</p>
+</li>
+<li>
+<p><code>PERSON_INDEX</code> refers to the <code>INDEX</code> of a <code>Person</code> in CoderLifeInsights and similarly, <code>GROUP_INDEX</code> refers to the <code>INDEX</code> of a <code>Group</code>.</p>
 </li>
 </ul>
 </div>
@@ -293,7 +296,7 @@ The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p
 </table>
 </div>
 <div class="sect2">
-<h3 id="social-group-code-add_group-code"><a class="link" href="#social-group-code-add_group-code">3.5. Social Group: <code>add_group</code></a></h3>
+<h3 id="adding-a-group-code-add_group-code"><a class="link" href="#adding-a-group-code-add_group-code">3.5. Adding a Group: <code>add_group</code></a></h3>
 <div class="paragraph">
 <p>Creates an empty social group with given name.<br>
 Format: <code>add_group n/GROUP_NAME m/MEMBER_IDs &#8230;&#8203;</code></p>
@@ -359,18 +362,18 @@ to the user after creation.</p></td>
 </table>
 </div>
 <div class="sect2">
-<h3 id="edit-group-code-edit_group-code"><a class="link" href="#edit-group-code-edit_group-code">3.6. Edit Group: <code>edit_group</code></a></h3>
+<h3 id="editing-a-group-code-edit_group-code"><a class="link" href="#editing-a-group-code-edit_group-code">3.6. Editing a Group: <code>edit_group</code></a></h3>
 <div class="paragraph">
-<p>Edit a given person id with a given group id<br>
-Format: <code>edit_group GROUP_ID n/GROUP_NAME m/MEMBER_IDs</code></p>
+<p>Edit a group with a given group index<br>
+Format: <code>edit_group GROUP_INDEX n/GROUP_NAME m/MEMBER_IDs</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>CoderLifeInsight will edit the group with given id to change the name to supplied name and change the list of members to the ones supplied.
-One parameter is required to edit the group.</p>
+<p>CoderLifeInsights will edit the group with given index to change the name to supplied name and change the list of members to the ones supplied.
+Either a new name or new member(s) is required to edit the group.</p>
 </li>
 </ul>
 </div>
@@ -1149,11 +1152,11 @@ Exports your event data to <code>events.csv</code></p></td>
 </table>
 </div>
 <div class="sect2">
-<h3 id="deleting-an-object-code-delete-code"><a class="link" href="#deleting-an-object-code-delete-code">3.14. Deleting an object : <code>delete</code></a></h3>
+<h3 id="deleting-a-person-or-a-group-code-delete-code"><a class="link" href="#deleting-a-person-or-a-group-code-delete-code">3.14. Deleting a Person or a Group : <code>delete</code></a></h3>
 <div class="paragraph">
 <p>Deletes an entity, such as a Person or Group from the CoderLifeInsights<br>
-Format: <code>delete_person ID</code> (for person)<br>
-<code>delete_group ID</code> (for group)</p>
+Format: <code>delete_person PERSON_INDEX</code> (for person)<br>
+<code>delete_group GROUP_INDEX</code> (for group)</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -1269,15 +1272,20 @@ Returns the name of a random person saved in CoderLifeInsights.</p>
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="faq"><a class="link" href="#faq">3.20. FAQ</a></h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous CoderLifeInsights folder.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="command-summary"><a class="link" href="#command-summary">3.21. Command Summary</a></h3>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
+<div class="sectionbody">
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 30%;">
@@ -1300,7 +1308,7 @@ Returns the name of a random person saved in CoderLifeInsights.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>list_LIST_PARAMETER</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list_persons</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list_persons</code>, <code>list_groups</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit</strong></p></td>
@@ -1309,13 +1317,13 @@ Returns the name of a random person saved in CoderLifeInsights.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add Group</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add_group n/GROUP_NAME m/MEMBER_IDs</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add_group n/GROUP_NAME m/MEMBER_INDEX</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>add_group n/SoC Friends</code><br></p>
 <p class="tableblock"><code>add_group n/RC Friends m/1 m/2 m/3</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit Group</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit_group GROUP_ID n/GROUP_NAME m/MEMBER_IDs</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit_group GROUP_INDEX n/GROUP_NAME m/MEMBER_INDEXs</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit_group 1 n/FOS</code><br></p>
 <p class="tableblock"><code>edit_group 1 m/1 m/5</code><br></p>
 <p class="tableblock"><code>edit_group 1 n/new_name m/1</code></p></td>
@@ -1365,9 +1373,9 @@ Returns the name of a random person saved in CoderLifeInsights.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete_person ID</code></p>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete_person PERSON_INDEX</code></p>
 <p class="tableblock">or<br></p>
-<p class="tableblock"><code>delete_group ID</code></p></td>
+<p class="tableblock"><code>delete_group GROUP_INDEX</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>list_persons</code><br></p>
 <p class="tableblock"><code>delete_person 2</code><br></p>
 <p class="tableblock">or<br></p>
@@ -1387,5 +1395,4 @@ Returns the name of a random person saved in CoderLifeInsights.</p>
 </tbody>
 </table>
 </div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 03:28:12 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 03:51:08 UTC</div></div></div></body></html>
