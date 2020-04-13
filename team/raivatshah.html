@@ -17,53 +17,6 @@
 developed the JSON implementations for group and event classes.
 I have also made notable contributions to the User Guide and Developer Guide.</p>
 </div>
-<div class="paragraph">
-<p>Listed in the table below are some notations that are used throughout the document.</p>
-</div>
-<table id="Legend" class="tableblock frame-all grid-all spread">
-<caption class="title">Table 1. Legend table</caption>
-<colgroup>
-<col style="width: 15%;">
-<col style="width: 85%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-center valign-top"><strong>Icon</strong></th>
-<th class="tableblock halign-left valign-top"><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top"><div><div class="paragraph">
-<p><code>command</code></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Command that can be executed, or a component, class or object in the architecture of the application</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top"><div><div class="paragraph">
-<p><span class="icon icon-tip"><i class="fa fa-lightbulb-o fa-2x"></i></span></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Tips that might be helpful in navigating the application</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top"><div><div class="paragraph">
-<p><span class="icon icon-note blue"><i class="fa fa-info-circle fa-2x"></i></span></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Important information that should be noted</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top"><div><div class="exampleblock">
-<div class="content">
-
-</div>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Useful information for a deeper understanding of the command</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>As shown in <a href="#Legend">Table 1, &#8220;Legend table&#8221;</a>, these icons associated to their following descriptions, such as commands, tips, important information and useful information, enable greater clarity in understanding the document. Note that useful information will have text enclosed in its box.</p>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -92,16 +45,20 @@ features of the addressbook3 due to the robust design and defensive programming 
 all the other features such as groups, and events are updated as well. It required an in-depth analysis
 of design alternatives.</p>
 </li>
+<li>
+<p>Credits: As highlighted above, the group features take inspiration from the person features of addressbook3. Thus,
+credits go to the previous developers of addressbook3 for the system design and class structures.</p>
+</li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Major enhancement #2</strong>: Implemented storage features - JSON Implementations</p>
+<p><strong>Major enhancement #2</strong>: Implemented storage features - JSON Implementations for Event and Group</p>
 <div class="ulist">
 <ul>
 <li>
 <p>What it does: JSON implementations allow the app to store and retrieve data from file. This is crucial as the app is
-not expected to always run.</p>
+not expected to always run and needs to store data in the hard disk.</p>
 </li>
 <li>
 <p>Justification: Using the JSON implementations, the app can go back to its last state when a user
@@ -122,18 +79,17 @@ between Java Classes such as <code>Group</code> and <code>Event</code> and JSON 
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Minor enhancement #1</strong>: Designed Initial System</p>
+<p><strong>Minor enhancement #1</strong>: Implemented Unique Event List</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: I designed the initial architecture of the system using</p>
+<p>What it does: Stores unique Event instances</p>
 </li>
 <li>
-<p>Justification: To better fit and light up the social life as a Coder, it would be more pleasing to view the application in a brighter color as
-compared to the dark theme provided in AddressBook - Level3.</p>
+<p>Justification: Since events are crucial to social interactions, storing events is important for the purpose of tracking.</p>
 </li>
 <li>
-<p>Highlights: Window size is adjustable to fit all components in to the desired smaller window size. It allows the user to use the application in full screen mode or as a smaller window without disruption of coding productivity.</p>
+<p>Highlights: This enhancement required an in-depth understanding of the JavaFX Observable class.</p>
 </li>
 </ul>
 </div>
@@ -151,16 +107,51 @@ customised need of the app.</p>
 </li>
 <li>
 <p>Highlights: This enhancement functions well with all the classes that depend upon it and use it. This required an
-thorough understanding of the different time use cases.</p>
+thorough understanding of the different use cases.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Code contributed</strong>:[<a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#search=raivatshah&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2020-02-14&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false">RepoSense</a>]</p>
+<p><strong>Code contributed</strong>:[<a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#search=raivatshah&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2020-02-14&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false">tP Dashboard</a>]</p>
 </li>
 <li>
-<p><strong>Other contributions</strong>:</p>
+<p><strong>Functional Code Contributed:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Model: [<a href="https://github.com/AY1920S2-CS2103-W14-4/main/blob/master/src/main/java/seedu/address/model/group/Group.java">Group</a>], [<a href="https://github.com/AY1920S2-CS2103-W14-4/main/blob/master/src/main/java/seedu/address/model/group/UniqueGroupList.java">UniqueGroupList</a>], [<a href="https://github.com/AY1920S2-CS2103-W14-4/main/blob/master/src/main/java/seedu/address/model/person/Time.java">Time</a>], [<a href="https://github.com/AY1920S2-CS2103-W14-4/main/blob/master/src/main/java/seedu/address/model/event/UniqueEventList.java">UniqeEventList</a>],</p>
+</li>
+<li>
+<p>UI: [<a href="https://github.com/AY1920S2-CS2103-W14-4/main/blob/master/src/main/java/seedu/address/ui/GroupCard.java">GroupCard</a>], [<a href="https://github.com/AY1920S2-CS2103-W14-4/main/blob/master/src/main/java/seedu/address/ui/GroupListPanel.java">GroupListPanel</a>]</p>
+</li>
+<li>
+<p>Storage: [<a href="https://github.com/AY1920S2-CS2103-W14-4/main/blob/master/src/main/java/seedu/address/storage/JsonAdaptedEvent.java">JsonAdaptedEvent</a>], [<a href="https://github.com/AY1920S2-CS2103-W14-4/main/blob/master/src/main/java/seedu/address/storage/JsonAdaptedGroup.java">JsonAdaptedGroup</a>].</p>
+</li>
+<li>
+<p>Logic: [<a href="https://github.com/AY1920S2-CS2103-W14-4/main/blob/master/src/main/java/seedu/address/logic/commands/AddGroupCommand.java">AddGroupCommand</a>], [<a href="https://github.com/AY1920S2-CS2103-W14-4/main/blob/master/src/main/java/seedu/address/logic/commands/DeleteGroupCommand.java">DeleteGroupCommand</a>], [<a href="https://github.com/AY1920S2-CS2103-W14-4/main/blob/master/src/main/java/seedu/address/logic/commands/EditGroupCommand.java">EditGroupCommand</a>], [<a href="https://github.com/AY1920S2-CS2103-W14-4/main/blob/master/src/main/java/seedu/address/logic/commands/ListGroupCommand.java">ListGroupCommand</a>] and their parsers.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Test Code Contributed:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Model: [<a href="https://github.com/AY1920S2-CS2103-W14-4/main/blob/master/src/test/java/seedu/address/model/group/GroupTest.java">GroupTest</a>, [<a href="https://github.com/AY1920S2-CS2103-W14-4/main/blob/master/src/test/java/seedu/address/model/group/UniqueGroupListTest.java">UniqueGroupList</a>].</p>
+</li>
+<li>
+<p>Logic: [<a href="https://github.com/AY1920S2-CS2103-W14-4/main/blob/master/src/test/java/seedu/address/logic/commands/AddGroupCommandTest.java">AddCommandTest</a>], [<a href="https://github.com/AY1920S2-CS2103-W14-4/main/blob/master/src/test/java/seedu/address/logic/commands/ListGroupCommandTest.java">ListGroupCommandTest</a>], [<a href="https://github.com/AY1920S2-CS2103-W14-4/main/blob/master/src/test/java/seedu/address/logic/commands/DeleteGroupCommandTest.java">DeleteGroupCommandTest</a>], [<a href="https://github.com/AY1920S2-CS2103-W14-4/main/blob/master/src/test/java/seedu/address/logic/commands/EditGroupCommandTest.java">EditGroupCommandTest</a>] and parser tests.</p>
+</li>
+<li>
+<p>TestUtil: [<a href="https://github.com/AY1920S2-CS2103-W14-4/main/blob/master/src/test/java/seedu/address/testutil/GroupBuilder.java">GroupBuilder</a>],</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Other contributions:</strong></p>
 <div class="ulist">
 <ul>
 <li>
@@ -171,7 +162,11 @@ thorough understanding of the different time use cases.</p>
 <p>Initiated group meetings and set policies for Pull Requests</p>
 </li>
 <li>
-<p>Opened issues on Github repo to account for bugs</p>
+<p>Opened issues on Github repo to account for bugs and enhancements. Some relevant/important issues:
+<a href="https://github.com/AY1920S2-CS2103-W14-4/main/issues/162">#162</a>,
+<a href="https://github.com/AY1920S2-CS2103-W14-4/main/issues/161">#161</a>,
+<a href="https://github.com/AY1920S2-CS2103-W14-4/main/issues/129">#129</a>,
+<a href="https://github.com/AY1920S2-CS2103-W14-4/main/issues/130">#130</a>.</p>
 </li>
 </ul>
 </div>
@@ -181,7 +176,7 @@ thorough understanding of the different time use cases.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the GUI color scheme and layout (Pull requests: <a href="https://github.com/AY1920S2-CS2103-W14-4/main/pull/95">#95</a>, <a href="https://github.com/AY1920S2-CS2103-W14-4/main/pull/69">#69</a>)</p>
+<p>Updated command words for existing features in order distinguish between person and group commands.</p>
 </li>
 </ul>
 </div>
@@ -191,10 +186,10 @@ thorough understanding of the different time use cases.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Added contents of the User Guide (Pull requests: <a href="https://github.com/AY1920S2-CS2103-W14-4/main/pull/12">#96</a>, <a href="https://github.com/AY1920S2-CS2103-W14-4/main/pull/13">#97</a>)</p>
+<p>Added contents of the User Guide (Pull requests: <a href="https://github.com/AY1920S2-CS2103-W14-4/main/pull/96">#96</a>, <a href="https://github.com/AY1920S2-CS2103-W14-4/main/pull/54">#54</a>, <a href="https://github.com/AY1920S2-CS2103-W14-4/main/pull/175">#175</a>)</p>
 </li>
 <li>
-<p>Added contents of the Developer Guide (Pull requests: <a href="https://github.com/AY1920S2-CS2103-W14-4/main/pull/74">#76</a>)</p>
+<p>Added contents of the Developer Guide (Pull requests: <a href="https://github.com/AY1920S2-CS2103-W14-4/main/pull/26">#26</a>, <a href="https://github.com/AY1920S2-CS2103-W14-4/main/pull/76">#76</a>, <a href="https://github.com/AY1920S2-CS2103-W14-4/main/pull/167">#167</a>, <a href="https://github.com/AY1920S2-CS2103-W14-4/main/pull/174">#174</a>)</p>
 </li>
 </ul>
 </div>
@@ -218,7 +213,19 @@ thorough understanding of the different time use cases.</p>
 <p>Integrated Codeacy to automate code quality checks</p>
 </li>
 <li>
-<p>Used Creately to create UML class diagrams.</p>
+<p>Used Creately to create initial class diagrams to visualise the relationship between Objects (Person, Group, Event)
+and their UniqueLists. The diagram can be viewed <a href="https://app.creately.com/diagram/SaOxsebie1n/">here.</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Rough UI:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>To visualise the app UI before actually creating it, I used <a href="https://www.sketch.com/">Sketch App</a> to create a
+rough UI of the app. The team used the rough UI as a guide. The UI can be viewed <a href="https://www.raivat.dev/UI.pdf">here.</a></p>
 </li>
 </ul>
 </div>
@@ -371,200 +378,6 @@ it was before. Member list overwritten, Name stays the same.</p></td>
 </tbody>
 </table>
 </div>
-<div class="sect2">
-<h3 id="insights-code-view-code"><a class="link" href="#insights-code-view-code">Insights: <code>view</code></a></h3>
-<div class="paragraph">
-<p><code>[written by: Ernest Lian Qi Quan and Mah Cai Jun, Terence]</code></p>
-</div>
-<div class="paragraph">
-<p>Displays various insights about the person&#8217;s, groups and events stored in Coder Life Insights.
-(You might need to enlarge the application window for the best view.)</p>
-</div>
-<div class="paragraph">
-<p>This feature encompasses a range of functions which share the following format:
-<code>view INSIGHT_PARAMETER [m/PERSON_INDEX] [g/GROUP_INDEX]</code>
-Note that the application will only accept EITHER a person index OR a group index, never both.
-Also, whether an index is required or possibly not allowed depends on the insight parameter.</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The available insight parameters are: <code>places</code>, <code>activities</code>, <code>recent</code>, <code>all</code>, and <code>time</code>.</p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>Places</code> (must enter an index)</p>
-<div class="ulist">
-<ul>
-<li>
-<p>This function lists all the places that the user has visited with the target person or target group, and their frequencies, in descending order of frequency.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div id="ViewPlacesExample" class="imageblock" style="text-align: center">
-<div class="content">
-<img src="../images/viewplacesexample.png" alt="][pdfwidth=&quot;50%&quot;" width="50%">
-</div>
-<div class="title">Figure 1. View Places example</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>Activities</code> (must enter an index)</p>
-<div class="ulist">
-<ul>
-<li>
-<p>This function lists all the activities that the user has done with the target person or target group, and their frequencies, in descending order of frequency.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div id="ViewActivitiesExample" class="imageblock" style="text-align: center">
-<div class="content">
-<img src="../images/viewactivitiesexample.png" alt="][pdfwidth=&quot;50%&quot;" width="50%">
-</div>
-<div class="title">Figure 2. View Activities example</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>Recent</code> (can have an index or no index)</p>
-<div class="ulist">
-<ul>
-<li>
-<p>If an index is entered, this function lists the user&#8217;s last 5 events with the target person or target group, in reverse chronological order.</p>
-</li>
-<li>
-<p>If no index is entered, this function lists the user&#8217;s last 5 events overall, in reverse chronological order.</p>
-</li>
-<li>
-<p>The event display features each event&#8217;s place, activity, duration, and serial number.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div id="ViewRecentExample" class="imageblock" style="text-align: center">
-<div class="content">
-<img src="../images/viewrecentexample.png" alt="][pdfwidth=&quot;50%&quot;" width="50%">
-</div>
-<div class="title">Figure 3. View Recent example</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>'All' (cannot have an index)</p>
-<div class="ulist">
-<ul>
-<li>
-<p>This function lists all events that the user has added, in chronological order.</p>
-</li>
-<li>
-<p>The event display features each event&#8217;s place, activity, duration, and serial number.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div id="ViewAllExample" class="imageblock" style="text-align: center">
-<div class="content">
-<img src="../images/viewallexample.png" alt="][pdfwidth=&quot;50%&quot;" width="50%">
-</div>
-<div class="title">Figure 4. View All example</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>Time</code> (cannot have an index)</p>
-<div class="ulist">
-<ul>
-<li>
-<p>This function compares the user&#8217;s total time spent with individuals against his/her total time spent with groups, in the form of a pie chart.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div id="ViewTimeExample" class="imageblock" style="text-align: center">
-<div class="content">
-<img src="../images/viewtimeexample.png" alt="][pdfwidth=&quot;50%&quot;" width="50%">
-</div>
-<div class="title">Figure 5. View Time example</div>
-</div>
-<div class="paragraph">
-<p>Take note that Places and Activities are case-sensitive:
-* <code>Swimming Pool</code> and <code>swimming pool</code> are considered different places
-* <code>SWIMMING</code> and <code>swimming</code> are considered different activities</p>
-</div>
-<div class="paragraph">
-<p>The examples below provide an exhaustive list of permissible command formats:</p>
-</div>
-<table class="tableblock frame-all grid-all" style="width: 80%;">
-<colgroup>
-<col style="width: 30%;">
-<col style="width: 70%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Command</th>
-<th class="tableblock halign-left valign-top">Result</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>view places m/1</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">View places visited with person 1 from the active person list.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>view places g/1</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">View places visited with group 1 from the active group list.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>view activities m/1</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">View activities done with person 1 from the active person list.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>view activities g/1</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">View activities done with group 1 from the active group list.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>view recent</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">View the last 5 events overall.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>view recent m/1</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">View the last 5 events with person 1 from the active person list.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>view recent g/1</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">View the last 5 events with group 1 from the active group list.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>view all</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">View all events the user has added to Coder Life Insights.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>view time</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">View a pie chart displaying the proportion of individual time vs group time spent.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -581,15 +394,151 @@ Also, whether an index is required or possibly not allowed depends on the insigh
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="list-group-feature"><a class="link" href="#list-group-feature">List Group Feature</a></h3>
+<h3 id="add-group-feature"><a class="link" href="#add-group-feature">Add Group Feature</a></h3>
 <div class="paragraph">
 <p><code>[written by: Raivat Bhupesh Shah]</code></p>
+</div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>The Add Group feature is implemented to allow users to track social activities with a group of people
+(instead of just one person). A <code>Group</code> represents a social group containing
+1 or more <code>Person</code>. To avoid dependencies, a <code>Group</code> class stores the index of <code>Person</code> instead of the <code>Person</code> object
+itself. A <code>Group</code> can be created with or without <code>Person</code> as member(s), but have a <code>Name</code>.</p>
+</div>
+<div class="paragraph">
+<p>This feature creates a new <code>Group</code> instance, which is then stored in an instance of <code>UniqueGroupList</code>,
+which in turn is stored in the <code>AddressBook</code>.These classes are part of the <code>model</code> package.</p>
+</div>
+<div class="paragraph">
+<p>The feature is supported by the <code>AddGroupCommand</code> class, which extends the abstract
+class <code>Command</code> and <code>AddGroupCommandParser</code>, which implements the <code>Parser</code> interface. These classes are part of the
+<code>logic</code> package.</p>
+</div>
+<div class="paragraph">
+<p>The following class diagram showcases the relationship between the main classes that support this command and
+key attributes and methods:</p>
+</div>
+<div id="AddGroupClassDiagram" class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/AddGroupClassDiagram.png" alt="][pdfwidth=&quot;50%&quot;" width="50%">
+</div>
+</div>
+<div class="paragraph">
+<p>Here below is an example usage scenario and how the <code>add_group</code> feature works at each step:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User adds a group called <code>group_name</code> by typing <code>add_group n/group_name</code></p>
+</li>
+<li>
+<p>The request is handled by the <code>Logic Manager</code>, which then directs it to the <code>AddressBookParser</code>
+for parsing.</p>
+</li>
+<li>
+<p><code>AddressBookParser</code> detects the <code>Command Word</code> <strong>add_group</strong> and creates an <code>AddGroupCommandParser</code> to parse inputs
+according to the format specified for <code>AddGroupCommand</code>.</p>
+</li>
+<li>
+<p><code>AddGroupCommandParser</code> parses the input and also performs input validation to check for correct types
+(eg alphanumeric characters for <code>Name</code> and <code>Integer</code> for memberIDs).</p>
+</li>
+<li>
+<p>If the inputs are valid,<code>AddressBookParser</code> calls the constructor of <code>Group</code> and creates a new <code>Group</code> instance with
+the inputs from the user. It creates a new <code>AddGroupCommand</code> and passes to it the newly created <code>Group</code></p>
+</li>
+<li>
+<p><code>AddressBookParser</code> returns the new <code>Command</code> object to the <code>AddressBookParser</code>, which in turn returns it to
+<code>LogicManager</code>.</p>
+</li>
+<li>
+<p><code>LogicManager</code> calls the <code>execute</code> method with the <code>AddGroupCommand</code>.</p>
+</li>
+<li>
+<p>The <code>AddGroupCommand</code> instance obtains a copy of the <code>filteredPersonList</code> from <code>Model</code> using the <code>getFilteredList()</code>
+method. Using the list, the command verifies if the member indexes in the <code>Group</code> instance exist in the <code>Person</code> list.</p>
+</li>
+<li>
+<p>If the indexes are valid, the <code>AddGroupCommand</code> adds the group to the app by calling the <code>addGroup</code> method of
+<code>Model</code>.</p>
+</li>
+<li>
+<p>As a last step, the <code>AddGroupCommand</code> creates a <code>CommandResult</code> with <code>SuccessMessage</code> and <code>ViewType</code> and returns it
+to <code>LogicManager</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The process is shown in the following sequence diagram:</p>
+</div>
+<div id="AddGroupSequenceDiagam" class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/AddGroupSequenceDiagram.png" alt="AddGroupSequenceDiagram">
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="delete-group-feature"><a class="link" href="#delete-group-feature">Delete Group Feature</a></h3>
+<div class="paragraph">
+<p><code>[written by: Raivat Bhupesh Shah]</code></p>
+</div>
+<div class="sect3">
+<h4 id="implementation-2"><a class="link" href="#implementation-2">Implementation</a></h4>
+<div class="paragraph">
+<p>The Delete Group feature allows the user to delete a previously <code>Group</code>. This feature is implemented using the
+<code>DeleteGroupCommand</code>, which extends the abstract class <code>Command</code> and the <code>DeleteGroupCommandParser</code>, which implements
+the <code>Parser</code> interface.The feature is also supported by <code>UniqueGroupList</code>,
+which stores the <code>Group</code> instances. The relationship between classes is similar to the one seen in diagram x.x and hence
+is omitted for conciseness.</p>
+</div>
+<div class="paragraph">
+<p>Here below is an example workflow, which is shown using an activity diagram:</p>
+</div>
+<div id="DeleteGroupActivityDiagram" class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/DeleteGroupActivityDiagram.png" alt="[pdfwidth=&quot;50%&quot;" width="50%">
+</div>
+</div>
+<div class="paragraph">
+<p>The above workflow is achieved due to the interlinked classes. Their behaviour during an execution of the DeleteGroup
+feature is shown using the following Sequence Diagram.</p>
+</div>
+<div id="DeleteGroupSequenceDiagram" class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/DeleteGroupSequenceDiagram.png" alt="DeleteGroupSequenceDiagram">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="paragraph">
+<p>Aspect: how the delete group feature executes</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Alternative 1 (current choice) : Separate <code>DeleteGroupCommand</code> and <code>DeleteGroup</code> classes to support the feature.<br>
+Pros: clear class responsibility, easier to trace bugs. Since this follows the design of most other commands,
+intuitive to understand for new developers<br>
+Cons: increases the amount of code, which might introduce more errors.</p>
+</li>
+<li>
+<p>Alternative 2: The <code>DeleteGroupCommand</code> class parses the inputted index<br>
+    Pros: Since only one argument to parse, this eliminates the need for another class. Less code.
+    Cons: Can cause confusion among developers regarding the class responsibility.
+=== List Group Feature
+<code>[written by: Raivat Bhupesh Shah]</code></p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>The list group feature allows users to view all the <code>Group</code> instances currently stored in CoderLifeInsights.</p>
 </div>
+</div>
 <div class="sect3">
-<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<h4 id="implementation-3"><a class="link" href="#implementation-3">Implementation</a></h4>
 <div class="paragraph">
 <p>This feature is mainly supported by the <code>ListGroupCommand</code>, which extends the abstract class <code>Command</code>.</p>
 </div>
@@ -636,5 +585,162 @@ Also, whether an index is required or possibly not allowed depends on the insigh
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="edit-group-feature"><a class="link" href="#edit-group-feature">Edit Group Feature</a></h3>
+<div class="paragraph">
+<p><code>[written by: Raivat Bhupesh Shah]</code></p>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 07:40:46 UTC</div></div></div></body></html>
+<div class="paragraph">
+<p>The Edit Group Feature allows the user to edit an existing <code>Group</code> in the app.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation-4"><a class="link" href="#implementation-4">Implementation</a></h4>
+<div class="paragraph">
+<p>The Edit Group Feature is facilitated by the <code>EditGroupCommand</code>, which extends the abstract class <code>Command</code>, and
+the <code>EditGroupCommandParser</code>, which implements the <code>Parser</code> interface. Both of these classes are part of the <code>Logic</code>
+package. Additionally, a private and static <code>EditGroupDescriptor</code> class is present in <code>EditGroupCommand</code> as a container
+class to encapsulate attributes to be edited for a <code>Group</code>.</p>
+</div>
+<div class="paragraph">
+<p>he following operations are implemented and used for accomplishing this feature:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>EditGroupCommandParser#parser(String args)</code> - Parses the input to obtain the arguments and returns an
+<code>EditGroupCommand</code> instance with the arguments.</p>
+</li>
+<li>
+<p><code>EditGroupCommandParser#arePrefixesPresent(ArgumentMultimap argumentMultiMap, Prefix&#8230;&#8203; prefixes)</code> - checks if the
+member indexes are supplied by the user.</p>
+</li>
+<li>
+<p><code>EditGroupCommand#EditGroupCommand(Index index, EditGroupDescriptor editGroupDescriptor)</code> - Creates a new
+<code>EditGroupCommand</code> instance with the supplied index and editGroupDescriptor.</p>
+</li>
+<li>
+<p><code>EditGroupCommand#createEditedGroup(Group groupToEdit, EditGroupDescriptor editGroupDescriptor)</code> - Modifies the given
+<code>groupToEdit</code> with the details given in <code>editGroupDescriptor</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following is an example usage scenario and how the edit group mechanism behaves at each step:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User types <code>edit_group index n/new_name</code> or <code>edit_group index m/index &#8230;&#8203;</code> into the app.</p>
+</li>
+<li>
+<p>The request is handled by <code>LogicManager#execute(String)</code>, which then calls and passes the input to
+the <code>AddressBookParser#parseCommand(String)</code> method.</p>
+</li>
+<li>
+<p><code>AddressBookParser</code> detects the command word <code>edit_group</code> in the input string and creates a new
+<code>EditGroupCommandParser</code> to parse inputs according to the format specified for <code>EditGroupCommand</code>.</p>
+</li>
+<li>
+<p>Input is parsed using the <code>EditGroupCommandParser#parse(String)</code> method, which also performs input validation. The
+method creates a <code>EditGroupDescriptor</code> using the parsed inputs by calling the static constructor inside <code>EditGroupCommand</code>.</p>
+</li>
+<li>
+<p>The <code>EditGroupCommandParser</code> creates a new <code>EditGroupCommand</code> instance with the given <code>index</code> and newly created
+<code>EditGroupDescriptor</code> object and returns it to <code>AddressBookParser</code>, which in turn returns it to <code>LogicManager</code>.</p>
+</li>
+<li>
+<p><code>LogicManager</code> calls the <code>EditGroupCommand#execute(model)</code> method.</p>
+</li>
+<li>
+<p><code>EditGroupCommand</code> obtains a copy of the <code>FilteredPersonList</code> by calling the <code>Model#getFilteredPersonList()</code> method.
+This is used to check if the member indexes supplied by the user exist in the app and that there are no duplicate person
+indexes in the command.</p>
+</li>
+<li>
+<p><code>EditGroupCommand</code> edits the group at given index by calling its own private static method
+<code>EditGroupCommand#createEditGroup(Group, EditGroupDescriptor)</code>.</p>
+</li>
+<li>
+<p><code>EditGroupCommand</code> obtains a copy of the <code>FilteredGroupList</code> by calling the <code>Model#getFilteredGroupList()</code> method.
+This is used to check if the edited group already exits in the app.</p>
+</li>
+<li>
+<p>As a last step, <code>EditGroupCommand</code> creates a <code>CommandResult</code> with <code>SuccessMessage</code> and <code>ViewType</code> and returns it to
+<code>LogicManager</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The above process is shown in the following sequence diagram:</p>
+</div>
+<div id="EditGroupSequenceDiagram" class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/EditGroupSequenceDiagram.png" alt="EditGroupSequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarises the general workflow for the Edit Group Feature</p>
+</div>
+<div id="EditGroupActivityDiagram" class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/EditGroupActivityDiagram.png" alt="][pdfwidth=&quot;60%&quot;" width="60%">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="paragraph">
+<p>Aspect: What and how to edit</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Alternative 1 (current choice): Only edit parameters that are supplied. For the parameters that are supplied,
+overwrite the existing entry.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The single edit group feature can achieve both addition and deletion of members
+as well as renaming of the group. Better maintainability of code.</p>
+</li>
+<li>
+<p>Cons: Overwriting all existing entries might affect usability as the user will have to re-enter the current member
+indexes if they want to add to member indexes rather than delete.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alternative 2: Only edit parameters that are supplied. For the parameters that are supplied, add to the existing
+entries instead of overwriting.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The user will not have to re-enter member indexes if they choose to retain members inside a group.</p>
+</li>
+<li>
+<p>Cons: Will require implementing a separate command to then delete member indexes from a group. This can also confuse
+the user if there are too many commands.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alternative 3: Edit all parameters. Overwrite all existing entries.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Simplest to implement in terms of code. Will require less code than alternative 1 and 2.</p>
+</li>
+<li>
+<p>Cons: Cumbersome for the user as they have to enter an attribute value even if they don&#8217;t want to change it.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 08:56:33 UTC</div></div></div></body></html>
